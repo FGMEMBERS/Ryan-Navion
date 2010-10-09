@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Based on : http://www.airplane-pictures.net/images/uploaded-images/2009-3/5/38590.jpg  -->
+
+<PropertyList>
+
+  <path>panel.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>panel</object-name>
+
+    <!-- Objets transparents -->
+  </animation>
+
+  <!-- AI -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/ai/ai.xml</path>
+    <offsets>
+      <x-m>  0.005 </x-m>
+      <y-m> -0.224 </y-m>
+      <z-m>  0.090 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Alt -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Altimeter/Altimeter.xml</path>
+    <offsets>
+      <x-m>  0.006 </x-m>
+      <y-m> -0.114 </y-m>
+      <z-m>  0.090 </z-m>
+    </offsets>
+  </model>
+
+  <!-- hdg -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/hdg/hdg.xml</path>
+    <offsets>
+      <x-m>  0.006 </x-m>
+      <y-m> -0.224 </y-m>
+      <z-m> -0.010 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Asi -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/asi/asi.xml</path>
+    <offsets>
+      <x-m>  0.005 </x-m>
+      <y-m> -0.114 </y-m>
+      <z-m> -0.010 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Turn -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/turn/turn.xml</path>
+    <offsets>
+      <x-m>  0.006 </x-m>
+      <y-m> -0.340 </y-m>
+      <z-m>  0.010 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Vsi -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/VSI/VSI.xml</path>
+    <offsets>
+      <x-m>  0.006 </x-m>
+      <y-m> -0.340 </y-m>
+      <z-m> -0.070 </z-m>
+    </offsets>
+  </model>
+
+</PropertyList>

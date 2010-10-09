@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>interior.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>interieur</object-name>
+    <object-name>inttour</object-name>
+    <object-name>intcapotG</object-name>
+    <object-name>intcapotD</object-name>
+    <object-name>intcanope</object-name>
+    <object-name>pedalier</object-name>
+    <object-name>pedaleGG</object-name>
+    <object-name>pedaleGD</object-name>
+    <object-name>pedaleDG</object-name>
+    <object-name>pedaleDD</object-name>
+    <object-name>volantG</object-name>
+    <object-name>volantD</object-name>
+
+    <!-- Objets transparents -->
+    <object-name>intvitres</object-name>
+    <object-name>intverriere</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>intvitres</object-name>
+    <object-name>intverriere</object-name>
+  </animation>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <object-name>intvitres</object-name>
+    <object-name>intverriere</object-name>
+  </animation>
+
+  <!-- Pilote -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Pilot/pilot.xml</path>
+    <offsets>
+      <x-m> -1.825 </x-m>
+      <y-m> -0.312 </y-m>
+      <z-m> -0.049 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Tableau de bord a-->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/panel.xml</path>
+    <offsets>
+      <x-m> -2.153 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.198 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Volants -->
+  <animation>
+    <type>rotate</type>
+    <object-name>volantG</object-name>
+    <property>surface-positions/aileron-pos-norm</property>
+    <interpolation>
+      <entry><ind> -1 </ind><dep>  50 </dep></entry>
+      <entry><ind>  0 </ind><dep>   0 </dep></entry>
+      <entry><ind>  1 </ind><dep> -50 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -2.154 </x-m>
+      <y-m> -0.299 </y-m>
+      <z-m>  0.109 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>volantD</object-name>
+    <property>surface-positions/aileron-pos-norm</property>
+    <interpolation>
+      <entry><ind> -1 </ind><dep>  50 </dep></entry>
+      <entry><ind>  0 </ind><dep>   0 </dep></entry>
+      <entry><ind>  1 </ind><dep> -50 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -2.154 </x-m>
+      <y-m>  0.299 </y-m>
+      <z-m>  0.109 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>LesVolants</name>
+    <object-name>volantG</object-name>
+    <object-name>volantD</object-name>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>LesVolants</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <interpolation>
+      <entry><ind> -1 </ind><dep>  0.07 </dep></entry>
+      <entry><ind>  0 </ind><dep>  0.00 </dep></entry>
+      <entry><ind>  1 </ind><dep> -0.07 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Pedalier -->
+  <animation>
+    <type>rotate</type>
+    <object-name>pedaleGG</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <interpolation>
+      <entry><ind> -1 </ind><dep> -25 </dep></entry>
+      <entry><ind>  0 </ind><dep>   0 </dep></entry>
+      <entry><ind>  1 </ind><dep>  15 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -2.243 </x-m>
+      <y-m> -0.421 </y-m>
+      <z-m> -0.423 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>pedaleDG</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <interpolation>
+      <entry><ind> -1 </ind><dep> -25 </dep></entry>
+      <entry><ind>  0 </ind><dep>   0 </dep></entry>
+      <entry><ind>  1 </ind><dep>  15 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -2.243 </x-m>
+      <y-m>  0.187 </y-m>
+      <z-m> -0.423 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>pedaleGD</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <interpolation>
+      <entry><ind> -1 </ind><dep>  15 </dep></entry>
+      <entry><ind>  0 </ind><dep>   0 </dep></entry>
+      <entry><ind>  1 </ind><dep> -25 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -2.243 </x-m>
+      <y-m> -0.187 </y-m>
+      <z-m> -0.423 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>pedaleDD</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <interpolation>
+      <entry><ind> -1 </ind><dep>  15 </dep></entry>
+      <entry><ind>  0 </ind><dep>   0 </dep></entry>
+      <entry><ind>  1 </ind><dep> -25 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -2.243 </x-m>
+      <y-m>  0.421 </y-m>
+      <z-m> -0.423 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Canopy -->
+  <animation>
+    <name>IntLaVerriere</name>
+    <object-name>intcanope</object-name>
+    <object-name>intverriere</object-name>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>IntLaVerriere</object-name>
+    <property>instrumentation/doors/crew/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.6 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>IntLaVerriere</object-name>
+    <property>instrumentation/doors/crew/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.00 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.08 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Capots moteur -->
+  <animation>
+    <type>rotate</type>
+    <object-name>intcapotG</object-name>
+    <property>instrumentation/doors/passenger/position-norm</property>
+    <factor> -85 </factor>
+    <axis>
+      <x1-m> -3.761 </x1-m>
+      <y1-m> -0.038 </y1-m>
+      <z1-m>  0.152 </z1-m>
+      <x2-m> -2.880 </x2-m>
+      <y2-m> -0.038 </y2-m>
+      <z2-m>  0.304 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>intcapotD</object-name>
+    <property>instrumentation/doors/passenger/position-norm</property>
+    <factor> 85 </factor>
+    <axis>
+      <x1-m> -3.761 </x1-m>
+      <y1-m>  0.038 </y1-m>
+      <z1-m>  0.152 </z1-m>
+      <x2-m> -2.880 </x2-m>
+      <y2-m>  0.038 </y2-m>
+      <z2-m>  0.304 </z2-m>
+    </axis>
+  </animation>
+
+</PropertyList>
+

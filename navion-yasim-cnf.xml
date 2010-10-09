@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList include="navion-base.xml">
+
+  <sim>
+
+    <description>Ryan Navion (YASim)</description>
+    <flight-model archive="y">yasim</flight-model>
+    <aero archive="y">navion-yasim</aero>
+
+  </sim>
+
+</PropertyList>
+
