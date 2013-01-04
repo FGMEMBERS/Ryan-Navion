@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+
+<PropertyList>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/alt-switch.xml</path>
+    <offsets>
+      <x-m>  0.001 </x-m>
+      <y-m> -0.137 </y-m>
+      <z-m> -0.173 </z-m>
+     </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/batt-switch.xml</path>
+    <offsets>
+      <x-m>  0.001 </x-m>
+      <y-m> -0.104 </y-m>
+      <z-m> -0.173 </z-m>
+     </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/instr-switch.xml</path>
+    <offsets>
+      <x-m>  0.00100 </x-m>
+      <y-m> -0.55630 </y-m>
+      <z-m> -0.12658 </z-m>
+     </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/land-switch.xml</path>
+    <offsets>
+      <x-m>  0.00100 </x-m>
+      <y-m> -0.52330 </y-m>
+      <z-m> -0.12658 </z-m>
+     </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/nav-switch.xml</path>
+    <offsets>
+      <x-m>  0.00100 </x-m>
+      <y-m> -0.49030 </y-m>
+      <z-m> -0.12658 </z-m>
+     </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/fuel-pump.xml</path>
+    <offsets>
+      <x-m>  0.008 </x-m>
+      <y-m> -0.067 </y-m>
+      <z-m> -0.098 </z-m>
+    </offsets>
+  </model>
+ 
+  <!-- Switch décors -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/empty-switch.xml</path>
+    <offsets>
+      <x-m>  0.00100 </x-m>
+      <y-m> -0.45730 </y-m>
+      <z-m> -0.12658 </z-m>
+     </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/empty-switch.xml</path>
+    <offsets>
+      <x-m>  0.00700 </x-m>
+      <y-m> -0.41716 </y-m>
+      <z-m> -0.07672 </z-m>
+     </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/empty-switch.xml</path>
+    <offsets>
+      <x-m>  0.00100 </x-m>
+      <y-m> -0.32459 </y-m>
+      <z-m>  0.16716 </z-m>
+     </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/empty-switch.xml</path>
+    <offsets>
+      <x-m>  0.00100 </x-m>
+      <y-m> -0.30402 </y-m>
+      <z-m>  0.16716 </z-m>
+     </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/empty-switch.xml</path>
+    <offsets>
+      <x-m>  0.00100 </x-m>
+      <y-m> -0.28267 </y-m>
+      <z-m>  0.16716 </z-m>
+     </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/empty-switch.xml</path>
+    <offsets>
+      <x-m>  0.00100 </x-m>
+      <y-m> -0.26160 </y-m>
+      <z-m>  0.16716 </z-m>
+     </offsets>
+  </model>
+
+ </PropertyList>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>trimelevator.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>base</object-name>
+    <object-name>TrimElevador</object-name>
+
+    <!-- Objets transparents -->
+  </animation>
+
+  <!-- Elevator trim -->
+  <animation>
+    <type>rotate</type>
+    <object-name>TrimElevador</object-name>
+    <property>controls/flight/elevator-trim</property>
+    <factor>-360</factor>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>  
+
+  <animation>
+    <type>pick</type>
+    <object-name>TrimElevador</object-name>
+    <visible>true</visible>
+    <action>
+      <button>3</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.004</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/flight/elevator-trim</property>
+        <step>0.01</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.004</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/flight/elevator-trim</property>
+        <step>0.0002</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.004</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/flight/elevator-trim</property>
+        <step>-0.01</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.004</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/flight/elevator-trim</property>
+        <step>-0.0002</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+  </animation>
+ 
+</PropertyList>

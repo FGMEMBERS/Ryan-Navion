@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ This file is part of FlightGear, the free flight simulator
+ http://www.flightgear.org/
+
+ Copyright (C) 2010 Dave Perry, skidavem (at) mindspring _dot_ com
+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+ 
+ Updated January 2012 : Helijah
+-->
+<PropertyList>
+
+  <path>primer.ac</path>
+
+  <animation>
+    <object-name>PrimeFace</object-name>
+    <object-name>base</object-name>
+    <object-name>info</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>PrimeFace</object-name>
+    <object-name>base</object-name>
+    <emission>
+      <red>   0.10000 </red>
+      <green> 0.02000 </green>
+      <blue>  0.00001 </blue>
+     <factor-prop>/sim/model//material/instruments/factor</factor-prop>
+    </emission>
+  </animation>
+
+  <animation> 
+    <type>translate</type>
+    <object-name>PrimeFace</object-name>
+    <property>controls/engines/engine/primer-pump</property>
+    <factor> -0.035 </factor>
+    <axis> 
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>PrimeFace</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>navion.primer()</script>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList>

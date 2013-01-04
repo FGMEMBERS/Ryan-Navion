@@ -1,2 +1,2 @@
-aircraft.livery.init("Aircraft/Piper-PA-32/Models/Liveries");
+aircraft.livery.init("Aircraft/Ryan-Navion/Models/Liveries");
 

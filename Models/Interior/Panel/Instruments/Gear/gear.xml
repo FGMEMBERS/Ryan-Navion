@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>gear.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>BasesPalancasYLuces</object-name>
+    <object-name>PalancaTren</object-name>
+    <object-name>LuzAlrmGreenOn</object-name>
+    <object-name>LuzAlrmYellowOn</object-name>
+    <object-name>LuzAlrmGreenOff</object-name>
+    <object-name>LuzAlrmYellowOff</object-name>
+
+    <!-- Objets transparents -->
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>LuzAlrmGreenOn</object-name>
+    <object-name>LuzAlrmYellowOn</object-name>
+    <emission>
+      <red>   2 </red>
+      <green> 2 </green>
+      <blue>  2 </blue>
+    </emission>
+  </animation>
+    
+  <animation>
+    <type>material</type>
+    <object-name>LuzAlrmGreenOff</object-name>
+    <object-name>LuzAlrmYellowOff</object-name>
+    <emission>
+      <red>   0.1 </red>
+      <green> 0.1 </green>
+      <blue>  0.1 </blue>
+    </emission>
+  </animation>
+    
+  <animation>
+    <type>rotate</type>
+    <object-name>PalancaTren</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>  0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 40 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m>  0.002976 </x-m>
+      <y-m>  0.000000 </y-m>
+      <z-m> -0.021680 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Lampe verte allumée et jaune éteinte si train sortie -->
+  <animation>
+    <type>select</type>
+    <object-name>LuzAlrmGreenOn</object-name>
+    <condition>
+      <equals>
+        <property>gear/gear/position-norm</property>
+        <value> 1 </value>
+      </equals>
+    </condition>
+  </animation>
+
+  <!-- Lampe jaune allumée et verte éteinte si train sortie -->
+  <animation>
+    <type>select</type>
+    <object-name>LuzAlrmYellowOn</object-name>
+    <condition>
+      <equals>
+        <property>gear/gear/position-norm</property>
+        <value> 0 </value>
+      </equals>
+    </condition>
+  </animation>
+
+</PropertyList>

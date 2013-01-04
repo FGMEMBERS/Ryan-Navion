@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -7,9 +7,23 @@
   <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/Ryan-Navion/Models/Liveries", 10);
+
+      var self = cmdarg();
+
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+    
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
     </load>
+
     <unload>
       livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
     </unload>
   </nasal>
 
@@ -30,29 +44,42 @@
     <object-name>direction</object-name>
     <object-name>trimdir</object-name>
     <object-name>bol</object-name>
-    <object-name>porteG</object-name>
-    <object-name>axeGH</object-name>
-    <object-name>axeGB</object-name>
-    <object-name>roueG</object-name>
-    <object-name>porteD</object-name>
-    <object-name>axeDH</object-name>
-    <object-name>axeDB</object-name>
-    <object-name>roueD</object-name>
-    <object-name>axeAH</object-name>
-    <object-name>axeAB</object-name>
     <object-name>porteAG</object-name>
     <object-name>porteAD</object-name>
-    <object-name>roueA</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
     <object-name>canope</object-name>
-    <object-name>helice</object-name>
-    <object-name>antennes</object-name>
+    <object-name>barrecanope</object-name>
+    <object-name>antenne</object-name>
+    <object-name>tank</object-name>
+    <object-name>poignees</object-name>
+    <object-name>poignees_dessus</object-name>
+    <object-name>lightWheelleft</object-name>
+    <object-name>lightWheelright</object-name>
+    
     <object-name>trous</object-name>
     <object-name>troutrimprofG</object-name>
     <object-name>troutrimprofD</object-name>
+    <object-name>helice</object-name>
+    <object-name>LeftBrakeLine</object-name>
+    <object-name>RightBrakeLine</object-name>
+    <object-name>axeA</object-name>
+    <object-name>axeB</object-name>
+    <object-name>axeC</object-name>
+    <object-name>axeD</object-name>
+    <object-name>axeE</object-name>
+    <object-name>roueA</object-name>
+    <object-name>axeGH</object-name>
+    <object-name>axeGB</object-name>
+    <object-name>roueG</object-name>
+    <object-name>axeDH</object-name>
+    <object-name>axeDB</object-name>
+    <object-name>roueD</object-name>
 
     <!-- Objets transparents -->
     <object-name>vitres</object-name>
     <object-name>verriere</object-name>
+    <object-name>entrevitres</object-name>
     <object-name>cables</object-name>
     <object-name>lampedir</object-name>
     <object-name>lampederive</object-name>
@@ -79,42 +106,41 @@
     <object-name>direction</object-name>
     <object-name>trimdir</object-name>
     <object-name>bol</object-name>
-    <object-name>porteG</object-name>
-    <object-name>axeGH</object-name>
-    <object-name>axeGB</object-name>
-    <object-name>roueG</object-name>
-    <object-name>porteD</object-name>
-    <object-name>axeDH</object-name>
-    <object-name>axeDB</object-name>
-    <object-name>roueD</object-name>
-    <object-name>axeAH</object-name>
-    <object-name>axeAB</object-name>
     <object-name>porteAG</object-name>
     <object-name>porteAD</object-name>
-    <object-name>roueA</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
     <object-name>canope</object-name>
-    <object-name>helice</object-name>
-    <object-name>antennes</object-name>
+    <object-name>barrecanope</object-name>
+    <object-name>antenne</object-name>
+    <object-name>tank</object-name>
+    <object-name>poignees</object-name>
+    <object-name>poignees_dessus</object-name>
+    <object-name>lightWheelleft</object-name>
+    <object-name>lightWheelright</object-name>
+    
     <object-name>trous</object-name>
     <object-name>troutrimprofG</object-name>
     <object-name>troutrimprofD</object-name>
+    <object-name>helice</object-name>
+    <object-name>LeftBrakeLine</object-name>
+    <object-name>RightBrakeLine</object-name>
+    <object-name>axeA</object-name>
+    <object-name>axeB</object-name>
+    <object-name>axeC</object-name>
+    <object-name>axeD</object-name>
+    <object-name>axeE</object-name>
+    <object-name>roueA</object-name>
+    <object-name>axeGH</object-name>
+    <object-name>axeGB</object-name>
+    <object-name>roueG</object-name>
+    <object-name>axeDH</object-name>
+    <object-name>axeDB</object-name>
+    <object-name>roueD</object-name>
 
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>texture.png</texture>
-<!--
-    <diffuse>
-      <red-prop>diffuse/red</red-prop>
-      <green-prop>diffuse/green</green-prop>
-      <blue-prop>diffuse/blue</blue-prop>
-    </diffuse>
-
-    <ambient>
-      <red-prop>ambient/red</red-prop>
-      <green-prop>ambient/green</green-prop>
-      <blue-prop>ambient/blue</blue-prop>
-    </ambient>
--->
     <specular>
       <red-prop>specular/red</red-prop>
       <green-prop>specular/green</green-prop>
@@ -126,11 +152,6 @@
       <green-prop>emission/green</green-prop>
       <blue-prop>emission/blue</blue-prop>
     </emission>
-<!--
-    <shininess>
-      <shininess-prop>shininess</shininess-prop>
-    </shininess>
--->
   </animation>
 
   <effect>
@@ -150,18 +171,25 @@
     <object-name>direction</object-name>
     <object-name>trimdir</object-name>
     <object-name>bol</object-name>
-    <object-name>canope</object-name>
-    <object-name>antennes</object-name>
-    <object-name>porteG</object-name>
-    <object-name>porteD</object-name>
     <object-name>porteAG</object-name>
     <object-name>porteAD</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+    <object-name>canope</object-name>
+    <object-name>barrecanope</object-name>
+    <object-name>antenne</object-name>
+    <object-name>tank</object-name>
+    <object-name>poignees</object-name>
+    <object-name>poignees_dessus</object-name>
+    <object-name>lightWheelleft</object-name>
+    <object-name>lightWheelright</object-name>
   </effect>
 
   <animation>
     <type>noshadow</type>
     <object-name>vitres</object-name>
     <object-name>verriere</object-name>
+    <object-name>entrevitres</object-name>
     <object-name>cables</object-name>
     <object-name>lampedir</object-name>
     <object-name>lampederive</object-name>
@@ -174,48 +202,57 @@
   <animation>
     <type>shader</type>
     <shader>chrome</shader>
-    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <!-- <texture>Aircraft/Generic/Effects/glass_shader.png</texture> -->
+    <texture>glass_shader.png</texture>
     <object-name>vitres</object-name>
     <object-name>verriere</object-name>
-  </animation>
-
-  <!-- Rentré des roues Temporairement disparition/apparition des roues -->
-  <animation>
-    <type>select</type>
-    <object-name>roueA</object-name>
-    <condition>
-      <not>
-        <equals>
-          <property>gear/gear[0]/position-norm</property>
-          <value> 0 </value>
-        </equals>
-      </not>
-    </condition>
+    <object-name>entrevitres</object-name>
   </animation>
 
   <!-- Une ombre pour OSG -->
   <model>
-    <name>shadowOSG</name>
     <path>Aircraft/Ryan-Navion/Models/shadow.xml</path>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.265 </z-m>
+    </offsets>
   </model>
 
+  <!-- Interieur -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/interior.xml</path>
+  </model>
+ 
+  <!-- Le moteur -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Engine/continental.xml</path>
+    <offsets>
+      <x-m> -3.294 </x-m>
+      <y-m>  0.007 </y-m>
+      <z-m> -0.110 </z-m>
+    </offsets>
+  </model>
+ 
   <!-- Cranking effects -->
   <!-- Left -->
   <model>
     <path>Aircraft/Ryan-Navion/Models/Effects/cranking/cranking.xml</path>
     <offsets>
-      <x-m> -2.909 </x-m>
-      <y-m> -0.416 </y-m>
-      <z-m> -0.669 </z-m>
+      <x-m> -2.77894 </x-m>
+      <y-m> -0.42380 </y-m>
+      <z-m> -0.66870 </z-m>
+      <pitch-deg> 50 </pitch-deg>
     </offsets>
   </model>
 
   <model>
     <path>Aircraft/Ryan-Navion/Models/Effects/cranking/cranking.xml</path>
     <offsets>
-      <x-m> -2.909 </x-m>
-      <y-m>  0.416 </y-m>
-      <z-m> -0.669 </z-m>
+      <x-m> -2.77894 </x-m>
+      <y-m>  0.42380 </y-m>
+      <z-m> -0.66870 </z-m>
+      <pitch-deg> 50 </pitch-deg>
     </offsets>
   </model>
 
@@ -247,32 +284,6 @@
       <x-m> -1.487 </x-m>
       <y-m>  1.336 </y-m>
       <z-m> -1.400 </z-m>
-    </offsets>
-  </model>
-
-  <!-- Interieur -->
-  <model>
-    <path>Aircraft/Ryan-Navion/Models/Interior/interior.xml</path>
-    <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>    0 </roll-deg>
-      <pitch-deg>   0 </pitch-deg>
-      <heading-deg> 0 </heading-deg>
-    </offsets>
-  </model>
-
-  <!-- Le moteur -->
-  <model>
-    <path>Aircraft/Ryan-Navion/Models/Engine/continental.xml</path>
-    <offsets>
-      <x-m> -3.294 </x-m>
-      <y-m>  0.007 </y-m>
-      <z-m> -0.110 </z-m>
-      <roll-deg>    0 </roll-deg>
-      <pitch-deg>   0 </pitch-deg>
-      <heading-deg> 0 </heading-deg>
     </offsets>
   </model>
 
@@ -341,62 +352,6 @@
       <z>  0 </z>
     </axis>
   </animation>
-
-  <!-- Effets lumineux -->
-  <model>
-    <path>Aircraft/Ryan-Navion/Models/light/beacon.xml</path>
-    <offsets>
-      <x-m> 3.407 </x-m>
-      <y-m> 0.000 </y-m>
-      <z-m> 1.401 </z-m>
-    </offsets>
-  </model>
-
-  <model>
-    <name>LampeRougeDirection</name>
-    <path>Aircraft/Ryan-Navion/Models/light/RedLight.xml</path>
-    <offsets>
-      <x-m>  4.125 </x-m>
-      <y-m>  0.000 </y-m>
-      <z-m> -0.058 </z-m>
-    </offsets>
-  </model>
-
-  <model>
-    <path>Aircraft/Ryan-Navion/Models/light/RedLight.xml</path>
-    <offsets>
-      <x-m> -1.671 </x-m>
-      <y-m> -5.026 </y-m>
-      <z-m>  0.015 </z-m>
-    </offsets>
-  </model>
-
-  <model>
-    <path>Aircraft/Ryan-Navion/Models/light/GreenLight.xml</path>
-    <offsets>
-      <x-m> -1.671 </x-m>
-      <y-m>  5.026 </y-m>
-      <z-m>  0.015 </z-m>
-    </offsets>
-  </model>
-
-  <model>
-    <path>Aircraft/Ryan-Navion/Models/light/StrobeWhite.xml</path>
-    <offsets>
-      <x-m> -1.651 </x-m>
-      <y-m> -5.026 </y-m>
-      <z-m>  0.015 </z-m>
-    </offsets>
-  </model>
-
-  <model>
-    <path>Aircraft/Ryan-Navion/Models/light/StrobeWhite.xml</path>
-    <offsets>
-      <x-m> -1.651 </x-m>
-      <y-m>  5.026 </y-m>
-      <z-m>  0.015 </z-m>
-   </offsets>
-  </model>
 
   <!-- Animations des ailerons -->
   <animation>
@@ -487,6 +442,163 @@
     </axis>
   </animation>
 
+  <!-- Effets lumineux -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/light/beacon.xml</path>
+    <offsets>
+      <x-m> 3.407 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 1.401 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>LampeRougeDirection</name>
+    <path>Aircraft/Ryan-Navion/Models/light/RedLight.xml</path>
+    <offsets>
+      <x-m>  4.125 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.058 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/light/RedLight.xml</path>
+    <offsets>
+      <x-m>  1.5115 </x-m>
+      <y-m>  0.0000 </y-m>
+      <z-m> -0.5225 </z-m>
+    </offsets>
+  </model>
+
+  <!-- tip wings -->
+  <model>
+    <name>RedLightWithoutTank</name>
+    <path>Aircraft/Ryan-Navion/Models/light/RedLight.xml</path>
+    <offsets>
+      <x-m> -1.671 </x-m>
+      <y-m> -5.026 </y-m>
+      <z-m>  0.015 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <name>RedLightWithTank</name>
+    <path>Aircraft/Ryan-Navion/Models/light/RedLight.xml</path>
+    <offsets>
+      <x-m> -1.6710 </x-m>
+      <y-m> -5.2351 </y-m>
+      <z-m>  0.0150 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <name>StrobeLighLefttWithoutTank</name>
+    <path>Aircraft/Ryan-Navion/Models/light/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -1.651 </x-m>
+      <y-m> -5.026 </y-m>
+      <z-m>  0.015 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>StrobeLighLeftWithTank</name>
+    <path>Aircraft/Ryan-Navion/Models/light/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -1.6510 </x-m>
+      <y-m> -5.2351 </y-m>
+      <z-m>  0.0150 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>GreenLightWithoutTank</name>
+    <path>Aircraft/Ryan-Navion/Models/light/GreenLight.xml</path>
+    <offsets>
+      <x-m> -1.671 </x-m>
+      <y-m>  5.026 </y-m>
+      <z-m>  0.015 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>GreenLightWithTank</name>
+    <path>Aircraft/Ryan-Navion/Models/light/GreenLight.xml</path>
+    <offsets>
+      <x-m> -1.6710 </x-m>
+      <y-m>  5.2351 </y-m>
+      <z-m>  0.0150 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>StrobeLighRightWithoutTank</name>
+    <path>Aircraft/Ryan-Navion/Models/light/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -1.651 </x-m>
+      <y-m>  5.026 </y-m>
+      <z-m>  0.015 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>StrobeLighRightWithTank</name>
+    <path>Aircraft/Ryan-Navion/Models/light/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -1.6510 </x-m>
+      <y-m>  5.2351 </y-m>
+      <z-m>  0.0150 </z-m>
+    </offsets>
+  </model>
+
+  <animation>
+    <type>select</type>
+    <object-name>RedLightWithoutTank</object-name>
+    <object-name>StrobeLighLeftWithoutTank</object-name>
+    <object-name>GreenLightWithoutTank</object-name>
+    <object-name>StrobeLighRightWithoutTank</object-name>
+    <condition>
+      <not>
+        <property>/sim/model/hide-tank</property>
+      </not>
+    </condition>
+  </animation>
+ 
+  <animation>
+    <type>select</type>
+    <object-name>RedLightWithTank</object-name>
+    <object-name>StrobeLighLeftWithTank</object-name>
+    <object-name>GreenLightWithTank</object-name>
+    <object-name>StrobeLighRightWithTank</object-name>
+    <condition>
+      <property>/sim/model/hide-tank</property>
+    </condition>
+  </animation>
+ 
+  <!-- Gear light cone
+  <model>
+    <name>LightCone</name>
+    <path>Aircraft/Ryan-Navion/Models/light/light-cone.xml</path>
+    <offsets>
+      <x-m> -3.673 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.701 </z-m>
+      <pitch-deg> -7.500 </pitch-deg>
+    </offsets>
+  </model>
+
+  <animation>
+    <type>select</type>
+    <object-name>LightCone</object-name>
+    <condition>
+      <equals>
+        <property>gear/gear[0]/position-norm</property>
+        <value> 1 </value>
+      </equals>
+    </condition>
+  </animation> -->
+
   <!-- Gouverne de direction -->
   <animation>
     <name>AllDirection</name>
@@ -516,8 +628,11 @@
   <!-- Rentre des roues -->
   <animation>
     <name>TrainAvant</name>
-    <object-name>axeAH</object-name>
-    <object-name>axeAB</object-name>
+    <object-name>axeA</object-name>
+    <object-name>axeB</object-name>
+    <object-name>axeC</object-name>
+    <object-name>axeD</object-name>
+    <object-name>axeE</object-name>
     <object-name>roueA</object-name>
   </animation>
 
@@ -545,6 +660,8 @@
     <name>TrainGauche</name>
     <object-name>axeGH</object-name>
     <object-name>axeGB</object-name>
+    <object-name>LeftBrakeLine</object-name>
+    <object-name>lightWheelleft</object-name>
     <object-name>roueG</object-name>
   </animation>
 
@@ -572,6 +689,8 @@
     <name>TrainDroite</name>
     <object-name>axeDH</object-name>
     <object-name>axeDB</object-name>
+    <object-name>RightBrakeLine</object-name>
+    <object-name>lightWheelright</object-name>
     <object-name>roueD</object-name>
   </animation>
 
@@ -753,12 +872,29 @@
     <name>LaVerriere</name>
     <object-name>canope</object-name>
     <object-name>verriere</object-name>
+    <object-name>poignees_dessus</object-name>
+    <object-name>entrevitres</object-name>
+    <object-name>barrecanope</object-name>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>LaVerriere</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crew.toggle();</script>
+      </binding>
+    </action>
   </animation>
 
   <animation>
     <type>translate</type>
     <object-name>LaVerriere</object-name>
-    <property>instrumentation/doors/crew/position-norm</property>
+    <property>sim/model/door-positions/crew/position-norm</property>
     <interpolation>
       <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
       <entry><ind> 1 </ind><dep> 0.6 </dep></entry>
@@ -773,7 +909,7 @@
   <animation>
     <type>translate</type>
     <object-name>LaVerriere</object-name>
-    <property>instrumentation/doors/crew/position-norm</property>
+    <property>sim/model/door-positions/crew/position-norm</property>
     <interpolation>
       <entry><ind> 0 </ind><dep> 0.00 </dep></entry>
       <entry><ind> 1 </ind><dep> 0.08 </dep></entry>
@@ -787,9 +923,24 @@
 
   <!-- Capots moteur -->
   <animation>
+    <type>pick</type>
+    <object-name>capotG</object-name>
+    <object-name>capotD</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.passenger.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
     <type>rotate</type>
     <object-name>capotG</object-name>
-    <property>instrumentation/doors/passenger/position-norm</property>
+    <property>sim/model/door-positions/passenger/position-norm</property>
     <factor> -85 </factor>
     <axis>
       <x1-m> -3.761 </x1-m>
@@ -804,7 +955,7 @@
   <animation>
     <type>rotate</type>
     <object-name>capotD</object-name>
-    <property>instrumentation/doors/passenger/position-norm</property>
+    <property>sim/model/door-positions/passenger/position-norm</property>
     <factor> 85 </factor>
     <axis>
       <x1-m> -3.761 </x1-m>
@@ -816,28 +967,42 @@
     </axis>
   </animation>
 
-  <!-- Gear light cone
-  <model>
-    <name>LightCone</name>
-    <path>Aircraft/Ryan-Navion/Models/light/light-cone.xml</path>
-    <offsets>
-      <x-m> -3.673 </x-m>
-      <y-m>  0.000 </y-m>
-      <z-m> -0.701 </z-m>
-      <pitch-deg> -7.500 </pitch-deg>
-    </offsets>
-  </model>
-
+  <!-- Séléction de l'objet visible -->
   <animation>
     <type>select</type>
-    <object-name>LightCone</object-name>
+    <object-name>tank</object-name>
     <condition>
-      <equals>
-        <property>gear/gear[0]/position-norm</property>
-        <value> 1 </value>
-      </equals>
+      <property>/sim/model/hide-tank</property>
     </condition>
-  </animation> -->
-
+  </animation>
+ 
+  <!-- Séléction de l'objet visible -->
+  <animation>
+    <type>select</type>
+    <object-name>barrecanope</object-name>
+    <condition>
+      <property>/sim/model/hide-typea</property>
+    </condition>
+  </animation>
+ 
+  <animation>
+    <type>select</type>
+    <object-name>entrevitres</object-name>
+    <condition>
+      <not>
+        <property>/sim/model/hide-typea</property>
+      </not>
+    </condition>
+  </animation>
+ 
+  <animation>
+    <type>select</type>
+    <object-name>cables</object-name>
+    <condition>
+      <not>
+        <property>/sim/model/hide-cable</property>
+      </not>
+    </condition>
+  </animation>
+  
 </PropertyList>
-
