@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+
+    <author>Emmanuel BARANGER (3D/FDM) / Samaliet (Panel/System)</author>
+    <aircraft-version>0.2</aircraft-version>
+    <status>Alpha</status>
+
+    <fuel-fraction>1.0</fuel-fraction>
+
+    <startup>
+      <splash-texture>Aircraft/Ryan-Navion/navion-splash.png</splash-texture>
+    </startup>
+
+    <sound>
+      <path archive="y">Aircraft/Ryan-Navion/Sounds/navion-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/Ryan-Navion/Models/navion.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+      <hide-yoke>true</hide-yoke>
+      <hide-tank>true</hide-tank>
+      <hide-typea>true</hide-typea>
+      <hide-cable>false</hide-cable>
+    </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+        <int type="int" n="0">  0 </int>                                           <!--  0 immat -->
+        <int type="int" n="1">  0 </int>                                           <!--  1 immat -->
+        <int type="int" n="2">  0 </int>                                           <!--  2 immat -->
+        <int type="int" n="3">  0 </int>                                           <!--  3 immat -->
+        <int type="int" n="4">  0 </int>                                           <!--  4 immat -->
+        <int type="int" n="5">  0 </int>                                           <!--  5 immat -->
+        <int type="bool" n="6" alias="/smoke/active"> 0 </int>                     <!--  6 start smoke -->
+        <int type="int" n="7" alias="smoke/particlepersec"> 50 </int>              <!--  7 particlepersec -->
+        <int type="int" n="10" alias="controls/armament/trigger">0</int>           <!-- 10 reserved for bombable mode -->
+        <float n="0" alias="/instrumentation/doors/crew/position-norm"/>
+        <float n="1" alias="/instrumentation/doors/passenger/position-norm"/>
+        <float n="2" alias="/position/gear-agl-m"> 0 </float>                      <!-- altitude for MP shadow -->
+        <float n="3" alias="/smoke/colors/knob-red">1</float>                      <!-- 3 smoke mixer red setting -->
+        <float n="4" alias="/smoke/colors/knob-green">1</float>                    <!-- 4 smoke mixer green setting -->
+        <float n="5" alias="/smoke/colors/knob-blue">1</float>                     <!-- 5 smoke mixer blue setting -->
+        <string n="9" type="string"/>                                              <!-- string[9] reserved for bombable mode -->
+      </generic>
+    </multiplay>
+
+    <help>
+      <title>Ryan Navion</title>
+      <line>______________________________________________</line>
+    </help>
+
+    <navion>
+      <state type="int">0</state>
+      <airspeed-kmh type="float">0.0</airspeed-kmh>
+      <engine-rpm type="float">0.0</engine-rpm>
+      <engine-volume-low-rpm type="float">0.0</engine-volume-low-rpm>
+      <engine-volume-high-rpm type="float">0.0</engine-volume-high-rpm>
+    </navion>
+
+    <weight n="0">
+      <name>Pilot</name>
+      <weight-lb>180</weight-lb>
+      <max-lb>240</max-lb>
+      <min-lb>140</min-lb>
+    </weight>
+
+    <weight n="1">
+      <name>Pax</name>
+      <weight-lb>0</weight-lb>
+      <max-lb>240</max-lb>
+      <min-lb>0</min-lb>
+    </weight>
+
+    <weight n="2">
+      <name>Baggage</name>
+      <weight-lb>0</weight-lb>
+      <max-lb>20</max-lb>
+      <min-lb>0</min-lb>
+    </weight>
+
+    <flaps>
+        <setting> 0.0 </setting> <!-- Cruise -->
+        <setting> 0.5 </setting> <!-- Half -->
+        <setting> 1.0 </setting> <!-- Full -->
+    </flaps>
+
+    <menubar include="Dialogs/navion-menu.xml"/>
+
+  </sim>
+
+  <input>
+    <keyboard include="Nasal/navion-keyboard.xml"/>
+  </input>
+
+  <systems>
+    <electrical>
+      <outputs>
+        <KNS80 type="string">28</KNS80>
+        <comm type="string">28</comm>
+      </outputs>
+    </electrical>
+  </systems>
+
+  <instrumentation>
+    <elt>
+      <on type="bool">false</on>
+      <armed type="bool">true</armed>
+      <test type="bool">false</test>
+    </elt>
+    <encoder>
+      <serviceable type="bool">1</serviceable>
+      <name>encoder</name>
+      <number>0</number>
+    </encoder>
+    <comm n="0">
+      <power-btn type="bool">false</power-btn>
+      <volume type="double">0</volume>
+    </comm>
+    <nav n="0">
+      <power-btn type="bool">false</power-btn>
+      <volume type="double">0</volume>
+    </nav>
+    <adf n="0">      
+      <power-btn type="bool">false</power-btn>
+      <volume type="double">0</volume>
+      <adf-btn type="bool">true</adf-btn>
+    </adf>
+    <dme>
+      <name>dme</name>
+      <number>0</number>
+    </dme>     
+    <nav-radio>
+      <name>nav</name>
+      <number>0</number>
+    </nav-radio>
+  </instrumentation>
+
+  <engines>
+    <engine>
+      <rpm type="float">0.0</rpm>
+    </engine>
+  </engines>
+
+  <nasal>
+    <doors>
+      <file>Aircraft/Ryan-Navion/Nasal/doors.nas</file>
+    </doors>
+    <navion>
+      <file>Aircraft/Ryan-Navion/Nasal/liveries.nas</file>
+      <file>Aircraft/Ryan-Navion/Nasal/light.nas</file>
+      <file>Aircraft/Ryan-Navion/Nasal/Electrical.nas</file>
+    </navion>
+    <kns80>
+      <file>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kns80/kns80.nas</file>
+    </kns80>
+    <kap140>
+      <file>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kap140/autopilot/kap140.nas</file>
+      <!-- We can set some variables that might be
+           aircraft specific. We must do it after the file
+           to override the ones that are in the .nas file.
+           gsNeedleDeflection = "/instrumentation/nav/gs-needle-deflection";
+      -->
+      <script>
+        <![CDATA[ 
+          staticPressure = "systems/static/pressure-inhg";
+        ]]>
+      </script>
+    </kap140>
+    <kr87>
+      <file>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kr87-adf/kr87.nas</file>
+    </kr87>
+  </nasal>
+
+</PropertyList>
