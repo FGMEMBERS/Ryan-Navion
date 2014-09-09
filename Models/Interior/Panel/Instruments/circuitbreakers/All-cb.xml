@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbcom1.xml</path>
+    <name>CbCom1</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.430 </y-m>
+      <z-m> -0.199 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbgpsnav1.xml</path>
+    <name>CbGpsNav1</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.440 </y-m>
+      <z-m> -0.199 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbxpcom.xml</path>
+    <name>CbXpCom</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.450 </y-m>
+      <z-m> -0.199 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbenginstr.xml</path>
+    <name>CbEngInstr</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.460 </y-m>
+      <z-m> -0.199 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbpitot.xml</path>
+    <name>CbPitot</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.470 </y-m>
+      <z-m> -0.199 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbdeice.xml</path>
+    <name>CbDeInce</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.480 </y-m>
+      <z-m> -0.199 </z-m>>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbtaxilight.xml</path>
+    <name>CbTaxiLight</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.490 </y-m>
+      <z-m> -0.199 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cboxy.xml</path>
+    <name>CbOxy</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.500 </y-m>
+      <z-m> -0.199 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbpfd.xml</path>
+    <name>CbPfd</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.510 </y-m>
+      <z-m> -0.199 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbadc.xml</path>
+    <name>CbAdc</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.430 </y-m>
+      <z-m> -0.225 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbahrs.xml</path>
+    <name>CbAhrs</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.440 </y-m>
+      <z-m> -0.225 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbgearwrn.xml</path>
+    <name>CbGearWrn</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.450 </y-m>
+      <z-m> -0.225 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbgearctrl.xml</path>
+    <name>CbGearCtrl</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.460 </y-m>
+      <z-m> -0.225 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbmfd.xml</path>
+    <name>CbMfd</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.470 </y-m>
+      <z-m> -0.225 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbah.xml</path>
+    <name>CbAh</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.480 </y-m>
+      <z-m> -0.225 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbstallwrn.xml</path>
+    <name>CbStallWrn</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.490 </y-m>
+      <z-m> -0.225 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbflap.xml</path>
+    <name>CbFlap</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.500 </y-m>
+      <z-m> -0.225 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cblandinglight.xml</path>
+    <name>CbLandingLight</name>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.510 </y-m>
+      <z-m> -0.225 </z-m>
+    </offsets>
+  </model>
+
+</PropertyList>

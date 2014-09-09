@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>interior.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>interieur</object-name>
+    <object-name>inttour</object-name>
+    <object-name>intcapotG</object-name>
+    <object-name>intcapotD</object-name>
+    <object-name>intcanope</object-name>
+    <object-name>pedalier</object-name>
+    <object-name>pedaleGG</object-name>
+    <object-name>pedaleGD</object-name>
+    <object-name>pedaleDG</object-name>
+    <object-name>pedaleDD</object-name>
+    <object-name>LeftVisor</object-name>
+    <object-name>RightVisor</object-name>
+    <object-name>intbarrecanope</object-name>
+    <object-name>inttourbarre</object-name>  
+    
+    <!-- Objets transparents -->
+    <object-name>intvitres</object-name>
+    <object-name>intverriere</object-name>
+    <object-name>intentrevitres</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>intvitres</object-name>
+    <object-name>intverriere</object-name>
+    <object-name>intentrevitres</object-name>
+  </animation>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <object-name>intvitres</object-name>
+    <object-name>intverriere</object-name>
+    <object-name>intentrevitres</object-name>
+  </animation>
+
+  <!-- Pilote -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Pilot/pilot.xml</path>
+    <offsets>
+      <x-m> -1.684 </x-m>
+      <y-m> -0.278 </y-m>
+      <z-m>  0.028 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Tableau de bord a-->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/panel.xml</path>
+    <offsets>
+      <x-m> -2.153 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.198 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Seats/all-seats.xml</path>
+  </model>
+ 
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Yokes/all-yokes.xml</path>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Pedals/all-pedals.xml</path>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/ParkBrake/parkbrake.xml</path>
+    <offsets>
+      <x-m> -2.24570 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m> -0.42327 </z-m>
+      <pitch-deg> 21 </pitch-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/divers/ceniceros.xml</path>
+    <offsets>
+      <x-m> -2.01600 </x-m>
+      <y-m> -0.57519 </y-m>
+      <z-m>  0.13187 </z-m>
+      <pitch-deg>    6.0 </pitch-deg>
+      <heading-deg> 88.5 </heading-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/divers/airconditioner.xml</path>
+    <offsets>
+      <x-m> -2.09453 </x-m>
+      <y-m> -0.55953 </y-m>
+      <z-m>  0.22297 </z-m>
+      <pitch-deg>   22 </pitch-deg>
+      <heading-deg> 90 </heading-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/divers/ceniceros.xml</path>
+    <offsets>
+      <x-m> -2.01600 </x-m>
+      <y-m>  0.57519 </y-m>
+      <z-m>  0.13187 </z-m>
+      <pitch-deg>     6.0 </pitch-deg>
+      <heading-deg> -88.5 </heading-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/divers/airconditioner.xml</path>
+    <offsets>
+      <x-m> -2.09453 </x-m>
+      <y-m>  0.55953 </y-m>
+      <z-m>  0.22297 </z-m>
+      <pitch-deg>    22 </pitch-deg>
+      <heading-deg> -90 </heading-deg>
+    </offsets>
+  </model>
+  
+  <!-- Canopy -->
+  <animation>
+    <name>IntLaVerriere</name>
+    <object-name>intcanope</object-name>
+    <object-name>intverriere</object-name>
+    <object-name>intbarrecanope</object-name>
+    <object-name>intentrevitres</object-name>
+    <object-name>inttourbarre</object-name>  
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>IntLaVerriere</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crew.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>IntLaVerriere</object-name>
+    <property>sim/model/door-positions/crew/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.6 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>IntLaVerriere</object-name>
+    <property>sim/model/door-positions/crew/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.00 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.08 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Capots moteur -->
+  <animation>
+    <type>pick</type>
+    <object-name>intcapotG</object-name>
+    <object-name>intcapotD</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.passenger.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>intcapotG</object-name>
+    <property>sim/model/door-positions/passenger/position-norm</property>
+    <factor> -85 </factor>
+    <axis>
+      <x1-m> -3.761 </x1-m>
+      <y1-m> -0.038 </y1-m>
+      <z1-m>  0.152 </z1-m>
+      <x2-m> -2.880 </x2-m>
+      <y2-m> -0.038 </y2-m>
+      <z2-m>  0.304 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>intcapotD</object-name>
+    <property>sim/model/door-positions/passenger/position-norm</property>
+    <factor> 85 </factor>
+    <axis>
+      <x1-m> -3.761 </x1-m>
+      <y1-m>  0.038 </y1-m>
+      <z1-m>  0.152 </z1-m>
+      <x2-m> -2.880 </x2-m>
+      <y2-m>  0.038 </y2-m>
+      <z2-m>  0.304 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- picks for left visor -->
+  <animation>
+    <type>pick</type>
+    <object-name>LeftVisor</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.leftvisor.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation> 
+    <type>rotate</type>
+    <object-name>LeftVisor</object-name>
+    <property>sim/model/door-positions/leftvisor/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -60 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -1.81818 </x1-m>
+      <y1-m> -0.38175 </y1-m>
+      <z1-m>  0.59012 </z1-m>
+      <x2-m> -1.94420 </x2-m>
+      <y2-m> -0.01476 </y2-m>
+      <z2-m>  0.62334 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- picks for right visor -->
+  <animation>
+    <type>pick</type>
+    <object-name>RightVisor</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.rightvisor.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation> 
+    <type>rotate</type>
+    <object-name>RightVisor</object-name>
+    <property>sim/model/door-positions/rightvisor/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -60 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -1.94420 </x1-m>
+      <y1-m>  0.01476 </y1-m>
+      <z1-m>  0.62334 </z1-m>
+      <x2-m> -1.81818 </x2-m>
+      <y2-m>  0.38175 </y2-m>
+      <z2-m>  0.59012 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- Séléction de l'objet visible -->
+  <animation>
+    <type>select</type>
+    <object-name>intbarrecanope</object-name>
+    <condition>
+      <property>/sim/model/hide-typea</property>
+    </condition>
+  </animation>
+ 
+  <animation>
+    <type>select</type>
+    <object-name>intentrevitres</object-name>
+    <object-name>inttourbarre</object-name>  
+    <condition>
+      <not>
+        <property>/sim/model/hide-typea</property>
+      </not>
+    </condition>
+  </animation>
+ 
+</PropertyList>

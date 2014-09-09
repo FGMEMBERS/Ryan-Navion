@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>flaps.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>PalancaFlaps</object-name>
+
+    <!-- Objets transparents -->
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>PalancaFlaps</object-name>
+    <property>/controls/flight/flaps</property>
+    <factor> -0.05 </factor>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+</PropertyList>

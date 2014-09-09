@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <default>
+    <menu n="10">
+      <label>Ryan Navion</label>
+      <enabled type="bool">true</enabled>
+      <item>
+        <label>Select Livery</label>
+        <binding>
+          <command>nasal</command>
+          <script>aircraft.livery.dialog.toggle()</script>
+        </binding>
+      </item>
+      <item>
+        <label>Show/hide Yokes</label>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/model/hide-yoke</property>
+        </binding>
+      </item>
+      <item>
+        <label>Show/hide tanks</label>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/model/hide-tank</property>
+        </binding>
+      </item>
+      <item>
+        <label>Show/hide type B</label>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/model/hide-typea</property>
+        </binding>
+      </item>
+      <item>
+        <label>Show/hide cables</label>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/model/hide-cable</property>
+        </binding>
+      </item>
+      <!--
+      <item>
+        <label>Immatriculation</label>
+        <binding>
+          <command>nasal</command>
+          <script>navion.immat_dialog.toggle()</script>
+        </binding>
+      </item>
+-->
+    </menu>
+  </default>
+
+</PropertyList>
+
