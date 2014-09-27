@@ -14,10 +14,10 @@
     <object-name>Switch</object-name>
     <object-name>base</object-name>
     <emission>
-      <red>   0.50 </red>
-      <green> 0.25 </green>
-      <blue>  0.25 </blue>
       <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   0.01 </red>
+      <green> 0.01 </green>
+      <blue>  0.01 </blue>
     </emission>
   </animation>
 

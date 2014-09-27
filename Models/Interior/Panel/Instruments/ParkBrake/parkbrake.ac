@@ -9,7 +9,7 @@ data 9
 ParkBrake
 texture "parkbrake.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.00000
 numvert 92
 -0 -0.000001 0.004493
 0.002947 0.000021 0.003442

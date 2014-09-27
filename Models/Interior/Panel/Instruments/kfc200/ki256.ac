@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "transparent" rgb 0.547091 0.565624 0.595981 amb 0 0 0 emis 0 0 0 spec 1 1 1 shi 64 trans 0.85
+MATERIAL "transparent" rgb 1 1 1 amb 0.5 0.5 0.5 emis 0 0 0 spec 1 1 1 shi 64 trans 0.85
 OBJECT world
 kids 12
 OBJECT poly
@@ -10,7 +10,7 @@ data 8
 KI256.DH
 texture "kfc-200.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 17
 0.005679 0.028998 0.037604
 0.005679 0.028033 0.036959
@@ -134,7 +134,7 @@ data 9
 KI256.DH1
 texture "kfc-200.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 17
 0.005914 0.028998 0.037604
 0.005914 0.028033 0.036959
@@ -258,7 +258,7 @@ data 12
 KI256.FDbars
 texture "kfc-200.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 16
 0.004062 -0.003466 -0.019692
 0.004062 -0.000007 -0.001551
@@ -365,7 +365,7 @@ data 12
 KI256.Lpivot
 texture "kfc-200.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 8
 0.003515 -0.003143 0.022146
 0.003515 -0.035967 0.022146
@@ -419,7 +419,7 @@ data 12
 KI256.Rpivot
 texture "kfc-200.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 8
 0.003515 -0.003143 -0.023408
 0.003515 -0.035967 -0.023408
@@ -473,7 +473,7 @@ data 10
 KI256.back
 texture "kfc-200.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 8
 0.00088 0.044724 -0.044498
 0.00088 -0.044273 -0.044498
@@ -527,7 +527,7 @@ data 10
 KI256.fond
 texture "kfc-200.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 55
 0.005494 -0.047708 -0.04701
 0.005494 -0.047696 0.000003
@@ -911,7 +911,7 @@ data 13
 KI256.markers
 texture "kfc-200.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 14
 0.004062 0.032051 -0
 0.004062 0.025392 -0.003597
@@ -998,7 +998,7 @@ data 11
 KI256.pitch
 texture "kfc-200.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 25
 0.002721 0.01338 -0.02295
 0.002721 0.009461 -0.028108
@@ -1178,7 +1178,7 @@ data 11
 KI256.plane
 texture "kfc-200.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 14
 0.004062 -0.003317 -0.000372
 0.004062 -0.016359 -0.000331
@@ -1278,7 +1278,7 @@ data 10
 KI256.ring
 texture "kfc-200.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 115
 0.00342 0.00046 0.031796
 0.00342 -0.00046 0.031796
@@ -1790,7 +1790,7 @@ name "KI256.vitre"
 loc 0 0 -0
 data 11
 KI256.vitre
-crease 30.000001
+crease 180.000005
 numvert 17
 0.004304 -0.000002 0.042507
 0.004304 -0.009235 0.041635

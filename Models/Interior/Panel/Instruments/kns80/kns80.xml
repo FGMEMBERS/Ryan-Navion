@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <!-- KNS 80 
      Bendix/King VOR/LOC/GS/DME/RVAV Integrated NAV System
      Syd Adams
 -->
-
 <PropertyList>
-
+  
   <path>kns80.ac</path>
-
+  
   <animation>
-    <object-name>fond</object-name>
+    <object-name>KNS80.bezel</object-name>
     <object-name>KNS80.display</object-name>
     <object-name>VOR.btn</object-name>
     <object-name>RNAV.btn</object-name>
@@ -20,8 +19,7 @@
     <object-name>DATA.btn</object-name>
     <object-name>KNS80.volume</object-name>
     <object-name>KNS80.freq</object-name>
-
-    <object-name>dme.invalid</object-name>
+    <object-name>KNS80.freq1</object-name>
     <object-name>nm.101</object-name>
     <object-name>nm.102</object-name>
     <object-name>nm.103</object-name>
@@ -30,58 +28,42 @@
     <object-name>kt.103</object-name>
     <object-name>min.101</object-name>
     <object-name>min.102</object-name>
+    <object-name>annun.nm</object-name>
+    <object-name>use.digit</object-name>
+    <object-name>display.digit</object-name>
     <object-name>navfreq.101</object-name>
     <object-name>navfreq.102</object-name>
     <object-name>navfreq.103</object-name>
     <object-name>navfreq.104</object-name>
     <object-name>navfreq.105</object-name>
+    <object-name>freq.annun</object-name>
     <object-name>radial.101</object-name>
     <object-name>radial.102</object-name>
     <object-name>radial.103</object-name>
     <object-name>radial.104</object-name>
+    <object-name>radial.annun</object-name>
     <object-name>dist.101</object-name>
     <object-name>dist.102</object-name>
     <object-name>dist.103</object-name>
-    <object-name>annun.nm</object-name>
+    <object-name>dist.annun</object-name>
     <object-name>par.annun</object-name>
     <object-name>enr.annun</object-name>
-    <object-name>apr.annun</object-name>
-    <object-name>vor.annun</object-name>
     <object-name>hld.annun</object-name>
     <object-name>ils.annun</object-name>
-    <object-name>freq.annun</object-name>
-    <object-name>radial.annun</object-name>
-    <object-name>dist.annun</object-name>
-    <object-name>use.digit</object-name>
-    <object-name>display.digit</object-name>
-
-    <object-name>Vol.decrease</object-name>
-    <object-name>Vol.increase</object-name>
-    <object-name>Set.decrease</object-name>
-    <object-name>Set.increase</object-name>
-
-    <object-name>vitre</object-name>
+    <object-name>apr.annun</object-name>
+    <object-name>dme.invalid</object-name>
+    
+    <object-name>KNS80.vitre</object-name>
   </animation>
-
-  <animation>
-    <type>noshadow</type>
-    <object-name>vitre</object-name>
-  </animation>
-
-
+  
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/Ryan-Navion//Models/Effects/Glass/glass</inherits-from>
+    <object-name>KNS80.vitre</object-name>
+  </effect>
+  
   <animation>
     <type>material</type>
-    <object-name>fond</object-name>
-    <object-name>KNS80.display</object-name>
-    <object-name>VOR.btn</object-name>
-    <object-name>RNAV.btn</object-name>
-    <object-name>HOLD.btn</object-name>
-    <object-name>USE.btn</object-name>
-    <object-name>DSP.btn</object-name>
-    <object-name>DATA.btn</object-name>
-    <object-name>KNS80.volume</object-name>
-    <object-name>KNS80.freq</object-name>
-    <object-name>dme.invalid</object-name>
     <object-name>nm.101</object-name>
     <object-name>nm.102</object-name>
     <object-name>nm.103</object-name>
@@ -90,39 +72,50 @@
     <object-name>kt.103</object-name>
     <object-name>min.101</object-name>
     <object-name>min.102</object-name>
+    <object-name>annun.nm</object-name>
+    <object-name>use.digit</object-name>
     <object-name>navfreq.101</object-name>
     <object-name>navfreq.102</object-name>
     <object-name>navfreq.103</object-name>
     <object-name>navfreq.104</object-name>
     <object-name>navfreq.105</object-name>
+    <object-name>freq.annun</object-name>
     <object-name>radial.101</object-name>
     <object-name>radial.102</object-name>
     <object-name>radial.103</object-name>
     <object-name>radial.104</object-name>
+    <object-name>radial.annun</object-name>
     <object-name>dist.101</object-name>
     <object-name>dist.102</object-name>
     <object-name>dist.103</object-name>
-    <object-name>annun.nm</object-name>
-    <object-name>par.annun</object-name>
-    <object-name>enr.annun</object-name>
-    <object-name>apr.annun</object-name>
-    <object-name>vor.annun</object-name>
-    <object-name>hld.annun</object-name>
-    <object-name>ils.annun</object-name>
-    <object-name>freq.annun</object-name>
-    <object-name>radial.annun</object-name>
     <object-name>dist.annun</object-name>
-    <object-name>use.digit</object-name>
-    <object-name>display.digit</object-name>
     <emission>
+      <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   2 </red>
+      <green> 2 </green>
+      <blue>  2 </blue>
+    </emission>
+  </animation>
+  
+  <animation>
+    <type>material</type>
+    <object-name>VOR.btn</object-name>
+    <object-name>RNAV.btn</object-name>
+    <object-name>HOLD.btn</object-name>
+    <object-name>USE.btn</object-name>
+    <object-name>DSP.btn</object-name>
+    <object-name>DATA.btn</object-name>
+    <object-name>KNS80.volume</object-name>
+    <object-name>KNS80.freq</object-name>
+    <object-name>KNS80.freq1</object-name>
+    <emission>
+      <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
       <red>   0.50 </red>
       <green> 0.25 </green>
       <blue>  0.25 </blue>
-      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
-      <factor-prop>sim/model//material/instruments/factor</factor-prop>
     </emission>
   </animation>
-
+  
   <animation>
     <name>dme-on</name>
     <object-name>nm.101</object-name>
@@ -134,13 +127,13 @@
     <object-name>min.101</object-name>
     <object-name>min.102</object-name>
   </animation>
-
+  
   <animation>
     <name>illumination</name>
     <object-name>annun.nm</object-name>
     <object-name>use.digit</object-name>
   </animation>
-
+  
   <animation>
     <name>frequencies</name>
     <object-name>navfreq.101</object-name>
@@ -150,7 +143,7 @@
     <object-name>navfreq.105</object-name>
     <object-name>freq.annun</object-name>
   </animation>
-
+  
   <animation>
     <name>radials</name>
     <object-name>radial.101</object-name>
@@ -159,7 +152,7 @@
     <object-name>radial.104</object-name>
     <object-name>radial.annun</object-name>
   </animation>
-
+  
   <animation>
     <name>distance</name>
     <object-name>dist.101</object-name>
@@ -167,7 +160,7 @@
     <object-name>dist.103</object-name>
     <object-name>dist.annun</object-name>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>illumination</object-name>
@@ -181,7 +174,7 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>display.digit</object-name>
@@ -192,13 +185,13 @@
           <value>1</value>
         </greater-than>
         <equals>
-        <property>instrumentation/kns-80/dsp-state/state</property>
-        <value>0</value>
+          <property>instrumentation/kns-80/dsp-state/state</property>
+          <value>0</value>
         </equals>
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>frequencies</object-name>
@@ -216,7 +209,7 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>radials</object-name>
@@ -234,7 +227,7 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>distance</object-name>
@@ -252,7 +245,7 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>dme.invalid</object-name>
@@ -269,7 +262,7 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>dme-on</object-name>
@@ -284,7 +277,7 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>vor.annun</object-name>
@@ -302,7 +295,7 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>par.annun</object-name>
@@ -320,7 +313,7 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>enr.annun</object-name>
@@ -338,7 +331,7 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>apr.annun</object-name>
@@ -356,7 +349,7 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>hld.annun</object-name>
@@ -371,7 +364,7 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>select</type>
     <object-name>ils.annun</object-name>
@@ -387,236 +380,237 @@
       </and>
     </condition>
   </animation>
-
+  
   <animation>
     <type>rotate</type>
     <object-name>KNS80.volume</object-name>
     <property>instrumentation/kns-80/volume</property>
     <interpolation>
-      <entry><ind> 0 </ind><dep>   0 </dep></entry>
-      <entry><ind> 1 </ind><dep> 300 </dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>300</dep></entry>
     </interpolation>
     <center>
-      <x-m>  0.003 </x-m>
-      <y-m>  0.040 </y-m>
-      <z-m> -0.030 </z-m>
+      <x-m>0.003</x-m>
+      <y-m>0.040</y-m>
+      <z-m>-0.030</z-m>
     </center>
     <axis>
-      <x> -1 </x>
-      <y>  0 </y>
-      <z>  0 </z>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>translate</type>
     <object-name>KNS80.volume</object-name>
     <property>instrumentation/nav/ident</property>
-    <factor> 0.005 </factor>
+    <factor>0.005</factor>
     <center>
-      <x-m>  0.003 </x-m>
-      <y-m>  0.040 </y-m>
-      <z-m> -0.030 </z-m>
+      <x-m>0.003</x-m>
+      <y-m>0.040</y-m>
+      <z-m>-0.030</z-m>
     </center>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <!--    Frequency   -->
   <animation>
     <type>textranslate</type>
     <object-name>navfreq.101</object-name>
     <property>instrumentation/kns-80/displayed-frequency</property>
-    <factor> 0.00001 </factor>
-    <step> 10000 </step>
+    <factor>0.00001</factor>
+    <step>10000</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>navfreq.102</object-name>
     <property>instrumentation/kns-80/displayed-frequency</property>
-    <factor> 0.0001 </factor>
-    <step> 1000 </step>
+    <factor>0.0001</factor>
+    <step>1000</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>navfreq.103</object-name>
     <property>instrumentation/kns-80/displayed-frequency</property>
-    <factor> 0.001 </factor>
-    <step> 100 </step>
+    <factor>0.001</factor>
+    <step>100</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>navfreq.104</object-name>
     <property>instrumentation/kns-80/displayed-frequency</property>
-    <factor> 0.01 </factor>
-    <step> 10 </step>
+    <factor>0.01</factor>
+    <step>10</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>navfreq.105</object-name>
     <property>instrumentation/kns-80/displayed-frequency</property>
-    <factor> 0.1 </factor>
-    <step> 1 </step>
+    <factor>0.1</factor>
+    <step>1</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
-  <!-- Radials -->
+  
+  <!--    Radials     -->
   <animation>
     <type>textranslate</type>
     <object-name>radial.101</object-name>
     <property>instrumentation/kns-80/displayed-radial</property>
-    <factor> 0.001 </factor>
-    <step> 100 </step>
+    <factor>0.001</factor>
+    <step>100</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>radial.102</object-name>
     <property>instrumentation/kns-80/displayed-radial</property>
-    <factor> 0.01 </factor>
-    <step> 10 </step>
+    <factor>0.01</factor>
+    <step>10</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>radial.103</object-name>
     <property>instrumentation/kns-80/displayed-radial</property>
-    <factor> 0.1 </factor>
-    <step> 1 </step>
+    <factor>0.1</factor>
+    <step>1</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <!--    Distance    -->
+  
   <animation>
     <type>textranslate</type>
     <object-name>dist.101</object-name>
     <property>instrumentation/kns-80/displayed-distance</property>
-    <factor> 0.01 </factor>
-    <step> 10 </step>
-    <bias> 0.005 </bias>
+    <factor>0.01</factor>
+    <step>10</step>
+    <bias>0.005</bias>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>dist.102</object-name>
     <property>instrumentation/kns-80/displayed-distance</property>
-    <factor> 0.1 </factor>
-    <bias> 0.005 </bias>
-    <step> 1 </step>
+    <factor>0.1</factor>
+    <bias>0.005</bias>
+    <step>1</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>dist.103</object-name>
     <property>instrumentation/kns-80/displayed-distance</property>
-    <factor> 1 </factor>
-    <step> 0.1 </step>
-    <bias> 0.005 </bias>
+    <factor>1.0</factor>
+    <step>0.1</step>
+    <bias>0.005</bias>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
-  <!-- DME -->
+  
+  <!--    DME     -->
   <animation>
     <type>textranslate</type>
     <object-name>nm.101</object-name>
     <property>instrumentation/rnav/indicated-distance-nm</property>
-    <factor> 0.01 </factor>
-    <step> 10 </step>
-    <bias> 0.05 </bias>
+    <factor>0.01</factor>
+    <step>10</step>
+    <bias>0.05</bias>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>nm.102</object-name>
     <property>instrumentation/rnav/indicated-distance-nm</property>
-    <factor> 0.1 </factor>
-    <step> 1 </step>
-    <bias> 0.05 </bias>
+    <factor>0.1</factor>
+    <step>1</step>
+    <bias>0.05</bias>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>nm.103</object-name>
     <property>instrumentation/rnav/indicated-distance-nm</property>
-    <factor> 1 </factor>
-    <step> 0.1 </step>
-    <bias> 0.05 </bias>
+    <factor>1.0</factor>
+    <step>0.1</step>
+    <bias>0.05</bias>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>kt.101</object-name>
@@ -624,109 +618,111 @@
     <factor>0.001</factor>
     <step>100</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>kt.102</object-name>
     <property>instrumentation/dme/indicated-ground-speed-kt</property>
-    <factor> 0.01 </factor>
-    <step> 10 </step>
+    <factor>0.01</factor>
+    <step>10</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>kt.103</object-name>
     <property>instrumentation/dme/indicated-ground-speed-kt</property>
-    <factor> 0.1 </factor>
-    <step> 1 </step>
+    <factor>0.1</factor>
+    <step>1</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>min.101</object-name>
     <property>instrumentation/dme/indicated-time-min</property>
-    <factor> 0.01 </factor>
-    <step> 10 </step>
+    <factor>0.01</factor>
+    <step>10</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>min.102</object-name>
     <property>instrumentation/dme/indicated-time-min</property>
-    <factor> 0.1 </factor>
-    <step> 1 </step>
+    <factor>0.1</factor>
+    <step>1</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
-  <!-- USED / DISPLAYED WAYPOINTS -->
+  
+  <!--    USED / DISPLAYED WAYPOINTS      -->
   <animation>
     <type>textranslate</type>
     <object-name>use.digit</object-name>
     <property>instrumentation/kns-80/use</property>
-    <factor> 0.1 </factor>
-    <step> 1 </step>
+    <factor>0.1</factor>
+    <step>1</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
+  
   <animation>
     <type>textranslate</type>
     <object-name>display.digit</object-name>
     <property>instrumentation/kns-80/display</property>
-    <factor> 0.1 </factor>
-    <step> 1 </step>
+    <factor>0.1</factor>
+    <step>1</step>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
-
-  <!-- OSG hotspots -->
+  
+  <!--    OSG hotspots    -->
   <animation>
     <type>pick</type>
     <object-name>Vol.decrease</object-name>
+    <visible>false</visible>
     <action>
       <button>0</button>
       <repeatable>true</repeatable>
       <binding>
-      <command>property-assign</command>
-      <property>/instrumentation/kns-80/volume-adjust</property>
-      <value>-1</value>
-    </binding>
+        <command>property-assign</command>
+        <property>/instrumentation/kns-80/volume-adjust</property>
+        <value>-1</value>
+      </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>Vol.increase</object-name>
+    <visible>false</visible>
     <action>
       <button>0</button>
       <repeatable>true</repeatable>
@@ -737,10 +733,11 @@
       </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>Set.decrease</object-name>
+    <visible>false</visible>
     <action>
       <button>0</button>
       <repeatable>true</repeatable>
@@ -751,10 +748,11 @@
       </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>Set.increase</object-name>
+    <visible>false</visible>
     <action>
       <button>0</button>
       <repeatable>true</repeatable>
@@ -765,10 +763,11 @@
       </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>Set.decrease</object-name>
+    <visible>false</visible>
     <action>
       <button>1</button>
       <repeatable>true</repeatable>
@@ -779,10 +778,11 @@
       </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>Set.increase</object-name>
+    <visible>false</visible>
     <action>
       <button>1</button>
       <repeatable>true</repeatable>
@@ -793,7 +793,7 @@
       </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>HOLD.btn</object-name>
@@ -806,7 +806,7 @@
       </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>USE.btn</object-name>
@@ -820,7 +820,7 @@
       </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>DSP.btn</object-name>
@@ -837,7 +837,7 @@
       </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>DATA.btn</object-name>
@@ -854,7 +854,7 @@
       </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>KNS80.volume</object-name>
@@ -867,7 +867,7 @@
       </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>VOR.btn</object-name>
@@ -879,17 +879,17 @@
         <script>
           var test = getprop("/instrumentation/kns-80/nav-mode");
           if(test != 0){
-            setprop("/instrumentation/kns-80/nav-mode",0);
-            setprop("/instrumentation/nav/slaved-to-gps", 0);
+          setprop("/instrumentation/kns-80/nav-mode",0);
+          setprop("/instrumentation/nav/slaved-to-gps", 0);
           }else{
-            setprop("/instrumentation/kns-80/nav-mode",1);
-            setprop("/instrumentation/nav/slaved-to-gps", 1);
+          setprop("/instrumentation/kns-80/nav-mode",1);
+          setprop("/instrumentation/nav/slaved-to-gps", 1);
           }
         </script>
       </binding>
     </action>
   </animation>
-
+  
   <animation>
     <type>pick</type>
     <object-name>RNAV.btn</object-name>
@@ -907,6 +907,5 @@
       </binding>
     </action>
   </animation>
-
+  
 </PropertyList>
-
