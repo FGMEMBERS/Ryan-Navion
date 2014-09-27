@@ -7,9 +7,9 @@ name "Mixture"
 loc 0 0 -0
 data 7
 Mixture
-texture "colors.png"
+texture "throttles.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 268
 0.062978 0.000517 0.00438
 0.062966 -0.000863 0.004038
@@ -2137,9 +2137,9 @@ name "PropCont"
 loc 0 0 -0
 data 8
 PropCont
-texture "colors.png"
+texture "throttles.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 79
 0.049039 0.000992 -0.063867
 0.087342 0.01168 -0.052188
@@ -2782,9 +2782,9 @@ name "Throttle"
 loc 0 0 -0
 data 8
 Throttle
-texture "colors.png"
+texture "throttles.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 268
 0.060518 0.002047 0.073758
 0.06053 0.003326 0.072516
@@ -4912,9 +4912,9 @@ name "base"
 loc 0 0 -0
 data 4
 base
-texture "colors.png"
+texture "throttles.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 95
 0.008884 0.001483 -0.063916
 -0.001679 0.005833 -0.056684

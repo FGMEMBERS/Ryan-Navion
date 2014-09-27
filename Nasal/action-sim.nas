@@ -253,4 +253,3 @@ var resetPrime = func { prime.setBoolValue(0); }
 # Setup listener call to start update loop once the fdm is initialized
 # 
 setlistener("/sim/signals/fdm-initialized", init_actions);
-

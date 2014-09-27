@@ -9,7 +9,7 @@ data 19
 BasesPalancasYLuces
 texture "gear.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 435
 0.004532 0.016357 0.007341
 0.005091 0.016473 0.006909
@@ -3407,7 +3407,7 @@ data 15
 LuzAlrmGreenOff
 texture "gear.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 121
 0.005376 -0.001704 0.005737
 0.005853 -0.001629 0.005457
@@ -4355,7 +4355,7 @@ data 14
 LuzAlrmGreenOn
 texture "gear.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 121
 0.005609 -0.001704 0.005737
 0.006086 -0.001629 0.005457
@@ -5303,7 +5303,7 @@ data 16
 LuzAlrmYellowOff
 texture "gear.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 121
 0.005376 0.018324 0.00594
 0.005853 0.018324 0.005649
@@ -6251,7 +6251,7 @@ data 15
 LuzAlrmYellowOn
 texture "gear.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 121
 0.005609 0.018324 0.00594
 0.006086 0.018324 0.005649
@@ -7199,7 +7199,7 @@ data 11
 PalancaTren
 texture "gear.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 114
 0.039754 -0.031894 0.007237
 0.039754 -0.031894 -0.007817

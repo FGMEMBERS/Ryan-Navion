@@ -7,22 +7,7 @@
       
       <livery>
         <name type="string">Metal</name>
-        <texture>Liveries/metal.png</texture>
-        <diffuse>
-          <red>   1 </red>
-          <green> 1 </green>
-          <blue>  1 </blue>
-        </diffuse>
-        <ambient>
-          <red>   1 </red>
-          <green> 1 </green>
-          <blue>  1 </blue>
-        </ambient>
-        <specular>
-          <red>   1 </red>
-          <green> 1 </green>
-          <blue>  1 </blue>
-        </specular>
+        <texture>Liveries/1024x1024/metal.png</texture>
         <emission>
           <red>   0 </red>
           <green> 0 </green>

@@ -7,9 +7,9 @@ name "coulissant"
 loc 0 0 -0
 data 10
 coulissant
-texture "colors.png"
+texture "carb-heat.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 65
 -0.000829 -0.005675 -0.005675
 -0.000829 -0.006673 -0.004459
@@ -499,9 +499,9 @@ name "info"
 loc 0 0 -0
 data 4
 info
-texture "colors.png"
+texture "carb-heat.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 4
 -0 -0.020454 0.020454
 -0 0.020454 0.020454
@@ -521,9 +521,9 @@ name "manette"
 loc 0 0 -0
 data 7
 manette
-texture "colors.png"
+texture "carb-heat.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 321
 0.006387 0.002979 -0.002979
 0.006387 0.002341 -0.003502

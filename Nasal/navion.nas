@@ -13,14 +13,9 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 # General Public License for more details.
 
-
-
-
 var f_pump_switch = func {
   toggle=getprop("controls/engines/engine/fuel-pump");
   toggle=1-toggle;
   setprop("controls/engines/engine/fuel-pump",toggle);
   click.setBoolValue(1);
 }
-
-

@@ -35,10 +35,10 @@
     <type>material</type>
     <object-name>OM-light</object-name>
     <emission>
+      <factor-prop>instrumentation/marker-beacon/outer</factor-prop>
       <red>   2 </red>
       <green> 2 </green>
       <blue>  2 </blue>
-      <factor-prop>instrumentation/marker-beacon/outer</factor-prop>
     </emission>
   </animation>
     
@@ -46,10 +46,10 @@
     <type>material</type>
     <object-name>MM-light</object-name>
     <emission>
+      <factor-prop>instrumentation/marker-beacon/middle</factor-prop>
       <red>   2 </red>
       <green> 2 </green>
       <blue>  2 </blue>
-      <factor-prop>instrumentation/marker-beacon/middle</factor-prop>
     </emission>
   </animation>
     
@@ -57,10 +57,10 @@
     <type>material</type>
     <object-name>IM-light</object-name>
     <emission>
+      <factor-prop>instrumentation/marker-beacon/inner</factor-prop>
       <red>   2 </red>
       <green> 2 </green>
       <blue>  2 </blue>
-      <factor-prop>instrumentation/marker-beacon/inner</factor-prop>
     </emission>
   </animation>
   
