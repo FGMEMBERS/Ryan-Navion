@@ -18,6 +18,11 @@
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/divers/all-visses.xml</path>
   </model>
  
+  <!-- Les switch -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/all-switchs.xml</path>
+  </model>
+  
   <!-- Les plaques -->
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Plaques/plaque1.xml</path>
@@ -65,11 +70,6 @@
       <y-m>  0.111 </y-m>
       <z-m>  0.000 </z-m>
     </offsets>
-  </model>
-
-  <!-- Les switch -->
-  <model>
-    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Switch/all-switchs.xml</path>
   </model>
 
   <model>
@@ -150,7 +150,7 @@
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kr87-adf/kr87.xml</path>
     <offsets>
       <x-m>  0.010 </x-m>
-      <y-m>  0.228 </y-m>
+      <y-m>  0.229 </y-m>
       <z-m> -0.034 </z-m>
     </offsets>
   </model>
@@ -158,7 +158,7 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kr87-adf/ki227-01.xml</path>
     <offsets>
-      <x-m>  0.007 </x-m>
+      <x-m>  0.006 </x-m>
       <y-m> -0.340 </y-m>
       <z-m>  0.101 </z-m>
     </offsets>
@@ -167,43 +167,43 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kx165/kx165-1.xml</path>
     <offsets>
-      <x-m>  0.009 </x-m>
-      <y-m>  0.229 </y-m>
-      <z-m>  0.061 </z-m>
+      <x-m> 0.009 </x-m>
+      <y-m> 0.229 </y-m>
+      <z-m> 0.061 </z-m>
     </offsets>
   </model>
 
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kt70/kt70.xml</path>
     <offsets>
-      <x-m>  0.007 </x-m>
-      <y-m>  0.229 </y-m>
-      <z-m>  0.008 </z-m>
+      <x-m> 0.007 </x-m>
+      <y-m> 0.229 </y-m>
+      <z-m> 0.008 </z-m>
     </offsets>
   </model>
 
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kap140/KAP140TwoAxisAlt.xml</path>
     <offsets>
-      <x-m>  0.009 </x-m>
-      <y-m>  0.229 </y-m>
-      <z-m>  0.114 </z-m>
+      <x-m> 0.009 </x-m>
+      <y-m> 0.229 </y-m>
+      <z-m> 0.114 </z-m>
     </offsets>
   </model>
 
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/charge/charge.xml</path>
     <offsets>
-      <x-m>  0.012 </x-m>
-      <y-m> -0.341 </y-m>
-      <z-m> -0.071 </z-m>
+      <x-m>  0.009 </x-m>
+      <y-m> -0.340 </y-m>
+      <z-m> -0.068 </z-m>
     </offsets>
   </model>
  
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/FuelGauge/FuelGauge.xml</path>
     <offsets>
-      <x-m>  0.013 </x-m>
+      <x-m>  0.012 </x-m>
       <y-m> -0.420 </y-m>
       <z-m>  0.024 </z-m>
     </offsets>
@@ -212,19 +212,9 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/oil-temp/oil-temp.xml</path>
     <offsets>
-      <x-m>  0.010 </x-m>
+      <x-m>  0.009 </x-m>
       <y-m> -0.420 </y-m>
       <z-m>  0.093 </z-m>
-    </offsets>
-  </model>
-
-  <!-- AI -->
-  <model>
-    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/hi/hi.xml</path>
-    <offsets>
-      <x-m>  0.015 </x-m>
-      <y-m> -0.339 </y-m>
-      <z-m>  0.012 </z-m>
     </offsets>
   </model>
 
@@ -232,9 +222,9 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kns80/kns80.xml</path>
     <offsets>
-      <x-m>  0.012 </x-m>
-      <y-m>  0.399 </y-m>
-      <z-m>  0.072 </z-m>
+      <x-m> 0.012 </x-m>
+      <y-m> 0.399 </y-m>
+      <z-m> 0.072 </z-m>
     </offsets>
   </model>
 
@@ -252,7 +242,7 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/rpm/tach.xml</path>
     <offsets>
-      <x-m>  0.011 </x-m>
+      <x-m>  0.001 </x-m>
       <y-m> -0.525 </y-m>
       <z-m> -0.014 </z-m>
     </offsets>
@@ -262,36 +252,46 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/asi/asi.xml</path>
     <offsets>
-      <x-m>  0.012 </x-m>
+      <x-m>  0.011 </x-m>
       <y-m> -0.115 </y-m>
       <z-m>  0.088 </z-m>
     </offsets>
   </model>
 
+  <!-- AI -->
+  <model>
+    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/hi/hi.xml</path>
+    <offsets>
+      <x-m>  0.008 </x-m>
+      <y-m> -0.339 </y-m>
+      <z-m>  0.012 </z-m>
+    </offsets>
+  </model>
+  
   <!-- Turn -->
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/turn/turn.xml</path>
     <offsets>
-      <x-m>  0.006 </x-m>
-      <y-m> -0.340 </y-m>
-      <z-m>  0.010 </z-m>
+      <x-m>  0.005 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.013 </z-m>
     </offsets>
   </model>
-
+  
   <!-- Vsi -->
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/vsi/vsi.xml</path>
     <offsets>
-      <x-m>  0.005 </x-m>
-      <y-m>  0.000 </y-m>
-      <z-m>  0.085 </z-m>
+      <x-m> 0.005 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.085 </z-m>
     </offsets>
   </model>
 
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/clock/clock.xml</path>
     <offsets>
-      <x-m>  0.005 </x-m>
+      <x-m>  0.006 </x-m>
       <y-m> -0.421 </y-m>
       <z-m> -0.035 </z-m>
     </offsets>
@@ -309,7 +309,7 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kfc200/ki256.xml</path>
     <offsets>
-      <x-m>  0.010 </x-m>
+      <x-m>  0.006 </x-m>
       <y-m> -0.223 </y-m>
       <z-m>  0.090 </z-m>
     </offsets>
@@ -318,7 +318,7 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kfc200/ki252a.xml</path>
     <offsets>
-      <x-m>  0.010 </x-m>
+      <x-m>  0.006 </x-m>
       <y-m> -0.223 </y-m>
       <z-m> -0.009 </z-m>
     </offsets>
@@ -327,18 +327,9 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/magneto/mags.xml</path>
     <offsets>
-      <x-m>  0.005 </x-m>
+      <x-m>  0.001 </x-m>
       <y-m> -0.055 </y-m>
       <z-m> -0.172 </z-m>
-    </offsets>
-  </model>
-
-  <model>
-    <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/turn/turn.xml</path>
-    <offsets>
-      <x-m>  0.005 </x-m>
-      <y-m> -0.005 </y-m>
-      <z-m> -0.013 </z-m>
     </offsets>
   </model>
 
@@ -346,7 +337,7 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbaudio.xml</path>
     <offsets>
-      <x-m>  0.004 </x-m>
+      <x-m>  0.000 </x-m>
       <y-m> -0.492 </y-m>
       <z-m>  0.083 </z-m>
      </offsets>
@@ -355,7 +346,7 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbcom1.xml</path>
     <offsets>
-      <x-m>  0.004 </x-m>
+      <x-m>  0.000 </x-m>
       <y-m> -0.492 </y-m>
       <z-m>  0.062 </z-m>
      </offsets>
@@ -364,7 +355,7 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbautopilot.xml</path>
     <offsets>
-      <x-m>  0.004 </x-m>
+      <x-m>  0.000 </x-m>
       <y-m>  0.284 </y-m>
       <z-m> -0.161 </z-m>
      </offsets>
@@ -373,7 +364,7 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/circuitbreakers/cbavionicctrl.xml</path>
     <offsets>
-      <x-m>  0.004 </x-m>
+      <x-m>  0.000 </x-m>
       <y-m>  0.305 </y-m>
       <z-m> -0.161 </z-m>
      </offsets>

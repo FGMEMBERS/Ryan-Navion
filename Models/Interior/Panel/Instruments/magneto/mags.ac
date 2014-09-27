@@ -9,7 +9,7 @@ data 6
 centre
 texture "mag_switch.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 257
 0.00207 0.003755 -0.00383
 0.00207 0.00295 -0.004491
@@ -2035,7 +2035,7 @@ name "click-L"
 loc 0 0 -0
 data 7
 click-L
-crease 30.000001
+crease 180.000005
 numvert 4
 0.005694 0.018529 0.008029
 0.005694 -0.019326 0.008029
@@ -2055,7 +2055,7 @@ name "click-R"
 loc 0 0 -0
 data 7
 click-R
-crease 30.000001
+crease 180.000005
 numvert 4
 0.005694 0.018529 -0.007322
 0.005694 -0.019326 -0.007322
@@ -2075,7 +2075,7 @@ name "click-S"
 loc 0 0 -0
 data 7
 click-S
-crease 30.000001
+crease 180.000005
 numvert 4
 0.005694 0.018529 -0.022987
 0.005694 -0.019326 -0.022987
@@ -2097,7 +2097,7 @@ data 3
 key
 texture "mag_switch.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 32
 0.007472 0.004136 0.007442
 0.005846 0.00648 0.013079
@@ -2425,7 +2425,7 @@ data 5
 magsw
 texture "mag_switch.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 258
 0.001018 0.008859 -0.0091
 0.001018 0.006925 -0.010687
@@ -4422,7 +4422,7 @@ data 5
 start
 texture "mag_switch.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 32
 0.007472 -0.00443 0.007224
 0.005846 -0.00814 0.012072

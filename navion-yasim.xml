@@ -2,6 +2,7 @@
 
 <!-- Ryan Navion - 2010 Emmanuel BARANGER
                  - Updated 2013 January Helijah
+                 - Updated 2014 September Helijah
 
      sources          : http://en.wikipedia.org/wiki/Ryan_Navion
 
@@ -13,7 +14,7 @@
      Cruise speed     :   250 km/h (   135 kt )
 -->
 
-<airplane mass="2750">
+<airplane mass="2750" version="YASIM_VERSION_CURRENT">
 
   <!-- Approach configuration -->
   <approach speed="40" aoa="4" fuel="0.2">
@@ -27,6 +28,7 @@
     <control-setting axis="/controls/engines/engine[0]/throttle" value="0.7"/>
     <control-setting axis="/controls/engines/engine[0]/mixture" value="0.6"/>
     <control-setting axis="/controls/flight/flaps" value="0"/>
+    <control-setting axis="/controls/flight/elevator-trim" value="0.02"/>
   </cruise>
 
   <cockpit x="1.432" y="0.272" z="0.5567"/>
@@ -61,8 +63,8 @@
          length="1.826" 
          taper="0.7"
          sweep="1">
-         <stall aoa="14" width="1" peak="1.5"/>
-         <flap0 start="0" end="1" lift="1.5" drag="1"/>
+         <stall aoa="16" width="1" peak="1.1"/>
+         <flap0 start="0" end="1" lift="1.4" drag="1.1"/>
 
          <control-input axis="/controls/flight/elevator" control="FLAP0"/>
          <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
@@ -76,7 +78,7 @@
          taper="0.4"
          sweep="6">
          <stall aoa="14" width="1" peak="1.5"/>
-         <flap0 start="0" end="1" lift="1.75" drag="1.35"/>
+         <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
 
          <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
          <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>

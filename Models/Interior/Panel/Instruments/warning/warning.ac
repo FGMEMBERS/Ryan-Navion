@@ -9,7 +9,7 @@ data 4
 fond
 texture "warning.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 60
 0.004131 0.010952 -0.047384
 0.004137 -0.010948 -0.047384
@@ -437,7 +437,7 @@ data 12
 warning04.on
 texture "warning.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 4
 0.004348 0.010952 0.001109
 0.004354 -0.010948 0.001109
@@ -481,7 +481,7 @@ data 12
 warning05.on
 texture "warning.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 4
 0.004348 0.010952 -0.02308
 0.004354 -0.010948 -0.02308
@@ -503,7 +503,7 @@ data 12
 warning06.on
 texture "warning.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 4
 0.004348 0.010952 -0.047384
 0.004354 -0.010948 -0.047384

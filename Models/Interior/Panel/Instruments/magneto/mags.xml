@@ -22,10 +22,10 @@
     <object-name>start</object-name>
     <object-name>magsw</object-name>
     <emission>
+      <factor-prop>/sim/model/material/instruments/factor</factor-prop>
       <red>   0.050 </red>
       <green> 0.025 </green>
       <blue>  0.025 </blue>
-      <factor-prop>/sim/model/material/instruments/factor</factor-prop>
     </emission>
   </animation>
 

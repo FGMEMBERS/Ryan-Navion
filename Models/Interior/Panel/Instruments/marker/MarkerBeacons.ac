@@ -9,7 +9,7 @@ data 8
 IM-light
 texture "marker.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 25
 0.006133 -0 -0
 0.003772 -0 0.002604
@@ -201,7 +201,7 @@ data 8
 MM-light
 texture "marker.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 25
 0.005168 0.001251 0.002255
 0.005168 0.002168 0.001302
@@ -393,7 +393,7 @@ data 8
 OM-light
 texture "marker.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 25
 0.005168 0.001251 0.002255
 0.005168 0.002168 0.001302
@@ -585,7 +585,7 @@ data 4
 base
 texture "marker.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 75
 0.004 0.009888 0.003339
 0.004 0.011262 0.00191
