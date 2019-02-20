@@ -60,6 +60,11 @@
     <suction>/systems/vacuum/suction-inhg</suction>
   </heading-indicator>
 
+  <turn-indicator>
+    <name>turn-indicator</name>
+    <number>0</number>
+  </turn-indicator>
+
   <marker-beacon>
     <name>marker-beacon</name>
     <number>0</number>
