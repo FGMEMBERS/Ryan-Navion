@@ -5,7 +5,7 @@
 
     <description>Ryan Navion (YASim)</description>
     <author>Emmanuel BARANGER (3D/FDM) / Samaliet (Panel/System)</author>
-    <aircraft-version>0.3</aircraft-version>
+    <aircraft-version>0.3.1</aircraft-version>
     <status>Alpha</status>
     <flight-model archive="y">yasim</flight-model>
     <aero archive="y">navion-yasim</aero>
