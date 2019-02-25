@@ -35,9 +35,9 @@
 
   <fuselage ax="3.961" ay="0" az="-0.148" bx="-3.601" by="0" bz="0.036" width="1.204" taper="0.5" midpoint="0.3"/>
 
-  <wing x="1.145" y="0.339" z="-0.540" 
-        chord="2.094" 
-        length="4.698" 
+  <wing x="1.145" y="0.339" z="-0.540"
+        chord="2.094"
+        length="4.698"
         taper="0.58"
         sweep="-2.7"
         dihedral="7"
@@ -58,9 +58,9 @@
         <control-speed control="FLAP0" transition-time="4"/>
   </wing>
 
-  <hstab x="-3" y="0" z="0.183" 
-         chord="1.184" 
-         length="1.826" 
+  <hstab x="-3" y="0" z="0.183"
+         chord="1.184"
+         length="1.826"
          taper="0.7"
          sweep="1">
          <stall aoa="16" width="1" peak="1.1"/>
@@ -72,7 +72,7 @@
          <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
   </hstab>
 
-  <vstab x="-3.396" y="0" z="-0.149" 
+  <vstab x="-3.396" y="0" z="-0.149"
          chord="1.441"
          length="1.534"
          taper="0.4"
@@ -95,30 +95,30 @@
                  displacement      : 471 in3 ( 7.8 L  )
                  compression       : 7.0:1
   -->
-  <propeller x="3.483" y="0" z="-0.057" 
+  <propeller x="3.483" y="0" z="-0.057"
              radius="1"
-             mass="391" 
-             moment="6"  
-             cruise-speed="135" 
+             mass="391"
+             moment="6"
+             cruise-speed="135"
              cruise-rpm="2575"
-             cruise-alt="6000" 
+             cruise-alt="6000"
              cruise-power="213"
-             takeoff-power="280" 
+             takeoff-power="280"
              takeoff-rpm="2600">
              <actionpt x="4.045" y="0" z="-0.057"/>
-             <piston-engine eng-rpm="2700" 
-                            eng-power="205"
-                            displacement="471" 
+             <piston-engine eng-rpm="2700"
+                            eng-power="260"
+                            displacement="471"
                             compression="7"/>
              <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle" src0="0.0" src1="1.0" dst0="0.0" dst1="1.0"/>
              <control-input control="STARTER" axis="/controls/engines/engine[0]/starter" />
              <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos" />
              <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture" src0="0.0" src1="1.0" dst0="0.8" dst1="0.8"/>
   </propeller>
-  
+
   <!-- Noze wheel -->
-  <gear x="3.093" y="0" z="-1.399" 
-        compression="0.15" 
+  <gear x="3.093" y="0" z="-1.399"
+        compression="0.15"
         spring="0.8"
         on-solid="1"
         sfric="1"
@@ -131,9 +131,9 @@
 
   <!-- Left wheel -->
   <gear x="1.487" y="1.336" z="-1.400"
-        compression="0.2" 
-        spring="1.8" 
-        damp="0.03" 
+        compression="0.2"
+        spring="1.8"
+        damp="0.03"
         on-solid="1" >
         <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
         <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
@@ -144,9 +144,9 @@
 
   <!-- Right wheel -->
   <gear x="1.487" y="-1.336" z="-1.400"
-        compression="0.2" 
+        compression="0.2"
         spring="1.8"
-        damp="0.03" 
+        damp="0.03"
         on-solid="1" >
         <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
         <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
@@ -164,7 +164,7 @@
   <tank x="0.46" y=" 0.0" z="-0.31" capacity="300"/>
   <tank x="1.78" y="-1.8" z="-0.36" capacity="200"/>
 
-  <!-- Mass distribution --> 
+  <!-- Mass distribution -->
   <ballast x="3" y="0" z="-1" mass="1400"/>
 
 </airplane>
