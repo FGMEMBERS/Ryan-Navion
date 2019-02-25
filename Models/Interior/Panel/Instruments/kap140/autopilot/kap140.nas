@@ -16,7 +16,7 @@ var locks = "/autopilot/KAP140/locks";
 var settings = "/autopilot/KAP140/settings";
 var annunciators = "/autopilot/KAP140/annunciators";
 var internal = "/autopilot/internal";
-var power="/systems/electrical/outputs/autopilot";
+var power = "/systems/electrical/outputs/autopilot";
 var encoder =  "/instrumentation/encoder";
 var flightControls = "/controls/flight";
 
@@ -94,9 +94,9 @@ var propFlightControls = props.globals.getNode(flightControls, 0);
 var elevatorControl         = propFlightControls.getNode("elevator", 0);
 var elevatorTrimControl     = propFlightControls.getNode("elevator-trim", 0);
 
-var headingNeedleDeflection = "/autopilot/internal/heading-error-deg";
+var headingNeedleDeflection = "/autopilot/internal/heading-bug-error-deg";
 var gsNeedleDeflection = "/instrumentation/nav/gs-needle-deflection-norm";
-var staticPressure = "systems/static/pressure-inhg";
+var staticPressure = "/systems/static/pressure-inhg";
 
 var pressureUnits = { "inHg" : 0, "hPa" : 1 };
 var baroSettingUnit = pressureUnits["inHg"];

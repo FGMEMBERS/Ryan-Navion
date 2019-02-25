@@ -5,7 +5,7 @@
 <!-- property names to pass the result of one component on to a subsequent -->
 <!-- component. -->
 <PropertyList>
-  
+
   <filter>
     <name>heading bug error computer/normalizer</name>
     <debug>false</debug>
@@ -23,12 +23,12 @@
       <max>180</max>
     </period>
     <gain>1.0</gain>
-  </filter>  
-  
+  </filter>
+
   <!-- =============================================================== -->
   <!-- Roll Axis Modes                                                 -->
   <!-- =============================================================== -->
-  
+
   <!-- Nav hold (NAV) Mode-->
   <pid-controller>
     <name>Nav hold (NAV) Mode</name>
@@ -58,7 +58,7 @@
       <u_max>45.0</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
-  
+
   <!-- Approach hold (APR) Mode-->
   <pid-controller>
     <name>Approach hold (APR) Mode</name>
@@ -88,7 +88,7 @@
       <u_max>45.0</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
-  
+
   <!-- Backcourse hold (REV) Mode-->
   <pid-controller>
     <name>Backcourse hold (REV) Mode</name>
@@ -119,9 +119,9 @@
       <u_max>45.0</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
-  
+
   <!-- Heading Select (HDG) Mode -->
-  
+
   <pid-controller>
     <name>Heading Select (HDG) Mode</name>
     <debug>false</debug>
@@ -131,7 +131,6 @@
     </enable>
     <input>
       <prop>/autopilot/internal/heading-bug-error-deg</prop>
-      <!-- <prop>/instrumentation/kcs55/ki525/heading-error-deg</prop> -->
     </input>
     <reference>
       <prop>/autopilot/KAP140/settings/target-intercept-angle</prop>
@@ -151,9 +150,9 @@
       <u_max>1.0</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
-  
+
   <!-- Wing leveler (ROL) Mode --> 
-  
+
   <pid-controller>
     <name>Wing Leveler (ROL) Mode</name>
     <debug>false</debug>
@@ -182,11 +181,11 @@
       <u_max>0.25</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
-  
+
   <!-- =============================================================== -->
   <!-- Pitch Axis Modes                                                -->
   <!-- =============================================================== -->
-  
+
   <!-- Altitude Hold (ALT) Mode --> 
   <pid-controller>
     <name>Altitude Hold (ALT) Mode</name>
@@ -216,7 +215,7 @@
       <u_max>0.007</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
-  
+
   <!-- Glideslope Hold (GS) Mode --> 
   <pid-controller>
     <name>Glideslope Hold (GS) Mode</name>
@@ -246,7 +245,7 @@
       <u_max>0.017</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
-  
+
   <filter>
     <name>static port pressure rate computer</name>
     <debug>false</debug>
@@ -255,7 +254,7 @@
     <output>autopilot/internal/pressure-rate</output>
     <filter-time>1.0</filter-time>
   </filter>
-  
+
   <filter>
     <name>pressure-rate-filter</name>
     <debug>false</debug>
@@ -264,7 +263,7 @@
     <output>/autopilot/internal/filtered-pressure-rate</output>
     <filter-time>0.1</filter-time>
   </filter>
-  
+
   <filter>
     <name>conversion to fpm</name>
     <debug>false</debug>
@@ -273,7 +272,7 @@
     <output>/autopilot/KAP140/settings/target-pressure-rate-fpm</output>
     <gain>-58000</gain>
   </filter>
-  
+
   <!-- Vertical Speed (VS) Mode --> 
   <pid-controller>
     <name>Vertical Speed (VS) Mode</name>
@@ -303,5 +302,5 @@
       <u_max>0.5</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
-  
+
 </PropertyList>

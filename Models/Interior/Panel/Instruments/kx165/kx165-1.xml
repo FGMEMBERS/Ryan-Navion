@@ -27,17 +27,18 @@
   -->
 
   <params>
+    <comm-supplier>systems/electrical/outputs/comm[0]</comm-supplier>
+    <comm-power>instrumentation/comm[0]/power-btn</comm-power>
     <comm-serviceable>instrumentation/comm[0]/serviceable</comm-serviceable>
-    <nav-serviceable>instrumentation/nav[0]/serviceable</nav-serviceable>
-    <power-nav>instrumentation/nav[0]/power-btn</power-nav>
-    <power-comm>instrumentation/comm[0]/power-btn</power-comm>
-
     <comm-frq-swp>instrumentation/comm[0]/frq-swap-btn</comm-frq-swp>
     <comm-frq-selected>instrumentation/comm[0]/frequencies/selected-mhz</comm-frq-selected>
     <comm-frq-standby>instrumentation/comm[0]/frequencies/standby-mhz</comm-frq-standby>
     <comm-volume>instrumentation/comm[0]/volume</comm-volume>
     <comm-test>instrumentation/comm[0]/test-btn</comm-test>
 
+    <nav-supplier>systems/electrical/outputs/nav[0]</nav-supplier>
+    <nav-power>instrumentation/nav[0]/power-btn</nav-power>
+    <nav-serviceable>instrumentation/nav[0]/serviceable</nav-serviceable>
     <nav-frq-swp>instrumentation/nav[0]/frq-swap-btn</nav-frq-swp>
     <nav-frq-selected>instrumentation/nav[0]/frequencies/selected-mhz</nav-frq-selected>
     <nav-frq-standby>instrumentation/nav[0]/frequencies/standby-mhz</nav-frq-standby>
@@ -56,7 +57,7 @@
     <object-name>CommToggle</object-name>
     <object-name>CommKHz</object-name>
     <object-name>CommMHz</object-name>
-    
+
     <object-name>NavVolume</object-name>
     <object-name>NavToggle</object-name>
     <object-name>NavKHz</object-name>
@@ -153,7 +154,11 @@
     <object-name>CommStby</object-name>
     <condition>
       <property alias="../../../params/comm-serviceable"/>
-      <property alias="../../../params/power-comm"/>
+      <property alias="../../../params/comm-power"/>
+      <greater-than>
+        <property alias="../../../../params/comm-supplier"/>
+        <value>18.0</value>
+      </greater-than>
     </condition>
   </animation>
 
@@ -163,13 +168,17 @@
     <object-name>NavStby</object-name>
     <condition>
       <property alias="../../../params/nav-serviceable"/>
-      <property alias="../../../params/power-nav"/>
+      <property alias="../../../params/nav-power"/>
+      <greater-than>
+        <property alias="../../../../params/nav-supplier"/>
+        <value>18.0</value>
+      </greater-than>
     </condition>
   </animation>
 
   <animation>
     <type>material</type>
-    <object-name>CommStby</object-name>
+    <object-name>CommUse</object-name>
     <object-name>CommStby</object-name>
     <object-name>NavUse</object-name>
     <object-name>NavStby</object-name>
@@ -199,7 +208,7 @@
     <object-name>CommUse</object-name>
     <object-name>CommStby</object-name>
     <transparency>
-      <alpha-prop>systems/electrical/outputs/comm</alpha-prop>
+      <alpha-prop alias="../../../params/comm-supplier"/>
       <factor>0.07</factor>
     </transparency>
   </animation>
@@ -209,7 +218,7 @@
     <object-name>NavUse</object-name>
     <object-name>NavStby</object-name>
     <transparency>
-      <alpha-prop>systems/electrical/outputs/nav</alpha-prop>
+      <alpha-prop alias="../../../params/nav-supplier"/>
       <factor>0.07</factor>
     </transparency>
   </animation>
@@ -653,7 +662,7 @@
       </binding>
       <binding>
         <command>property-assign</command>
-        <property alias="../../../../params/power-comm"/>
+        <property alias="../../../../params/comm-power"/>
         <value>1</value>
         <condition>
           <greater-than>
@@ -676,7 +685,7 @@
       </binding>
       <binding>
         <command>property-assign</command>
-        <property alias="../../../../params/power-comm"/>
+        <property alias="../../../../params/comm-power"/>
         <value>0</value>
         <condition>
           <less-than>
@@ -771,7 +780,7 @@
       </binding>
       <binding>
         <command>property-assign</command>
-        <property alias="../../../../params/power-nav"/>
+        <property alias="../../../../params/nav-power"/>
         <value>1</value>
         <condition>
           <greater-than>
@@ -794,7 +803,7 @@
       </binding>
       <binding>
         <command>property-assign</command>
-        <property alias="../../../../params/power-nav"/>
+        <property alias="../../../../params/nav-power"/>
         <value>0</value>
         <condition>
           <less-than>
@@ -930,7 +939,7 @@
   <text>
     <name>textosg</name>
     <type type="string">literal</type>
-    <text type="string">COMM 1 / NAV</text>
+    <text type="string">COMM 1 / NAV 1</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.014</character-size>

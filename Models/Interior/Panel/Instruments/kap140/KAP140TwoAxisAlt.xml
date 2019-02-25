@@ -23,7 +23,7 @@
   <animation>
     <!-- Objets opaques -->
     <object-name>base</object-name>
-    
+
     <object-name>knob-inner</object-name>
     <object-name>knob-outer</object-name>
     <object-name>ap-btn</object-name>
@@ -39,13 +39,12 @@
     <object-name>knob-left</object-name>
     <object-name>knob-right</object-name>
 
-
     <object-name>alt-digit1</object-name>
     <object-name>alt-digit2</object-name>
     <object-name>alt-digit3</object-name>
     <object-name>alt-digit4</object-name>
     <object-name>alt-digit5</object-name>
-    
+
     <object-name>vs-digit2</object-name>
     <object-name>vs-digit3</object-name>
     <object-name>vs-digit4</object-name>
@@ -104,7 +103,7 @@
     <inherits-from>Aircraft/Ryan-Navion/Models/Effects/Glass/glass</inherits-from>
     <object-name>vitre</object-name>
   </effect>
-  
+
   <animation>
     <name>annunciators</name>
     <object-name>roll-axis-fail</object-name>
@@ -159,7 +158,6 @@
 
   <animation>
     <name>vs-digits</name>
-    <object-name>vs-minus</object-name>
     <object-name>vs-digit2</object-name>
     <object-name>vs-digit3</object-name>
     <object-name>vs-digit4</object-name>
@@ -168,6 +166,7 @@
 
   <animation>
     <name>vs-digits-minus</name>
+    <object-name>vs-minus</object-name>
     <object-name>vs-digit2-minus</object-name>
     <object-name>vs-digit3-minus</object-name>
     <object-name>vs-digit4-minus</object-name>
@@ -178,6 +177,7 @@
     <name>hpa-digits</name>
     <object-name>hpa-digit2</object-name>
     <object-name>hpa-digit3</object-name>
+    <object-name>hpa-point</object-name>
     <object-name>hpa-digit4</object-name>
     <object-name>hpa-digit5</object-name>
   </animation>
@@ -186,6 +186,7 @@
     <name>inhg-digits</name>
     <object-name>inhg-digit2</object-name>
     <object-name>inhg-digit3</object-name>
+    <object-name>inhg-point</object-name>
     <object-name>inhg-digit4</object-name>
     <object-name>inhg-digit5</object-name>
   </animation>
@@ -487,24 +488,6 @@
 
   <animation>
     <type>select</type>
-    <object-name>vs-minus</object-name>
-    <object-name>vs-digits-minus</object-name>
-    <condition>
-      <and>
-        <equals>
-          <property>/autopilot/KAP140/annunciators/vs-number</property>
-          <value type="bool">true</value>
-        </equals>
-        <greater-than>
-          <value>0</value>
-          <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-        </greater-than>
-      </and>
-    </condition>
-  </animation>
-
-  <animation>
-    <type>select</type>
     <object-name>vs-digits</object-name>
     <condition>
       <and>
@@ -512,47 +495,70 @@
           <property>/autopilot/KAP140/annunciators/vs-number</property>
           <value type="bool">true</value>
         </equals>
+        <greater-than>
+          <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+          <value>-0.5</value>
+        </greater-than>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>vs-digits-minus</object-name>
+    <condition>
+      <and>
+        <equals>
+          <property>/autopilot/KAP140/annunciators/vs-number</property>
+          <value type="bool">true</value>
+        </equals>
         <less-than>
-          <value>0</value>
-          <property>/autopilot/KAP140/settings/target-pressure-rate</property>
+          <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+          <value>-0.5</value>
         </less-than>
       </and>
     </condition>
   </animation>
 
   <animation>
-    <type>textranslate</type>
-    <object-name>vs-digit5</object-name>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
+    <type>select</type>
+    <object-name>vs-digit2</object-name>
     <condition>
-      <less-than>
-        <value>0</value>
-        <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-      </less-than>
+      <greater-than>
+        <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+        <value>999</value>
+      </greater-than>
     </condition>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <factor>-5800</factor>
-    <step>0.000017241379</step>
-    <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
-    </axis>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>vs-digit3</object-name>
+    <condition>
+      <greater-than>
+        <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+        <value>99</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>vs-digit4</object-name>
+    <condition>
+      <greater-than>
+        <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+        <value>9</value>
+      </greater-than>
+    </condition>
   </animation>
 
   <animation>
     <type>textranslate</type>
-    <object-name>vs-digit4</object-name>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <condition>
-      <less-than>
-        <value>0</value>
-        <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-      </less-than>
-    </condition>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <factor>-580</factor>
-    <step>0.00017241379</step>
+    <object-name>vs-digit2</object-name>
+    <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+    <factor>0.0001</factor>
+    <step>1000.0</step>
     <axis>
       <x> 1 </x>
       <y> 0 </y>
@@ -563,120 +569,118 @@
   <animation>
     <type>textranslate</type>
     <object-name>vs-digit3</object-name>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
+    <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+    <factor>0.001</factor>
+    <step>100.0</step>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>vs-digit4</object-name>
+    <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+    <factor>0.01</factor>
+    <step>10.0</step>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>vs-digit5</object-name>
+    <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+    <bias>0.5</bias>
+    <factor>0.1</factor>
+    <step>1.0</step>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>vs-digit2-minus</object-name>
     <condition>
       <less-than>
-        <value>0</value>
-        <property>/autopilot/KAP140/settings/target-pressure-rate</property>
+        <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+        <value>-999</value>
       </less-than>
     </condition>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <factor>-58</factor>
-    <step>0.0017241379</step>
-    <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
-    </axis>
   </animation>
 
   <animation>
-    <type>textranslate</type>
-    <object-name>vs-digit2</object-name>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
+    <type>select</type>
+    <object-name>vs-digit3-minus</object-name>
     <condition>
       <less-than>
-        <value>0</value>
-        <property>/autopilot/KAP140/settings/target-pressure-rate</property>
+        <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+        <value>-99</value>
       </less-than>
     </condition>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <factor>-5.8</factor>
-    <step>0.017241379</step>
-    <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
-    </axis>
   </animation>
 
   <animation>
     <type>textranslate</type>
-    <object-name>vs-digit5-minus</object-name>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <condition>
-      <greater-than>
-        <value>0</value>
-        <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-      </greater-than>
-    </condition>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <factor>5800</factor>
-    <step>0.000017241379</step>
+    <object-name>vs-digit2-minus</object-name>
+    <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+    <factor>-0.0001</factor>
+    <step>1000.0</step>
+    <offset>1000.0</offset>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>textranslate</type>
-    <object-name>vs-digit4-minus</object-name>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <condition>
-      <greater-than>
-        <value>0</value>
-        <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-      </greater-than>
-    </condition>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <factor>580</factor>
-    <step>0.00017241379</step>
-    <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
 
   <animation>
     <type>textranslate</type>
     <object-name>vs-digit3-minus</object-name>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <condition>
-      <greater-than>
-        <value>0</value>
-        <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-      </greater-than>
-    </condition>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <factor>58</factor>
-    <step>0.0017241379</step>
+    <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+    <factor>-0.001</factor>
+    <step>100.0</step>
+    <offset>100.0</offset>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
 
   <animation>
     <type>textranslate</type>
-    <object-name>vs-digit2-minus</object-name>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <condition>
-      <greater-than>
-        <value>0</value>
-        <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-      </greater-than>
-    </condition>
-    <property>/autopilot/KAP140/settings/target-pressure-rate</property>
-    <factor>5.8</factor>
-    <step>0.017241379</step>
+    <object-name>vs-digit4-minus</object-name>
+    <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+    <factor>-0.01</factor>
+    <step>10.0</step>
+    <offset>10.0</offset>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>vs-digit5-minus</object-name>
+    <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
+    <factor>-0.1</factor>
+    <step>1.0</step>
+    <offset>1.0</offset>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
 
@@ -691,6 +695,50 @@
         <property>/autopilot/KAP140/annunciators/alt-number</property>
         <value type="bool">true</value>
       </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>alt-digit1</object-name>
+    <condition>
+      <greater-than>
+        <property>/autopilot/KAP140/settings/target-alt-ft</property>
+        <value>9999</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>alt-digit2</object-name>
+    <condition>
+      <greater-than>
+        <property>/autopilot/KAP140/settings/target-alt-ft</property>
+        <value>999</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>alt-digit3</object-name>
+    <condition>
+      <greater-than>
+        <property>/autopilot/KAP140/settings/target-alt-ft</property>
+        <value>99</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>alt-digit4</object-name>
+    <condition>
+      <greater-than>
+        <property>/autopilot/KAP140/settings/target-alt-ft</property>
+        <value>9</value>
+      </greater-than>
     </condition>
   </animation>
 
@@ -803,7 +851,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>hpa-digit3</object-name>
+    <object-name>hpa-digit4</object-name>
     <property>/autopilot/KAP140/settings/baro-setting-hpa</property>
     <factor>10</factor>
     <step> 0.0100 </step>
@@ -817,7 +865,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>hpa-digit4</object-name>
+    <object-name>hpa-digit5</object-name>
     <property>/autopilot/KAP140/settings/baro-setting-hpa</property>
     <factor>100</factor>
     <step> 0.0010 </step>

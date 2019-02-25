@@ -85,10 +85,10 @@
 
   <animation>
     <type>material</type>
-    <object-name>ant.annun</object-name>
-    <object-name>adf.annun</object-name>
     <object-name>in-use-leds</object-name>
     <object-name>standby-leds</object-name>
+    <object-name>ant.annun</object-name>
+    <object-name>adf.annun</object-name>
     <object-name>bfo.annun</object-name>
     <object-name>frq.annun</object-name>
     <object-name>flt.annun</object-name>
@@ -112,6 +112,7 @@
     <object-name>frq.annun</object-name>
     <object-name>flt.annun</object-name>
     <object-name>et.annun</object-name>
+    <object-name>stby</object-name>
     <condition>
       <and>
         <property>instrumentation/adf[0]/power-btn</property>
@@ -127,13 +128,10 @@
     <type>select</type>
     <object-name>freq.001</object-name>
     <condition>
-      <and>
-        <property>instrumentation/adf[0]/power-btn</property>
-        <greater-than>
-          <property>instrumentation/adf[0]/frequencies/selected-khz</property>
-          <value>999</value>
-        </greater-than>
-      </and>
+      <greater-than>
+        <property>instrumentation/adf[0]/frequencies/selected-khz</property>
+        <value>999</value>
+      </greater-than>
     </condition>
   </animation>
 
@@ -141,19 +139,21 @@
     <type>select</type>
     <object-name>stby.001</object-name>
     <condition>
-      <and>
-        <property>instrumentation/adf[0]/power-btn</property>
-        <or>
-          <greater-than>
-            <property>instrumentation/adf[0]/frequencies/standby-khz</property>
-            <value>999</value>
-          </greater-than>
-          <equals>
-            <property>instrumentation/kr-87/modes/stby</property>
-            <value>1</value>
-          </equals>
-        </or>
-      </and>
+      <greater-than>
+        <property>instrumentation/adf[0]/right-display</property>
+        <value>999</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>stby.002</object-name>
+    <condition>
+      <greater-than>
+        <property>instrumentation/adf[0]/right-display</property>
+        <value>99</value>
+      </greater-than>
     </condition>
   </animation>
 
@@ -161,17 +161,7 @@
     <type>select</type>
     <object-name>stby</object-name>
     <condition>
-      <and>
-        <property>instrumentation/adf[0]/power-btn</property>
-        <greater-than>
-          <property>systems/electrical/outputs/adf</property>
-          <value>18</value>
-        </greater-than>
-        <greater-than>
-          <property>instrumentation/kr-87/modes/stby</property>
-          <value>0</value>
-        </greater-than>
-      </and>
+      <property>instrumentation/adf[0]/display-mode</property>
     </condition>
   </animation>
 

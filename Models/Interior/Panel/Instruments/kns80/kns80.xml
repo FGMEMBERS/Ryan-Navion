@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!-- KNS 80 
+<!-- KNS 80
      Bendix/King VOR/LOC/GS/DME/RVAV Integrated NAV System
      Syd Adams
 -->
 <PropertyList>
-  
+
   <path>kns80.ac</path>
-  
+
   <animation>
     <object-name>KNS80.bezel</object-name>
     <object-name>KNS80.display</object-name>
@@ -46,22 +46,23 @@
     <object-name>dist.102</object-name>
     <object-name>dist.103</object-name>
     <object-name>dist.annun</object-name>
+    <object-name>vor.annun</object-name>
     <object-name>par.annun</object-name>
     <object-name>enr.annun</object-name>
     <object-name>hld.annun</object-name>
     <object-name>ils.annun</object-name>
     <object-name>apr.annun</object-name>
     <object-name>dme.invalid</object-name>
-    
+
     <object-name>KNS80.vitre</object-name>
   </animation>
-  
+
   <!-- working for Rembrandt -->
   <effect>
     <inherits-from>Aircraft/Ryan-Navion//Models/Effects/Glass/glass</inherits-from>
     <object-name>KNS80.vitre</object-name>
   </effect>
-  
+
   <animation>
     <type>material</type>
     <object-name>nm.101</object-name>
@@ -74,6 +75,7 @@
     <object-name>min.102</object-name>
     <object-name>annun.nm</object-name>
     <object-name>use.digit</object-name>
+    <object-name>display.digit</object-name>
     <object-name>navfreq.101</object-name>
     <object-name>navfreq.102</object-name>
     <object-name>navfreq.103</object-name>
@@ -89,6 +91,13 @@
     <object-name>dist.102</object-name>
     <object-name>dist.103</object-name>
     <object-name>dist.annun</object-name>
+    <object-name>vor.annun</object-name>
+    <object-name>par.annun</object-name>
+    <object-name>enr.annun</object-name>
+    <object-name>hld.annun</object-name>
+    <object-name>ils.annun</object-name>
+    <object-name>apr.annun</object-name>
+    <object-name>dme.invalid</object-name>
     <emission>
       <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
       <red>   2 </red>
@@ -96,7 +105,7 @@
       <blue>  2 </blue>
     </emission>
   </animation>
-  
+
   <animation>
     <type>material</type>
     <object-name>VOR.btn</object-name>
@@ -115,7 +124,44 @@
       <blue>  0.25 </blue>
     </emission>
   </animation>
-  
+
+  <animation>
+    <name>illumination</name>
+    <object-name>nm.101</object-name>
+    <object-name>nm.102</object-name>
+    <object-name>nm.103</object-name>
+    <object-name>kt.101</object-name>
+    <object-name>kt.102</object-name>
+    <object-name>kt.103</object-name>
+    <object-name>min.101</object-name>
+    <object-name>min.102</object-name>
+    <object-name>annun.nm</object-name>
+    <object-name>use.digit</object-name>
+    <object-name>display.digit</object-name>
+    <object-name>navfreq.101</object-name>
+    <object-name>navfreq.102</object-name>
+    <object-name>navfreq.103</object-name>
+    <object-name>navfreq.104</object-name>
+    <object-name>navfreq.105</object-name>
+    <object-name>freq.annun</object-name>
+    <object-name>radial.101</object-name>
+    <object-name>radial.102</object-name>
+    <object-name>radial.103</object-name>
+    <object-name>radial.104</object-name>
+    <object-name>radial.annun</object-name>
+    <object-name>dist.101</object-name>
+    <object-name>dist.102</object-name>
+    <object-name>dist.103</object-name>
+    <object-name>dist.annun</object-name>
+    <object-name>vor.annun</object-name>
+    <object-name>par.annun</object-name>
+    <object-name>enr.annun</object-name>
+    <object-name>hld.annun</object-name>
+    <object-name>ils.annun</object-name>
+    <object-name>apr.annun</object-name>
+    <object-name>dme.invalid</object-name>
+  </animation>
+
   <animation>
     <name>dme-on</name>
     <object-name>nm.101</object-name>
@@ -127,13 +173,7 @@
     <object-name>min.101</object-name>
     <object-name>min.102</object-name>
   </animation>
-  
-  <animation>
-    <name>illumination</name>
-    <object-name>annun.nm</object-name>
-    <object-name>use.digit</object-name>
-  </animation>
-  
+
   <animation>
     <name>frequencies</name>
     <object-name>navfreq.101</object-name>
@@ -143,7 +183,7 @@
     <object-name>navfreq.105</object-name>
     <object-name>freq.annun</object-name>
   </animation>
-  
+
   <animation>
     <name>radials</name>
     <object-name>radial.101</object-name>
@@ -152,7 +192,7 @@
     <object-name>radial.104</object-name>
     <object-name>radial.annun</object-name>
   </animation>
-  
+
   <animation>
     <name>distance</name>
     <object-name>dist.101</object-name>
@@ -160,7 +200,7 @@
     <object-name>dist.103</object-name>
     <object-name>dist.annun</object-name>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>illumination</object-name>
@@ -174,213 +214,132 @@
       </and>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>display.digit</object-name>
     <condition>
-      <and>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
-        <equals>
-          <property>instrumentation/kns-80/dsp-state/state</property>
-          <value>0</value>
-        </equals>
-      </and>
+      <equals>
+        <property>instrumentation/kns-80/dsp-state/state</property>
+        <value>0</value>
+      </equals>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>frequencies</object-name>
     <condition>
-      <and>
-        <property>instrumentation/kns-80/serviceable</property>
-        <equals>
-          <property>instrumentation/kns-80/data-mode</property>
-          <value>0</value>
-        </equals>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
-      </and>
+      <equals>
+        <property>instrumentation/kns-80/data-mode</property>
+        <value>0</value>
+      </equals>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>radials</object-name>
     <condition>
-      <and>
-        <property>instrumentation/kns-80/serviceable</property>
-        <equals>
-          <property>instrumentation/kns-80/data-mode</property>
-          <value>1</value>
-        </equals>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
-      </and>
+      <equals>
+        <property>instrumentation/kns-80/data-mode</property>
+        <value>1</value>
+      </equals>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>distance</object-name>
     <condition>
-      <and>
-        <property>instrumentation/kns-80/serviceable</property>
-        <equals>
-          <property>instrumentation/kns-80/data-mode</property>
-          <value>2</value>
-        </equals>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
-      </and>
+      <equals>
+        <property>instrumentation/kns-80/data-mode</property>
+        <value>2</value>
+      </equals>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>dme.invalid</object-name>
     <condition>
-      <and>
-        <property>instrumentation/kns-80/serviceable</property>
-        <not>
-          <property>instrumentation/dme/in-range</property>
-        </not>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
-      </and>
+      <not>
+        <property>instrumentation/dme/in-range</property>
+      </not>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>dme-on</object-name>
     <condition>
-      <and>
-        <property>instrumentation/kns-80/serviceable</property>
-        <property>instrumentation/dme/in-range</property>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
-      </and>
+      <property>instrumentation/dme/in-range</property>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>vor.annun</object-name>
     <condition>
-      <and>
-        <property>instrumentation/kns-80/serviceable</property>
-        <equals>
-          <property>instrumentation/kns-80/nav-mode</property>
-          <value>0</value>
-        </equals>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
-      </and>
+      <equals>
+        <property>instrumentation/kns-80/nav-mode</property>
+        <value>0</value>
+      </equals>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>par.annun</object-name>
     <condition>
-      <and>
-        <property>instrumentation/kns-80/serviceable</property>
-        <equals>
-          <property>instrumentation/kns-80/nav-mode</property>
-          <value>1</value>
-        </equals>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
-      </and>
+      <equals>
+        <property>instrumentation/kns-80/nav-mode</property>
+        <value>1</value>
+      </equals>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>enr.annun</object-name>
     <condition>
-      <and>
-        <property>instrumentation/kns-80/serviceable</property>
-        <equals>
-          <property>instrumentation/kns-80/nav-mode</property>
-          <value>2</value>
-        </equals>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
-      </and>
+      <equals>
+        <property>instrumentation/kns-80/nav-mode</property>
+        <value>2</value>
+      </equals>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>apr.annun</object-name>
     <condition>
-      <and>
-        <property>instrumentation/kns-80/serviceable</property>
-        <equals>
-          <property>instrumentation/kns-80/nav-mode</property>
-          <value>3</value>
-        </equals>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
-      </and>
+      <equals>
+        <property>instrumentation/kns-80/nav-mode</property>
+        <value>3</value>
+      </equals>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>hld.annun</object-name>
     <condition>
-      <and>
-        <property>instrumentation/kns-80/serviceable</property>
-        <property>instrumentation/kns-80/dme-hold</property>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
-      </and>
+      <property>instrumentation/kns-80/dme-hold</property>
     </condition>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>ils.annun</object-name>
     <condition>
       <and>
-        <property>instrumentation/kns-80/serviceable</property>
         <property>instrumentation/nav/nav-loc</property>
         <property>instrumentation/nav/in-range</property>
-        <greater-than>
-          <property>systems/electrical/outputs/KNS80</property>
-          <value>1</value>
-        </greater-than>
       </and>
     </condition>
   </animation>
-  
+
   <animation>
     <type>rotate</type>
     <object-name>KNS80.volume</object-name>
@@ -400,7 +359,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>translate</type>
     <object-name>KNS80.volume</object-name>
@@ -417,7 +376,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <!--    Frequency   -->
   <animation>
     <type>textranslate</type>
@@ -431,7 +390,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>navfreq.102</object-name>
@@ -444,7 +403,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>navfreq.103</object-name>
@@ -457,7 +416,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>navfreq.104</object-name>
@@ -470,7 +429,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>navfreq.105</object-name>
@@ -483,7 +442,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <!--    Radials     -->
   <animation>
     <type>textranslate</type>
@@ -497,7 +456,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>radial.102</object-name>
@@ -510,7 +469,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>radial.103</object-name>
@@ -523,9 +482,9 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <!--    Distance    -->
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>dist.101</object-name>
@@ -539,7 +498,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>dist.102</object-name>
@@ -553,7 +512,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>dist.103</object-name>
@@ -567,7 +526,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <!--    DME     -->
   <animation>
     <type>textranslate</type>
@@ -582,7 +541,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>nm.102</object-name>
@@ -596,7 +555,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>nm.103</object-name>
@@ -610,7 +569,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>kt.101</object-name>
@@ -623,7 +582,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>kt.102</object-name>
@@ -636,7 +595,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>kt.103</object-name>
@@ -649,7 +608,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>min.101</object-name>
@@ -662,7 +621,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>min.102</object-name>
@@ -675,7 +634,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <!--    USED / DISPLAYED WAYPOINTS      -->
   <animation>
     <type>textranslate</type>
@@ -689,7 +648,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>textranslate</type>
     <object-name>display.digit</object-name>
@@ -702,7 +661,7 @@
       <z>0</z>
     </axis>
   </animation>
-  
+
   <!--    OSG hotspots    -->
   <animation>
     <type>pick</type>
@@ -718,7 +677,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>Vol.increase</object-name>
@@ -733,7 +692,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>Set.decrease</object-name>
@@ -748,7 +707,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>Set.increase</object-name>
@@ -763,7 +722,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>Set.decrease</object-name>
@@ -778,7 +737,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>Set.increase</object-name>
@@ -793,7 +752,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>HOLD.btn</object-name>
@@ -806,7 +765,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>USE.btn</object-name>
@@ -820,7 +779,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>DSP.btn</object-name>
@@ -837,7 +796,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>DATA.btn</object-name>
@@ -854,7 +813,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>KNS80.volume</object-name>
@@ -867,7 +826,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>VOR.btn</object-name>
@@ -889,7 +848,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>RNAV.btn</object-name>
@@ -907,5 +866,5 @@
       </binding>
     </action>
   </animation>
-  
+
 </PropertyList>

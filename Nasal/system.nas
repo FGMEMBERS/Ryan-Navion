@@ -41,11 +41,11 @@ var fuel_switch = func(rotDir) {
   node = props.globals.getNode("consumables/fuel/tank[3]/selected",0);
   #node.setBoolValue(0);
 
-  val = getprop("controls[1]/fuel/switch-position");
+  val = getprop("controls/fuel/switch-position");
   test = rotDir + val;
   if(test > 4){test=0};
   if(test < 0){test=4};
-  setprop("controls[1]/fuel/switch-position",test);
+  setprop("controls/fuel/switch-position",test);
   if(test == 1){
     node = props.globals.getNode("consumables/fuel/tank[0]/selected",0);
     node.setBoolValue(1);
@@ -80,7 +80,7 @@ var fuel_switch = func(rotDir) {
   }
 }
 
-setprop("controls[1]/fuel/switch-position", -1);
+setprop("controls/fuel/switch-position", -1);
 fuel_switch(1);
 
 var baggageToggle = func {
@@ -337,7 +337,7 @@ var WaspJr = Engine.new(0);
 controls.flapsDown = func(switchPosition) {
     setprop("controls/switches/flaps", switchPosition);
 #    print("switchPosition = ", switchPosition);
-    if(getprop("systems/electrical/outputs/flaps") < 8.0) { return; }
+    if(getprop("systems/electrical/volts") < 8.0) { return; }
     if (switchPosition == 1) {
         if ( getprop('/controls/flight/flaps') < 1 ) {
             interpolate('/controls/flight/flaps', 1, (5*(1-getprop('/controls/flight/flaps'))));

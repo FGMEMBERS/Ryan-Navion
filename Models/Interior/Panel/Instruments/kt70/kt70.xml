@@ -116,8 +116,9 @@
   <animation>
     <type>textranslate</type>
     <object-name>digit1</object-name>
-    <property>instrumentation/transponder/inputs/digit[3]</property>
-    <factor>0.1</factor>
+    <property>instrumentation/transponder/id-code-disp</property>
+    <factor>0.0001</factor>
+    <step>1000</step>
     <axis>
       <x> 1 </x>
       <y> 0 </y>
@@ -128,8 +129,9 @@
   <animation>
     <type>textranslate</type>
     <object-name>digit2</object-name>
-    <property>instrumentation/transponder/inputs/digit[2]</property>
-    <factor>0.1</factor>
+    <property>instrumentation/transponder/id-code-disp</property>
+    <factor>0.001</factor>
+    <step>100</step>
     <axis>
       <x> 1 </x>
       <y> 0 </y>
@@ -140,8 +142,9 @@
   <animation>
     <type>textranslate</type>
     <object-name>digit3</object-name>
-    <property>instrumentation/transponder/inputs/digit[1]</property>
-    <factor>0.1</factor>
+    <property>instrumentation/transponder/id-code-disp</property>
+    <factor>0.01</factor>
+    <step>10</step>
     <axis>
       <x> 1 </x>
       <y> 0 </y>
@@ -152,8 +155,9 @@
   <animation>
     <type>textranslate</type>
     <object-name>digit4</object-name>
-    <property>instrumentation/transponder/inputs/digit[0]</property>
+    <property>instrumentation/transponder/id-code-disp</property>
     <factor>0.1</factor>
+    <step>1</step>
     <axis>
       <x> 1 </x>
       <y> 0 </y>
@@ -165,7 +169,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt-dig-1</object-name>
-    <property>instrumentation/transponder/altitude</property>
+    <property>instrumentation/transponder/altitude-disp</property>
     <factor>0.001</factor>
     <step>100</step>
     <axis>
@@ -178,7 +182,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt-dig-2</object-name>
-    <property>instrumentation/transponder/altitude</property>
+    <property>instrumentation/transponder/altitude-disp</property>
     <factor>0.01</factor>
     <step>10</step>
     <axis>
@@ -191,7 +195,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt-dig-3</object-name>
-    <property>instrumentation/transponder/altitude</property>
+    <property>instrumentation/transponder/altitude-disp</property>
     <factor>0.1</factor>
     <step>1</step>
     <axis>
@@ -277,7 +281,7 @@
       <or>
         <greater-than>
           <property>instrumentation/transponder/altitude</property>
-          <value>9999</value>
+          <value>999</value>
         </greater-than>
         <equals>
           <property>instrumentation/transponder/inputs/func-knob</property>

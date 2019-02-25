@@ -5,7 +5,7 @@
   <sim include="Systems/views.xml">
 
     <author>Emmanuel BARANGER (3D/FDM) / Samaliet (Panel/System)</author>
-    <aircraft-version>0.3</aircraft-version>
+    <aircraft-version>0.3.3</aircraft-version>
     <status>Alpha</status>
 
     <fuel-fraction> 1 </fuel-fraction>
@@ -29,10 +29,29 @@
       <hide-cable>false</hide-cable>
     </model>
 
+    <systems>
+      <path>Aircraft/Ryan-Navion/Systems/systems.xml</path>
+      <autopilot>
+        <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kap140/autopilot/KAP140.xml</path>
+      </autopilot>
+      <property-rule n="100">
+        <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kap140/autopilot/NAVandGSfilters.xml</path>
+      </property-rule>
+      <property-rule n="101">
+        <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kr87-adf/ki227-filter.xml</path>
+      </property-rule>
+      <property-rule n="102">
+        <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kfc200/ki252a-filter.xml</path>
+      </property-rule>
+      <property-rule n="103">
+        <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kt70/kt70-filter.xml</path>
+      </property-rule>
+    </systems>
+
     <instrumentation>
       <path>Aircraft/Ryan-Navion/Systems/instrumentation.xml</path>
     </instrumentation>
-    
+
     <multiplay>
       <chat_display>1</chat_display>
       <generic> 
@@ -52,9 +71,9 @@
         <float n="3"  alias="/position/altitude-ft"> 0 </float>                     <!-- altitude for Smoke/Trail -->
         <float n="4"  alias="/engines/engine[0]/rpm"/>
         <float n="5"  alias="/engines/engine[0]/cranking"/>
-        <float n="6"  alias="/gear/gear[0]/wow/"/>
-        <float n="7"  alias="/gear/gear[1]/wow/"/>
-        <float n="8"  alias="/gear/gear[2]/wow/"/>
+        <float n="6"  alias="/gear/gear[0]/wow"/>
+        <float n="7"  alias="/gear/gear[1]/wow"/>
+        <float n="8"  alias="/gear/gear[2]/wow"/>
         <float n="9"  alias="/gear/gear[0]/rollspeed-ms"/>
         <float n="10" alias="/gear/gear[1]/rollspeed-ms"/>
         <float n="11" alias="/gear/gear[2]/rollspeed-ms"/>
@@ -63,9 +82,9 @@
         <string n="9" type="string" />
       </generic>
     </multiplay>
-    
+
     <help include="Systems/help.xml"/>
-    
+
     <navion>
       <state type="int">0</state>
       <airspeed-kmh type="float">0.0</airspeed-kmh>
@@ -105,18 +124,17 @@
 
   </sim>
 
+  <controls>
+    <engines>
+      <engine n="0">
+        <rpm type="float">0.0</rpm>
+      </engine>
+    </engines>
+  </controls>
+
   <input>
     <keyboard include="Systems/navion-keyboard.xml"/>
   </input>
-
-  <systems>
-    <electrical>
-      <outputs>
-        <KNS80 type="string">28</KNS80>
-        <comm type="string">28</comm>
-      </outputs>
-    </electrical>
-  </systems>
 
   <instrumentation>
     <elt>
@@ -124,36 +142,21 @@
       <armed type="bool">true</armed>
       <test type="bool">false</test>
     </elt>
-    <encoder>
-      <serviceable type="bool">1</serviceable>
-      <name>encoder</name>
-      <number>0</number>
-    </encoder>
-    <comm n="0">
-      <power-btn type="bool">false</power-btn>
-      <volume type="double">0</volume>
-    </comm>
-    <nav n="0">
-      <power-btn type="bool">false</power-btn>
-      <volume type="double">0</volume>
-    </nav>
-    <adf n="0">      
-      <power-btn type="bool">false</power-btn>
-      <volume type="double">0</volume>
-      <adf-btn type="bool">true</adf-btn>
+    <adf n="0">
+      <last-receive type="double">0.0</last-receive>
     </adf>
-    <dme>
-      <name>dme</name>
-      <number>0</number>
-    </dme>     
-    <nav-radio>
-      <name>nav</name>
-      <number>0</number>
-    </nav-radio>
+    <nav n="0">
+      <heading-needle-deflection-ils type="double">0.0</heading-needle-deflection-ils>
+      <heading-needle-deflection-disp type="double">0.0</heading-needle-deflection-disp>
+    </nav>
+    <transponder n="0">
+      <altitude-disp type="int">0</altitude-disp>
+      <id-code-disp type="int">0</id-code-disp>
+    </transponder>
   </instrumentation>
 
   <engines>
-    <engine>
+    <engine n="0">
       <rpm type="float">0.0</rpm>
     </engine>
   </engines>
@@ -166,22 +169,21 @@
       <file>Aircraft/Ryan-Navion/Nasal/liveries.nas</file>
       <file>Aircraft/Ryan-Navion/Nasal/light.nas</file>
       <file>Aircraft/Ryan-Navion/Nasal/Electrical.nas</file>
+      <file>Aircraft/Ryan-Navion/Nasal/system.nas</file>
     </navion>
     <kns80>
       <file>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kns80/kns80.nas</file>
     </kns80>
     <kap140>
-      <file>Aircraft/Lancair-235/Models/Interior/Panel/Instruments/kap140/autopilot/kap140.nas</file>
+      <file>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kap140/autopilot/kap140.nas</file>
       <!-- We can set some variables that might be
       aircraft specific. We must do it after the file
       to override the ones that are in the .nas file.
       gsNeedleDeflection = "/instrumentation/nav/gs-needle-deflection";
-      -->
       <script>
-        <![CDATA[ 
-        staticPressure = "systems/static/pressure-inhg";
-        ]]>
+        <![CDATA[staticPressure = getprop('/systems/static/pressure-inhg');]]>
       </script>
+      -->
     </kap140>
     <kr87>
       <file>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kr87-adf/kr87.nas</file>

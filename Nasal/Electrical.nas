@@ -181,17 +181,9 @@ init_switches = func() {
     append(output_list,"dme");
     append(watt_list,0.2);
 
-    append(switch_list,"controls/electric/avionics-switch");
-    append(output_list,"adf");
-    append(watt_list,0.2);
-
 #    append(switch_list,"controls/electric/avionics-switch");
 #    append(output_list,"gps");
 #    append(watt_list,0.5);
-
-    append(switch_list,"controls/electric/avionics-switch");
-    append(output_list,"adf");
-    append(watt_list,0.2);
 
     append(switch_list,"controls/electric/avionics-switch");
     append(output_list,"DG");
@@ -214,26 +206,34 @@ init_switches = func() {
     append(watt_list,0.2);
 
     append(switch_list,"controls/electric/avionics-switch");
-    append(output_list,"comm");
+    append(output_list,"comm[0]");
+    append(watt_list,0.2);
+
+#    append(switch_list,"controls/electric/avionics-switch");
+#    append(output_list,"comm[1]");
+#    append(watt_list,0.2);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"nav[0]");
+    append(watt_list,0.2);
+
+#    append(switch_list,"controls/electric/avionics-switch");
+#    append(output_list,"nav[1]");
+#    append(watt_list,0.2);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"autopilot");
     append(watt_list,0.2);
 
     append(switch_list,"controls/electric/avionics-switch");
-    append(output_list,"comm[1]");
-    append(watt_list,0.2);
-
-    append(switch_list,"controls/electric/avionics-switch");
-    append(output_list,"nav");
-    append(watt_list,0.2);
-
-    append(switch_list,"controls/electric/avionics-switch");
-    append(output_list,"nav[1]");
+    append(output_list,"KNS80");
     append(watt_list,0.2);
 
     for(var i=0; i<size(switch_list); i+=1) {
         var tmp = props.globals.getNode(switch_list[i],1);
         tmp.setBoolValue(0);
     }
-setprop("controls/electric/avionics-switch",1);
+    setprop("controls/electric/avionics-switch",1);
 }
 
 update_virtual_bus = func( dt ) {
@@ -246,7 +246,7 @@ update_virtual_bus = func( dt ) {
     load = 0.0;
     bus_volts = 0.0;
     power_source = nil;
-        
+
         bus_volts = battery_volts;
         power_source = "battery";
 
@@ -279,8 +279,8 @@ update_virtual_bus = func( dt ) {
 
     ammeter_ave = 0.8 * ammeter_ave + 0.2 * ammeter;
 
-   Amps.setValue(ammeter_ave);
-   Volts.setValue(bus_volts);
+    Amps.setValue(ammeter_ave);
+    Volts.setValue(bus_volts);
     alternator1.apply_load(load);
 
 return load;
