@@ -236,7 +236,7 @@ var apInit = func {
   annunciatorAp.getNode("state").setBoolValue(0);
   annunciatorBeep.setBoolValue(0);
 
-#  settimer(altAlert, 5.0);
+  settimer(altAlert, 5.0);
 }
 
 var apPower = func {
@@ -256,7 +256,7 @@ var apPower = func {
     # autopilot just powered up
     print("power up");
     apInit();
-    # altAlert();                # Consol error
+    altAlert();
   } elsif (valueTest < -0.5) {
     # autopilot just lost power
     print("power lost");
@@ -1179,8 +1179,7 @@ var altButton = func {
     annunciatorVsNumber.setBoolValue(0);
     annunciatorAltNumber.setBoolValue(1);
 
-    var altPressure = getprop(staticPressure);
-    settingTargetAltPressure.setDoubleValue(altPressure);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(settingTargetAltFt.getValue() * 0.3048, baroSettingInhg)); # settingBaroSettingInhg.getValue()
   }
 }
 
@@ -1212,8 +1211,9 @@ var downButton = func {
     }
     elsif (lockPitchMode.getValue() == pitchModes["ALT"])
     {
-      var targetPressure = getprop(settings, "target-alt-pressure");
-      settingTargetAltPressure.setDoubleValue(targetPressure + 0.0206);
+      var AltFt = settingTargetAltFt.getValue() - 100;
+      settingTargetAltFt.setDoubleValue(AltFt);
+      settingTargetAltPressure.setDoubleValue(heightToPressure(AltFt * 0.3048, baroSettingInhg)); # settingBaroSettingInhg.getValue()
     }
   }
 }
@@ -1246,8 +1246,9 @@ var upButton = func {
     }
     elsif (lockPitchMode.getValue() == pitchModes["ALT"])
     {
-      var targetPressure = getprop(settings, "target-alt-pressure");
-      settingTargetAltPressure.setDoubleValue(targetPressure - 0.0206);
+      var AltFt = settingTargetAltFt.getValue() + 100;
+      settingTargetAltFt.setDoubleValue(AltFt);
+      settingTargetAltPressure.setDoubleValue(heightToPressure(AltFt * 0.3048, baroSettingInhg)); # settingBaroSettingInhg.getValue()
     }
   }
 }
@@ -1305,6 +1306,24 @@ var baroButtonPress = func {
   if (getprop(power) < minVoltageLimit) { return; }
 
   if (baroButtonDown == 0 and
+      baroTimerRunning == 1 and
+      altButtonTimerRunning == 0)
+  {
+    baroSettingAdjusting = 1;
+    if (baroSettingUnit == pressureUnits["inHg"])
+    {
+      baroSettingUnit = pressureUnits["hPa"];
+      annunciatorBsInhgNumber.setBoolValue(0);
+      annunciatorBsHpaNumber.setBoolValue(1);
+    }
+    elsif (baroSettingUnit == pressureUnits["hPa"])
+    {
+      baroSettingUnit = pressureUnits["inHg"];
+      annunciatorBsInhgNumber.setBoolValue(1);
+      annunciatorBsHpaNumber.setBoolValue(0);
+    }
+  }
+  elsif (baroButtonDown == 0 and
       baroTimerRunning == 0 and
       altButtonTimerRunning == 0)
   {
@@ -1381,14 +1400,12 @@ var altAlert = func {
   # Disable button if too little power
   if (getprop(power) < minVoltageLimit) { return; }
 
-  var pressureAltitude = getprop(encoder, "pressure-alt-ft");
-
   if (baroChange) {
-    baroOffset = pressureToHeight(baroSettingInhg, 29.921260);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(altPreselect * 0.3048, baroSettingInhg)); # settingBaroSettingInhg.getValue()
     baroChange = 0;
   }
 
-  var altFt = pressureAltitude - baroOffset;
+  var altFt = pressureToHeight(getprop(staticPressure), baroSettingInhg);
   var prevAltDifference = altDifference;
   altDifference = abs(altPreselect - altFt);
 
@@ -1430,9 +1447,6 @@ var altAlert = func {
           annunciatorVs.setBoolValue(0);
           annunciatorVsNumber.setBoolValue(0);
           annunciatorAltNumber.setBoolValue(1);
-
-          var altPressure = getprop(staticPressure);
-          settingTargetAltPressure.setDoubleValue(altPressure);
         }
 
         altAlertFlasher.blink(1).switch(0).switch(1);
@@ -1497,6 +1511,7 @@ var knobSmallUp = func {
     altCaptured = 0;
     altPreselect = altPreselect + 20;
     settingTargetAltFt.setDoubleValue(altPreselect);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(altPreselect * 0.3048, baroSettingInhg));
 
     if (lockRollMode.getValue() == rollModes["OFF"] and
         lockPitchMode.getValue() == pitchModes["OFF"])
@@ -1539,6 +1554,7 @@ var knobLargeUp = func {
     altCaptured = 0;
     altPreselect = altPreselect + 100;
     settingTargetAltFt.setDoubleValue(altPreselect);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(altPreselect * 0.3048, baroSettingInhg));
 
     if (lockRollMode.getValue() == rollModes["OFF"] and
         lockPitchMode.getValue() == pitchModes["OFF"])
@@ -1581,6 +1597,7 @@ var knobSmallDown = func {
     altCaptured = 0;
     altPreselect = altPreselect - 20;
     settingTargetAltFt.setDoubleValue(altPreselect);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(altPreselect * 0.3048, baroSettingInhg));
 
     if (lockRollMode.getValue() == rollModes["OFF"] and
         lockPitchMode.getValue() == pitchModes["OFF"])
@@ -1623,6 +1640,7 @@ var knobLargeDown = func {
     altCaptured = 0;
     altPreselect = altPreselect - 100;
     settingTargetAltFt.setDoubleValue(altPreselect);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(altPreselect * 0.3048, baroSettingInhg));
 
     if (lockRollMode.getValue() == rollModes["OFF"] and
         lockPitchMode.getValue() == pitchModes["OFF"])
@@ -1640,6 +1658,7 @@ var knobLargeDown = func {
     }
   }
 }
+
 
 var L = setlistener(power, func {
   apPower();

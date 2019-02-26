@@ -126,12 +126,23 @@
     <name>Heading Select (HDG) Mode</name>
     <debug>false</debug>
     <enable>
-      <prop>/autopilot/KAP140/locks/hdg-hold</prop>
-      <value type="bool">true</value>
+      <property>/autopilot/KAP140/locks/hdg-hold</property>
     </enable>
+
     <input>
-      <prop>/autopilot/internal/heading-bug-error-deg</prop>
+      <condition>
+        <not><property>/autopilot/KAP140/locks/nav-hold</property></not>
+      </condition>
+      <property>/autopilot/internal/heading-bug-error-deg</property>
     </input>
+
+    <input>
+      <condition>
+        <property>/autopilot/KAP140/locks/nav-hold</property>
+      </condition>
+      <property>/autopilot/internal/nav1-course-error</property>
+    </input>
+
     <reference>
       <prop>/autopilot/KAP140/settings/target-intercept-angle</prop>
     </reference>

@@ -58,30 +58,31 @@
     </emission>
   </animation>
 
-  <!-- 	KI-525A -->	 
+  <!--  KI-525A  -->
   <animation>
     <type>rotate</type>
+    <object-name>KI252a.compass</object-name>
     <object-name>KI252a.kfc-hdgbug</object-name>
-    <property>autopilot/internal/fdm-heading-bug-error-deg</property>
-    <axis>
-      <x> -1 </x>
-      <y>  0 </y>
-      <z>  0 </z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>rotate</type>
     <object-name>KI252a.kfc-crs</object-name>
     <object-name>KI252a.kfc-crs2</object-name>
     <object-name>KI252a.To-flag</object-name>
     <object-name>KI252a.From-flag</object-name>
-    <object-name>KI252a.compass</object-name>
     <property>instrumentation/heading-indicator/indicated-heading-deg</property>
     <axis>
       <x> 1 </x>
       <y> 0 </y>
       <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>KI252a.kfc-hdgbug</object-name>
+    <property>autopilot/settings/heading-bug-deg</property>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
     </axis>
   </animation>
 
@@ -98,7 +99,7 @@
       <z>  0 </z>
     </axis>
   </animation>
- 
+
   <animation>
     <type>translate</type>
     <object-name>KI252a.kfc-crs2</object-name>
