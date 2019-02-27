@@ -497,7 +497,7 @@
         </equals>
         <greater-than>
           <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
-          <value>-0.5</value>
+          <value>-1</value>
         </greater-than>
       </and>
     </condition>
@@ -514,7 +514,7 @@
         </equals>
         <less-than>
           <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
-          <value>-0.5</value>
+          <value>0</value>
         </less-than>
       </and>
     </condition>
@@ -634,7 +634,6 @@
     <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
     <factor>-0.0001</factor>
     <step>1000.0</step>
-    <offset>1000.0</offset>
     <axis>
       <x>1</x>
       <y>0</y>
@@ -648,7 +647,6 @@
     <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
     <factor>-0.001</factor>
     <step>100.0</step>
-    <offset>100.0</offset>
     <axis>
       <x>1</x>
       <y>0</y>
@@ -662,7 +660,6 @@
     <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
     <factor>-0.01</factor>
     <step>10.0</step>
-    <offset>10.0</offset>
     <axis>
       <x>1</x>
       <y>0</y>
@@ -676,7 +673,6 @@
     <property>/autopilot/KAP140/settings/target-pressure-rate-fpm</property>
     <factor>-0.1</factor>
     <step>1.0</step>
-    <offset>1.0</offset>
     <axis>
       <x>1</x>
       <y>0</y>

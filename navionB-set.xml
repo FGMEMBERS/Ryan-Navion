@@ -8,7 +8,7 @@
     <status>Alpha</status>
     <flight-model archive="y">yasim</flight-model>
     <aero archive="y">navionB-yasim</aero>
-    <variant-of>Ryan-Navion</variant-of>
+    <variant-of>navionA</variant-of>
 
     <rating>
       <FDM type="int">     3 </FDM>

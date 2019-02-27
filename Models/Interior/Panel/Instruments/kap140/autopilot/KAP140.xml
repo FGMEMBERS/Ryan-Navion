@@ -25,6 +25,64 @@
     <gain>1.0</gain>
   </filter>
 
+  <filter>
+    <name>ils heading error computer/normalizer</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <enable>
+      <condition>
+        <property>instrumentation/nav[0]/nav-loc</property>
+        <property>instrumentation/nav[0]/in-range</property>
+      </condition>
+    </enable>
+
+    <input>
+      <condition>
+        <property>autopilot/KAP140/locks/apr-hold</property>
+      </condition>
+      <expression>
+        <sum>
+          <dif>
+            <property>orientation/heading-magnetic-deg</property>
+            <property>orientation/heading-deg</property>
+          </dif>
+          <property>instrumentation/nav[0]/radials/target-radial-deg</property>
+        </sum>
+      </expression>
+      <offset>
+        <property>orientation/heading-magnetic-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+
+    <input>
+      <condition>
+        <property>autopilot/KAP140/locks/rev-hold</property>
+      </condition>
+      <expression>
+        <sum>
+          <dif>
+            <property>orientation/heading-magnetic-deg</property>
+            <property>orientation/heading-deg</property>
+          </dif>
+          <property>instrumentation/nav[0]/radials/target-radial-deg</property>
+          <value>180.0</value>
+        </sum>
+      </expression>
+      <offset>
+        <property>orientation/heading-magnetic-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+
+    <output>autopilot/internal/ils-error-deg</output>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <gain>1.0</gain>
+  </filter>
+
   <!-- =============================================================== -->
   <!-- Roll Axis Modes                                                 -->
   <!-- =============================================================== -->
@@ -34,18 +92,13 @@
     <name>Nav hold (NAV) Mode</name>
     <debug>false</debug>
     <enable>
-      <prop>/autopilot/KAP140/locks/nav-hold</prop>
-      <value type="bool">true</value>
+      <property>autopilot/KAP140/locks/nav-hold</property>
     </enable>
-    <input>
-      <prop>/instrumentation/nav/heading-needle-deflection</prop>
-    </input>
+    <input>instrumentation/nav/heading-needle-deflection</input>
     <reference>
       <value>0.0</value>
     </reference>
-    <output>
-      <prop>/autopilot/KAP140/settings/target-intercept-angle</prop>
-    </output>
+    <output>autopilot/KAP140/settings/target-intercept-angle</output>
     <config>
       <Kp>2.0</Kp>         <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
@@ -64,18 +117,13 @@
     <name>Approach hold (APR) Mode</name>
     <debug>false</debug>
     <enable>
-      <prop>/autopilot/KAP140/locks/apr-hold</prop>
-      <value type="bool">true</value>
+      <property>autopilot/KAP140/locks/apr-hold</property>
     </enable>
-    <input>
-      <prop>/instrumentation/nav/heading-needle-deflection</prop>
-    </input>
+    <input>instrumentation/nav/heading-needle-deflection</input>
     <reference>
       <value>0.0</value>
     </reference>
-    <output>
-      <prop>/autopilot/KAP140/settings/target-intercept-angle</prop>
-    </output>
+    <output>autopilot/KAP140/settings/target-intercept-angle</output>
     <config>
       <Kp>2.0</Kp>         <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
@@ -94,19 +142,16 @@
     <name>Backcourse hold (REV) Mode</name>
     <debug>false</debug>
     <enable>
-      <prop>/autopilot/KAP140/locks/rev-hold</prop>
-      <value type="bool">true</value>
+      <property>autopilot/KAP140/locks/rev-hold</property>
     </enable>
     <input>
-      <prop>/instrumentation/nav/heading-needle-deflection</prop>
+      <property>instrumentation/nav/heading-needle-deflection</property>
       <scale>-1.0</scale>
     </input>
     <reference>
       <value>0.0</value>
     </reference>
-    <output>
-      <prop>/autopilot/KAP140/settings/target-intercept-angle</prop>
-    </output>
+    <output>autopilot/KAP140/settings/target-intercept-angle</output>
     <config>
       <Kp>2.0</Kp>         <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
@@ -126,29 +171,41 @@
     <name>Heading Select (HDG) Mode</name>
     <debug>false</debug>
     <enable>
-      <property>/autopilot/KAP140/locks/hdg-hold</property>
+      <property>autopilot/KAP140/locks/hdg-hold</property>
     </enable>
 
     <input>
       <condition>
-        <not><property>/autopilot/KAP140/locks/nav-hold</property></not>
+        <not>
+          <or>
+            <property>autopilot/KAP140/locks/nav-hold</property>
+            <property>autopilot/KAP140/locks/apr-hold</property>
+            <property>autopilot/KAP140/locks/rev-hold</property>
+          </or>
+        </not>
       </condition>
-      <property>/autopilot/internal/heading-bug-error-deg</property>
+      <property>autopilot/internal/heading-bug-error-deg</property>
     </input>
 
     <input>
       <condition>
-        <property>/autopilot/KAP140/locks/nav-hold</property>
+        <property>autopilot/KAP140/locks/nav-hold</property>
       </condition>
-      <property>/autopilot/internal/nav1-course-error</property>
+      <property>autopilot/internal/nav1-course-error</property>
     </input>
 
-    <reference>
-      <prop>/autopilot/KAP140/settings/target-intercept-angle</prop>
-    </reference>
-    <output>
-      <prop>/autopilot/KAP140/settings/target-turn-rate</prop>
-    </output>
+    <input>
+      <condition>
+        <or>
+          <property>autopilot/KAP140/locks/apr-hold</property>
+          <property>autopilot/KAP140/locks/rev-hold</property>
+        </or>
+      </condition>
+      <property>autopilot/internal/ils-error-deg</property>
+    </input>
+
+    <reference>autopilot/KAP140/settings/target-intercept-angle</reference>
+    <output>autopilot/KAP140/settings/target-turn-rate</output>
     <config>
       <Kp>-0.05</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
@@ -168,18 +225,11 @@
     <name>Wing Leveler (ROL) Mode</name>
     <debug>false</debug>
     <enable>
-      <prop>/autopilot/KAP140/locks/roll-axis</prop>
-      <value type="bool">true</value>
+      <property>/autopilot/KAP140/locks/roll-axis</property>
     </enable>
-    <input>
-      <prop>/instrumentation/turn-indicator/indicated-turn-rate</prop>
-    </input>
-    <reference>
-      <prop>/autopilot/KAP140/settings/target-turn-rate</prop>
-    </reference>
-    <output>
-      <prop>/controls/flight/aileron</prop>
-    </output>
+    <input>instrumentation/turn-indicator/indicated-turn-rate</input>
+    <reference>autopilot/KAP140/settings/target-turn-rate</reference>
+    <output>controls/flight/aileron</output>
     <config>
       <Kp>0.15</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
@@ -197,23 +247,16 @@
   <!-- Pitch Axis Modes                                                -->
   <!-- =============================================================== -->
 
-  <!-- Altitude Hold (ALT) Mode --> 
+  <!-- Altitude Hold (ALT) Mode -->
   <pid-controller>
     <name>Altitude Hold (ALT) Mode</name>
     <debug>false</debug>
     <enable>
-      <prop>/autopilot/KAP140/locks/alt-hold</prop>
-      <value type="bool">true</value>
+      <property>autopilot/KAP140/locks/alt-hold</property>
     </enable>
-    <input>
-      <prop>/systems/static[0]/pressure-inhg[0]</prop>
-    </input>
-    <reference>
-      <prop>/autopilot/KAP140/settings/target-alt-pressure</prop>
-    </reference>
-    <output>
-      <prop>/autopilot/KAP140/settings/target-pressure-rate</prop>
-    </output>
+    <input>systems/static[0]/pressure-inhg[0]</input>
+    <reference>autopilot/KAP140/settings/target-alt-pressure</reference>
+    <output>autopilot/KAP140/settings/target-pressure-rate</output>
     <config>
       <Kp>0.125</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>      <!-- input value weighing factor -->
@@ -227,23 +270,18 @@
     </config>
   </pid-controller>
 
-  <!-- Glideslope Hold (GS) Mode --> 
+  <!-- Glideslope Hold (GS) Mode -->
   <pid-controller>
     <name>Glideslope Hold (GS) Mode</name>
     <debug>false</debug>
     <enable>
-      <prop>/autopilot/KAP140/locks/gs-hold</prop>
-      <value type="bool">true</value>
+      <property>autopilot/KAP140/locks/gs-hold</property>
     </enable>
-    <input>
-      <prop>/instrumentation/nav/gs-needle-deflection-norm</prop>
-    </input>
+    <input>instrumentation/nav/gs-needle-deflection-norm</input>
     <reference>
       <value>0.0</value>
     </reference>
-    <output>
-      <prop>/autopilot/KAP140/settings/target-pressure-rate</prop>
-    </output>
+    <output>autopilot/KAP140/settings/target-pressure-rate</output>
     <config>
       <Kp>0.025</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
@@ -270,37 +308,41 @@
     <name>pressure-rate-filter</name>
     <debug>false</debug>
     <type>double-exponential</type>
-    <input>/autopilot/internal/pressure-rate</input>
-    <output>/autopilot/internal/filtered-pressure-rate</output>
+    <input>autopilot/internal/pressure-rate</input>
+    <output>autopilot/internal/filtered-pressure-rate</output>
     <filter-time>0.1</filter-time>
   </filter>
 
+  <!-- Vertical Speed (VS) Mode -->
   <filter>
-    <name>conversion to fpm</name>
+    <name>conversion to pressure</name>
     <debug>false</debug>
     <type>gain</type>
-    <input>/autopilot/KAP140/settings/target-pressure-rate</input>
-    <output>/autopilot/KAP140/settings/target-pressure-rate-fpm</output>
-    <gain>-58000</gain>
+    <enable>
+      <condition>
+        <not>
+          <or>
+            <property>autopilot/KAP140/locks/alt-hold</property>
+            <property>autopilot/KAP140/locks/gs-hold</property>
+          </or>
+        </not>
+      </condition>
+    </enable>
+    <input>autopilot/KAP140/settings/target-pressure-rate-fpm</input>
+    <output>autopilot/KAP140/settings/target-pressure-rate</output>
+    <gain>-0.00001724137931</gain>
   </filter>
 
-  <!-- Vertical Speed (VS) Mode --> 
+  <!-- Vertical Speed (VS) Mode -->
   <pid-controller>
     <name>Vertical Speed (VS) Mode</name>
     <debug>false</debug>
     <enable>
-      <prop>/autopilot/KAP140/locks/pitch-axis</prop>
-      <value type="bool">true</value>
+      <property>autopilot/KAP140/locks/pitch-axis</property>
     </enable>
-    <input>
-      <prop>/autopilot/internal/filtered-pressure-rate</prop>
-    </input>
-    <reference>
-      <prop>/autopilot/KAP140/settings/target-pressure-rate</prop>
-    </reference>
-    <output>
-      <prop>/controls/flight/elevator</prop>
-    </output>
+    <input>autopilot/internal/filtered-pressure-rate</input>
+    <reference>autopilot/KAP140/settings/target-pressure-rate</reference>
+    <output>controls/flight/elevator</output>
     <config>
       <Kp>5.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
