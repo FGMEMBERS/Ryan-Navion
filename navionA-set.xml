@@ -6,8 +6,8 @@
     <description>Ryan Navion (YASim)</description>
     <author>Emmanuel BARANGER (3D/FDM) / Samaliet (Panel/System)</author>
     <status>Alpha</status>
-    <flight-model archive="y">yasim</flight-model>
-    <aero archive="y">navionA-yasim</aero>
+    <flight-model>yasim</flight-model>
+    <aero>navionA-yasim</aero>
     <primary-set type="bool">true</primary-set>
 
     <rating>

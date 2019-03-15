@@ -6,8 +6,8 @@
     <description>Ryan Super Navion 260 (YASim)</description>
     <author>Emmanuel BARANGER (3D/FDM) / Samaliet (Panel/System)</author>
     <status>Alpha</status>
-    <flight-model archive="y">yasim</flight-model>
-    <aero archive="y">navionB-yasim</aero>
+    <flight-model>yasim</flight-model>
+    <aero>navionB-yasim</aero>
     <variant-of>navionA</variant-of>
 
     <rating>

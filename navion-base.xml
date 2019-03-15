@@ -5,33 +5,45 @@
   <sim include="Systems/views.xml">
 
     <author>Emmanuel BARANGER (3D/FDM) / Samaliet (Panel/System)</author>
-    <aircraft-version>0.3.6</aircraft-version>
+    <aircraft-version>0.3.7</aircraft-version>
     <status>Alpha</status>
 
-    <fuel-fraction> 1 </fuel-fraction>
+    <tags>
+      <tag>ryan</tag>
+      <tag>ga</tag>
+      <tag>trainer</tag>
+      <tag>1950s</tag>
+      <tag>retractable-gear</tag>
+      <tag>stol</tag>
+      <tag>piston</tag>
+      <tag>1-engine</tag>
+    </tags>
+
+    <fuel-fraction>1</fuel-fraction>
 
     <startup>
       <splash-texture>Aircraft/Ryan-Navion/navion-splash.png</splash-texture>
     </startup>
 
     <sound>
-      <path archive="y">Aircraft/Ryan-Navion/Sounds/navion-sound.xml</path>
+      <path>Aircraft/Ryan-Navion/Sounds/navion-sound.xml</path>
     </sound>
 
     <model>
-      <path archive="y">Aircraft/Ryan-Navion/Models/navion.xml</path>
+      <path>Aircraft/Ryan-Navion/Models/Navion.xml</path>
       <livery>
         <file type="string">default</file>
       </livery>
-      <hide-yoke>true</hide-yoke>
-      <hide-tank>true</hide-tank>
-      <hide-typea>true</hide-typea>
-      <hide-cable>false</hide-cable>
+      <hide-yoke type="bool">true</hide-yoke>
+      <hide-tank type="bool">true</hide-tank>
+      <hide-typea type="bool">true</hide-typea>
+      <hide-cable type="bool">false</hide-cable>
+      <generic-ap type="bool">false</generic-ap>
     </model>
 
     <systems>
       <path>Aircraft/Ryan-Navion/Systems/systems.xml</path>
-      <autopilot>
+      <autopilot n="100">
         <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kap140/autopilot/KAP140.xml</path>
       </autopilot>
       <property-rule n="100">
@@ -119,6 +131,14 @@
 
     <menubar include="Dialogs/navion-menu.xml"/>
 
+    <aircraft-data>
+      <path>/sim/model/hide-yoke</path>
+      <path>/sim/model/hide-tank</path>
+      <path>/sim/model/hide-typea</path>
+      <path>/sim/model/hide-cable</path>
+      <path>/sim/model/generic-ap</path>
+    </aircraft-data>
+
   </sim>
 
   <controls>
@@ -170,6 +190,7 @@
       <file>Aircraft/Ryan-Navion/Nasal/light.nas</file>
       <file>Aircraft/Ryan-Navion/Nasal/Electrical.nas</file>
       <file>Aircraft/Ryan-Navion/Nasal/system.nas</file>
+      <file>Aircraft/Ryan-Navion/Nasal/ap-switch.nas</file>
     </navion>
     <kns80>
       <file>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/kns80/kns80.nas</file>

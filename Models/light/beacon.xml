@@ -4,10 +4,10 @@
 
   <path>RedLight.ac</path>
 
-  <effect>
+  <!--effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>Light</object-name>
-  </effect>
+  </effect-->
   
   <animation>
     <type>alpha-test</type>
@@ -47,13 +47,13 @@
       <entry><ind> 1500 </ind><dep> 5.00 </dep></entry>
     </interpolation>
   </animation>
-<!--
+
   <animation>
     <type>select</type>
     <object-name>Light</object-name>
     <condition>
-      <property>/controls/switches/positionlight-switch</property>
+      <property>/controls/lighting/beacon-state/state</property>
     </condition>
   </animation>
--->
+
 </PropertyList>
