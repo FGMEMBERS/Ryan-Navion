@@ -4,8 +4,8 @@
   <sim>
     <model>
       <livery>
-        <name type="string">Metal</name>
-        <texture>Liveries/1024/metal.png</texture>
+        <name type="string">PaintKit</name>
+        <texture>Liveries/8192/paintkit.png</texture>
         <emission>
           <red>   0 </red>
           <green> 0 </green>

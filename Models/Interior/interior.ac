@@ -1,13 +1,14 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 64 trans 0.000
-MATERIAL "transparent" rgb 0.000 0.500 0.000  amb 0.000 0.500 0.000  emis 0.000 0.000 0.000  spec 0.000 0.500 0.000  shi 102 trans 0.850
+MATERIAL "glass" rgb 0.200 0.200 0.200  amb 0.200 0.200 0.200  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 128 trans 0.800
 OBJECT world
+name "Blender_exporter_v2.26__interior.ac"
 kids 12
 OBJECT poly
 name "intbarrecanope"
 data 14
 intbarrecanope
-crease 180.0
+crease 120.0
 texture "interior.png"
 texrep 1 1
 numvert 134
@@ -895,7 +896,7 @@ OBJECT poly
 name "intcanope"
 data 9
 intcanope
-crease 180.0
+crease 120.0
 texture "interior.png"
 texrep 1 1
 numvert 578
@@ -5333,7 +5334,7 @@ OBJECT poly
 name "intcapotD"
 data 9
 intcapotD
-crease 180.0
+crease 60.0
 texture "interior.png"
 texrep 1 1
 numvert 91
@@ -5966,7 +5967,7 @@ OBJECT poly
 name "intcapotG"
 data 9
 intcapotG
-crease 180.0
+crease 60.0
 texture "interior.png"
 texrep 1 1
 numvert 91
@@ -6599,7 +6600,7 @@ OBJECT poly
 name "intentrevitres"
 data 14
 intentrevitres
-crease 30.0
+crease 60.0
 numvert 72
 -1.09343 0.4191 0.57465
 -1.08865 0.3815 0.57726
@@ -7021,7 +7022,7 @@ OBJECT poly
 name "interieur"
 data 9
 interieur
-crease 180.0
+crease 60.0
 texture "interior.png"
 texrep 1 1
 numvert 1315
@@ -17870,7 +17871,7 @@ OBJECT poly
 name "inttour"
 data 7
 inttour
-crease 180.0
+crease 60.0
 texture "interior.png"
 texrep 1 1
 numvert 312
@@ -19284,7 +19285,7 @@ OBJECT poly
 name "inttourbarre"
 data 12
 inttourbarre
-crease 180.0
+crease 60.0
 texture "interior.png"
 texrep 1 1
 numvert 24
@@ -19374,7 +19375,7 @@ OBJECT poly
 name "intverriere"
 data 11
 intverriere
-crease 180.0
+crease 60.0
 numvert 234
 -0.12544 0.533 0.26224
 -0.14724 0.54202 0.25729
@@ -21034,7 +21035,7 @@ OBJECT poly
 name "intvitres"
 data 9
 intvitres
-crease 180.0
+crease 60.0
 numvert 82
 -1.78694 0.24759 0.59811
 -1.81713 0.225 0.59661
@@ -21564,7 +21565,7 @@ OBJECT poly
 name "LeftVisor"
 data 9
 LeftVisor
-crease 180.0
+crease 60.0
 texture "interior.png"
 texrep 1 1
 numvert 38
@@ -21914,7 +21915,7 @@ OBJECT poly
 name "RightVisor"
 data 10
 RightVisor
-crease 180.0
+crease 60.0
 texture "interior.png"
 texrep 1 1
 numvert 38

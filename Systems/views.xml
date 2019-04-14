@@ -9,11 +9,11 @@
     <type>lookfrom</type>
     <internal type="bool">true</internal>
     <config>
-      <x-offset-m type="double">-0.313</x-offset-m> <!-- Right -->
+      <x-offset-m type="double">-0.27563</x-offset-m> <!-- Right -->
       <y-offset-m type="double"> 0.497</y-offset-m> <!-- Up    -->
-      <z-offset-m type="double">-1.596</z-offset-m> <!-- Back  -->
-      <pitch-offset-deg type="double">-10.0</pitch-offset-deg>
-      <default-field-of-view-deg type="double">75.0</default-field-of-view-deg>
+      <z-offset-m type="double"> 0.268</z-offset-m> <!-- Back  -->
+      <pitch-offset-deg type="double">-5.0</pitch-offset-deg>
+      <default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
       <dynamic-view type="bool">true</dynamic-view>
       <limits>
         <enabled type="bool">true</enabled>
@@ -74,10 +74,10 @@
     <config>
       <from-model type="bool">true</from-model>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-      <x-offset-m> 0.313</x-offset-m> <!-- Right -->
-      <y-offset-m> 0.497</y-offset-m> <!-- Up    -->
-      <z-offset-m>-1.596</z-offset-m> <!-- Back  -->
-      <pitch-offset-deg type="double">0.0</pitch-offset-deg>
+      <x-offset-m type="double"> 0.27563</x-offset-m> <!-- Right -->
+      <y-offset-m type="double"> 0.497</y-offset-m> <!-- Up    -->
+      <z-offset-m type="double"> 0.268</z-offset-m> <!-- Back  -->
+      <pitch-offset-deg type="double">-5.0</pitch-offset-deg>
       <default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
       <dynamic-view type="bool">true</dynamic-view>
       <limits>
@@ -103,10 +103,10 @@
     <config>
       <from-model type="bool">true</from-model>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-      <x-offset-m> 0.313</x-offset-m> <!-- Right -->
+      <x-offset-m> 0.26622</x-offset-m> <!-- Right -->
       <y-offset-m> 0.467</y-offset-m> <!-- Up    -->
-      <z-offset-m>-0.856</z-offset-m> <!-- Back  -->
-      <pitch-offset-deg type="double">0.0</pitch-offset-deg>
+      <z-offset-m> 0.844</z-offset-m> <!-- Back  -->
+      <pitch-offset-deg type="double">-5.0</pitch-offset-deg>
       <default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
       <dynamic-view type="bool">true</dynamic-view>
       <limits>
@@ -135,7 +135,7 @@
       <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
       <x-offset-m>0.000</x-offset-m> <!--Right-->
       <y-offset-m>1.066</y-offset-m> <!--Up-->
-      <z-offset-m>2.700</z-offset-m> <!--Back-->
+      <z-offset-m>4.400</z-offset-m> <!--Back-->
       <pitch-offset-deg type="double">-5.0</pitch-offset-deg>
       <default-field-of-view-deg type="double">30.0</default-field-of-view-deg>
       <dynamic-view type="bool">false</dynamic-view>

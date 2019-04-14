@@ -19,8 +19,8 @@
     <object-name>LeftVisor</object-name>
     <object-name>RightVisor</object-name>
     <object-name>intbarrecanope</object-name>
-    <object-name>inttourbarre</object-name>  
-    
+    <object-name>inttourbarre</object-name>
+
     <!-- Objets transparents -->
     <object-name>intvitres</object-name>
     <object-name>intverriere</object-name>
@@ -34,7 +34,7 @@
     <object-name>intverriere</object-name>
     <object-name>intentrevitres</object-name>
   </effect>
-  
+
   <!-- Pilote -->
   <model>
     <path>Aircraft/Ryan-Navion/Models/Pilot/pilot.xml</path>
@@ -58,15 +58,15 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Seats/all-seats.xml</path>
   </model>
- 
+
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Yokes/all-yokes.xml</path>
   </model>
-  
+
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/Pedals/all-pedals.xml</path>
   </model>
-  
+
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/ParkBrake/parkbrake.xml</path>
     <offsets>

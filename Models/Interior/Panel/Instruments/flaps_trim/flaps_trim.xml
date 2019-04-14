@@ -14,7 +14,7 @@
  WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  General Public License for more details.
- 
+
  Updated January 2012 : Helijah
 -->
 <PropertyList>
@@ -28,8 +28,7 @@
     <object-name>RudderTrim</object-name>
     <object-name>FlapSwitch</object-name>
     <object-name>NoseTrimInd</object-name>
-    <object-name>background</object-name>
-      
+
     <!--transparent objects -->
     <object-name>NoseTrimLeft</object-name>
     <object-name>NoseTrimRight</object-name>
@@ -65,7 +64,7 @@
         <property>/controls/flight/rudder-trim</property>
         <step>-0.001</step>
       </binding>
-    </action>   
+    </action>
   </animation>
 
   <animation>
@@ -81,7 +80,7 @@
         <property>/controls/flight/rudder-trim</property>
         <step>0.001</step>
       </binding>
-    </action>   
+    </action>
   </animation>
 
   <animation>
@@ -93,7 +92,7 @@
       <x> 0 </x>
       <y> 1 </y>
       <z> 0 </z>
-    </axis>  
+    </axis>
   </animation>
 
   <animation>
@@ -161,17 +160,17 @@
     <type>rotate</type>
     <object-name>FlapSwitch</object-name>
     <property>surface-positions/flap-pos-norm</property>
-    <factor> 50 </factor>
+    <factor>50</factor>
     <center>
-      <x-m> 0.04318 </x-m>
-      <y-m> 0.07842 </y-m>
-      <z-m> 0.02553 </z-m>
+      <x-m>0.043</x-m>
+      <y-m>0.0782</y-m>
+      <z-m>-0.0268</z-m>
     </center>
     <axis>
-      <x> 0 </x>
-      <y> 1 </y>
-      <z> 0 </z>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
     </axis>
   </animation>
-  
+
 </PropertyList>

@@ -443,7 +443,7 @@
       <name>Front Fuel Pump LO ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
       <condition>
-        <property>/controls/engines/engine[0]/fuel-pump</property>
+        <property>controls/fuel/tank/boost-pump</property>
       </condition>
       <volume>
         <factor>0.7</factor>
@@ -455,7 +455,7 @@
       <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
       <condition>
         <not>
-          <property>/controls/engines/engine[0]/fuel-pump</property>
+          <property>controls/fuel/tank/boost-pump</property>
         </not>
       </condition>
       <volume>

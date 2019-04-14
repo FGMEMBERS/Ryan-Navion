@@ -5,7 +5,7 @@
   <sim include="Systems/views.xml">
 
     <author>Emmanuel BARANGER (3D/FDM) / Samaliet (Panel/System)</author>
-    <aircraft-version>0.3.7</aircraft-version>
+    <aircraft-version>0.3.8</aircraft-version>
     <status>Alpha</status>
 
     <tags>
@@ -110,16 +110,23 @@
     </weight>
 
     <weight n="1">
-      <name>Pax</name>
+      <name>FO</name>
       <weight-lb>0</weight-lb>
       <max-lb>240</max-lb>
       <min-lb>0</min-lb>
     </weight>
 
     <weight n="2">
+      <name>Pax</name>
+      <weight-lb>0</weight-lb>
+      <max-lb>300</max-lb>
+      <min-lb>0</min-lb>
+    </weight>
+
+    <weight n="3">
       <name>Baggage</name>
       <weight-lb>0</weight-lb>
-      <max-lb>20</max-lb>
+      <max-lb>100</max-lb>
       <min-lb>0</min-lb>
     </weight>
 

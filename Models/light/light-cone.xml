@@ -9,14 +9,14 @@
     <object-name>Cone-texture</object-name>
     <object-name>Light</object-name>
   </animation> 
-  
-  <!--effect>
+
+  <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>Cone</object-name>
     <object-name>Cone-texture</object-name>
     <object-name>Light</object-name>
-  </effect-->
-  
+  </effect>
+
   <effect>
     <inherits-from>Effects/light-cone</inherits-from>
     <object-name>Cone</object-name>
