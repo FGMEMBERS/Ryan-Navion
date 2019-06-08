@@ -5,7 +5,7 @@
   <sim include="Systems/views.xml">
 
     <author>Emmanuel BARANGER (3D/FDM) / Samaliet (Panel/System)</author>
-    <aircraft-version>0.3.8</aircraft-version>
+    <aircraft-version>0.3.9</aircraft-version>
     <status>Alpha</status>
 
     <tags>
