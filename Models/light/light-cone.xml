@@ -9,13 +9,14 @@
     <object-name>Cone-texture</object-name>
     <object-name>Light</object-name>
   </animation> 
-  
+
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>Cone</object-name>
     <object-name>Cone-texture</object-name>
+    <object-name>Light</object-name>
   </effect>
-  
+
   <effect>
     <inherits-from>Effects/light-cone</inherits-from>
     <object-name>Cone</object-name>
@@ -40,7 +41,7 @@
     <object-name>Cone-texture</object-name>
     <object-name>Light</object-name>
     <condition>
-      <property>controls/switches/landing-light</property>
+      <property>controls/lighting/landing-lights</property>
     </condition>
   </animation>
   

@@ -16,7 +16,7 @@ var locks = "/autopilot/KAP140/locks";
 var settings = "/autopilot/KAP140/settings";
 var annunciators = "/autopilot/KAP140/annunciators";
 var internal = "/autopilot/internal";
-var power="/systems/electrical/outputs/autopilot";
+var power = "/systems/electrical/outputs/autopilot";
 var encoder =  "/instrumentation/encoder";
 var flightControls = "/controls/flight";
 
@@ -47,7 +47,7 @@ var propSettings = props.globals.getNode(settings, 1);
 
 var settingTargetAltPressure    = propSettings.getNode("target-alt-pressure", 1);
 var settingTargetInterceptAngle = propSettings.getNode("target-intercept-angle", 1);
-var settingTargetPressureRate   = propSettings.getNode("target-pressure-rate", 1);
+var settingTargetPressureFPM    = propSettings.getNode("target-pressure-rate-fpm", 1);
 var settingTargetTurnRate       = propSettings.getNode("target-turn-rate", 1);
 var settingTargetAltFt          = propSettings.getNode("target-alt-ft", 1);
 var settingBaroSettingInhg      = propSettings.getNode("baro-setting-inhg", 1);
@@ -63,6 +63,8 @@ var annunciatorNav          = propAnnunciators.getNode("nav", 1);
 var annunciatorNavArm       = propAnnunciators.getNode("nav-arm", 1);
 var annunciatorApr          = propAnnunciators.getNode("apr", 1);
 var annunciatorAprArm       = propAnnunciators.getNode("apr-arm", 1);
+var annunciatorGs           = propAnnunciators.getNode("gs", 1);
+var annunciatorGsArm        = propAnnunciators.getNode("gs-arm", 1);
 var annunciatorRev          = propAnnunciators.getNode("rev", 1);
 var annunciatorRevArm       = propAnnunciators.getNode("rev-arm", 1);
 var annunciatorVs           = propAnnunciators.getNode("vs", 1);
@@ -72,9 +74,6 @@ var annunciatorAlt          = propAnnunciators.getNode("alt", 1);
 var annunciatorAltArm       = propAnnunciators.getNode("alt-arm", 1);
 var annunciatorAltNumber    = propAnnunciators.getNode("alt-number", 1);
 var annunciatorAltAlert     = propAnnunciators.getNode("alt-alert", 1);
-var annunciatorApr          = propAnnunciators.getNode("apr", 1);
-var annunciatorGs           = propAnnunciators.getNode("gs", 1);
-var annunciatorGsArm        = propAnnunciators.getNode("gs-arm", 1);
 var annunciatorPtUp         = propAnnunciators.getNode("pt-up", 1);
 var annunciatorPtDn         = propAnnunciators.getNode("pt-dn", 1);
 var annunciatorBsHpaNumber  = propAnnunciators.getNode("bs-hpa-number", 1);
@@ -94,9 +93,9 @@ var propFlightControls = props.globals.getNode(flightControls, 0);
 var elevatorControl         = propFlightControls.getNode("elevator", 0);
 var elevatorTrimControl     = propFlightControls.getNode("elevator-trim", 0);
 
-var headingNeedleDeflection = "/autopilot/internal/heading-error-deg";
+var headingNeedleDeflection = "/autopilot/internal/heading-bug-error-deg";
 var gsNeedleDeflection = "/instrumentation/nav/gs-needle-deflection-norm";
-var staticPressure = "systems/static/pressure-inhg";
+var staticPressure = "/systems/static/pressure-inhg";
 
 var pressureUnits = { "inHg" : 0, "hPa" : 1 };
 var baroSettingUnit = pressureUnits["inHg"];
@@ -183,6 +182,10 @@ var ptCheck = func {
   settimer(ptCheck, 0.5);
 }
 
+var setActualFpm = func {
+    var actualFPM = getprop(internal, "vert-speed-fpm");
+    settingTargetPressureFPM.setIntValue(math.round(actualFPM / 100) * 100);
+}
 
 var apInit = func {
   ##print("ap init");
@@ -210,7 +213,8 @@ var apInit = func {
   settingTargetAltFt.setDoubleValue(altPreselect);
   settingTargetAltPressure.setDoubleValue(0.0);
   settingTargetInterceptAngle.setDoubleValue(0.0);
-  settingTargetPressureRate.setDoubleValue(0.0);
+
+  settingTargetPressureFPM.setIntValue(0);
   settingTargetTurnRate.setDoubleValue(0.0);
 
   annunciatorRol.setBoolValue(0);
@@ -219,6 +223,8 @@ var apInit = func {
   annunciatorNavArm.setBoolValue(0);
   annunciatorApr.setBoolValue(0);
   annunciatorAprArm.setBoolValue(0);
+  annunciatorGs.setBoolValue(0);
+  annunciatorGsArm.setBoolValue(0);
   annunciatorRev.setBoolValue(0);
   annunciatorRevArm.setBoolValue(0);
   annunciatorVs.setBoolValue(0);
@@ -227,8 +233,7 @@ var apInit = func {
   annunciatorAlt.setBoolValue(0);
   annunciatorAltArm.setBoolValue(0);
   annunciatorAltNumber.setBoolValue(0);
-  annunciatorGs.setBoolValue(0);
-  annunciatorGsArm.setBoolValue(0);
+  annunciatorAltAlert.getNode("state").setBoolValue(0);
   annunciatorPtUp.setBoolValue(0);
   annunciatorPtDn.setBoolValue(0);
   annunciatorBsHpaNumber.setBoolValue(0);
@@ -236,7 +241,7 @@ var apInit = func {
   annunciatorAp.getNode("state").setBoolValue(0);
   annunciatorBeep.setBoolValue(0);
 
-#  settimer(altAlert, 5.0);
+  settimer(altAlert, 5.0);
 }
 
 var apPower = func {
@@ -256,13 +261,12 @@ var apPower = func {
     # autopilot just powered up
     print("power up");
     apInit();
-    # altAlert();                # Consol error
+    altAlert();
   } elsif (valueTest < -0.5) {
     # autopilot just lost power
     print("power lost");
     apInit();
-    annunciatorAltAlert.getNode("state").setBoolValue(0);
-    annunciatorBeep.getNode("state").setBoolValue(0);
+
     # note: all button and knobs disabled in functions below
   }
   lastValue = newValue;
@@ -302,22 +306,7 @@ var apButton = func {
     settingTargetTurnRate.setDoubleValue(0.0);
 
     ptCheck();
-
-    var pressureRate = getprop(internal, "pressure-rate");
-    #print(pressureRate);
-    var fpm = -pressureRate * 58000;
-    #print(fpm);
-    if (fpm > 0.0)
-    {
-      fpm = int(fpm/100 + 0.5) * 100;
-    }
-    else
-    {
-      fpm = int(fpm/100 - 0.5) * 100;
-    }
-    #print(fpm);
-
-    settingTargetPressureRate.setDoubleValue(-fpm / 58000);
+    setActualFpm();
 
     if (altButtonTimerRunning == 0)
     {
@@ -331,9 +320,8 @@ var apButton = func {
   # Disengages all modes.
   ##
   elsif (lockRollMode.getValue() != rollModes["OFF"] and
-         lockPitchMode.getValue() != pitchModes["OFF"])
+      lockPitchMode.getValue() != pitchModes["OFF"])
   {
-
     lockAltHold.setBoolValue(0);
     lockAprHold.setBoolValue(0);
     lockGsHold.setBoolValue(0);
@@ -349,7 +337,8 @@ var apButton = func {
 
     settingTargetAltPressure.setDoubleValue(0.0);
     settingTargetInterceptAngle.setDoubleValue(0.0);
-    settingTargetPressureRate.setDoubleValue(0.0);
+
+    settingTargetPressureFPM.setIntValue(0);
     settingTargetTurnRate.setDoubleValue(0.0);
 
     annunciatorRol.setBoolValue(0);
@@ -371,7 +360,7 @@ var apButton = func {
     annunciatorPtUp.setBoolValue(0);
     annunciatorPtDn.setBoolValue(0);
 
-    apFlasher.blink(5).switch(0).switch(1);
+    annunciatorBeep.getNode("state").setBoolValue(0);
   }
 }
 
@@ -413,21 +402,7 @@ var hdgButton = func {
     settingTargetInterceptAngle.setDoubleValue(0.0);
 
     ptCheck();
-
-    var pressureRate = getprop(internal, "pressure-rate");
-    var fpm = -pressureRate * 58000;
-    #print(fpm);
-    if (fpm > 0.0)
-    {
-      fpm = int(fpm/100 + 0.5) * 100;
-    }
-    else
-    {
-      fpm = int(fpm/100 - 0.5) * 100;
-    }
-    #print(fpm);
-
-    settingTargetPressureRate.setDoubleValue(-fpm / 58000);
+    setActualFpm();
 
     if (altButtonTimerRunning == 0)
     {
@@ -545,22 +520,7 @@ var hdgButton = func {
     annunciatorVsNumber.setBoolValue(1);
 
     settingTargetInterceptAngle.setDoubleValue(0.0);
-
-    var pressureRate = getprop(internal, "pressure-rate");
-    #print(pressureRate);
-    var fpm = -pressureRate * 58000;
-    #print(fpm);
-    if (fpm > 0.0)
-    {
-      fpm = int(fpm/100 + 0.5) * 100;
-    }
-    else
-    {
-      fpm = int(fpm/100 - 0.5) * 100;
-    }
-    #print(fpm);
-
-    settingTargetPressureRate.setDoubleValue(-fpm / 58000);
+    setActualFpm();
 
     if (altButtonTimerRunning == 0)
     {
@@ -1152,20 +1112,7 @@ var altButton = func {
     annunciatorVs.setBoolValue(1);
     annunciatorVsNumber.setBoolValue(1);
 
-    var pressureRate = getprop(internal, "pressure-rate");
-    var fpm = -pressureRate * 58000;
-    #print(fpm);
-    if (fpm > 0.0)
-    {
-      fpm = int(fpm/100 + 0.5) * 100;
-    }
-    else
-    {
-      fpm = int(fpm/100 - 0.5) * 100;
-    }
-    #print(fpm);
-
-    settingTargetPressureRate.setDoubleValue(-fpm / 58000);
+    setActualFpm();
 
   }
   elsif (lockPitchMode.getValue() == pitchModes["VS"])
@@ -1179,8 +1126,7 @@ var altButton = func {
     annunciatorVsNumber.setBoolValue(0);
     annunciatorAltNumber.setBoolValue(1);
 
-    var altPressure = getprop(staticPressure);
-    settingTargetAltPressure.setDoubleValue(altPressure);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(settingTargetAltFt.getValue() * 0.3048, baroSettingInhg)); # settingBaroSettingInhg.getValue()
   }
 }
 
@@ -1204,16 +1150,18 @@ var downButton = func {
           settimer(altButtonTimer, 3.0);
           altButtonTimerIgnore = altButtonTimerIgnore + 1;
       }
-      targetVS = settingTargetPressureRate.getValue();
-      settingTargetPressureRate.setDoubleValue(targetVS +
-                                               0.0017241379310345);
+
+      settingTargetPressureFPM.setIntValue(settingTargetPressureFPM.getValue() - 100);
+
+
       annunciatorAltNumber.setBoolValue(0);
       annunciatorVsNumber.setBoolValue(1);
     }
     elsif (lockPitchMode.getValue() == pitchModes["ALT"])
     {
-      var targetPressure = getprop(settings, "target-alt-pressure");
-      settingTargetAltPressure.setDoubleValue(targetPressure + 0.0206);
+      var AltFt = settingTargetAltFt.getValue() - 100;
+      settingTargetAltFt.setDoubleValue(AltFt);
+      settingTargetAltPressure.setDoubleValue(heightToPressure(AltFt * 0.3048, baroSettingInhg)); # settingBaroSettingInhg.getValue()
     }
   }
 }
@@ -1238,16 +1186,17 @@ var upButton = func {
           settimer(altButtonTimer, 3.0);
           altButtonTimerIgnore = altButtonTimerIgnore + 1;
       }
-      var targetVS = settingTargetPressureRate.getValue();
-      settingTargetPressureRate.setDoubleValue(targetVS -
-                                               0.0017241379310345);
+
+      settingTargetPressureFPM.setIntValue(settingTargetPressureFPM.getValue() + 100);
+
       annunciatorAltNumber.setBoolValue(0);
       annunciatorVsNumber.setBoolValue(1);
     }
     elsif (lockPitchMode.getValue() == pitchModes["ALT"])
     {
-      var targetPressure = getprop(settings, "target-alt-pressure");
-      settingTargetAltPressure.setDoubleValue(targetPressure - 0.0206);
+      var AltFt = settingTargetAltFt.getValue() + 100;
+      settingTargetAltFt.setDoubleValue(AltFt);
+      settingTargetAltPressure.setDoubleValue(heightToPressure(AltFt * 0.3048, baroSettingInhg)); # settingBaroSettingInhg.getValue()
     }
   }
 }
@@ -1305,6 +1254,24 @@ var baroButtonPress = func {
   if (getprop(power) < minVoltageLimit) { return; }
 
   if (baroButtonDown == 0 and
+      baroTimerRunning == 1 and
+      altButtonTimerRunning == 0)
+  {
+    baroSettingAdjusting = 1;
+    if (baroSettingUnit == pressureUnits["inHg"])
+    {
+      baroSettingUnit = pressureUnits["hPa"];
+      annunciatorBsInhgNumber.setBoolValue(0);
+      annunciatorBsHpaNumber.setBoolValue(1);
+    }
+    elsif (baroSettingUnit == pressureUnits["hPa"])
+    {
+      baroSettingUnit = pressureUnits["inHg"];
+      annunciatorBsInhgNumber.setBoolValue(1);
+      annunciatorBsHpaNumber.setBoolValue(0);
+    }
+  }
+  elsif (baroButtonDown == 0 and
       baroTimerRunning == 0 and
       altButtonTimerRunning == 0)
   {
@@ -1379,74 +1346,79 @@ heightToPressure = func(z, p0) {
 var altAlert = func {
   #print("alt alert");
   # Disable button if too little power
-  if (getprop(power) < minVoltageLimit) { return; }
-
-  var pressureAltitude = getprop(encoder, "pressure-alt-ft");
+  if (getprop(power) < minVoltageLimit) {
+    return;
+  }
 
   if (baroChange) {
-    baroOffset = pressureToHeight(baroSettingInhg, 29.921260);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(altPreselect * 0.3048, baroSettingInhg)); # settingBaroSettingInhg.getValue()
     baroChange = 0;
   }
 
-  var altFt = pressureAltitude - baroOffset;
+  var altFt = pressureToHeight(getprop(staticPressure), baroSettingInhg);
   var prevAltDifference = altDifference;
   altDifference = abs(altPreselect - altFt);
 
-  if (altDifference > 1000)
+  # do nothing if AP is off
+  if (lockRollMode.getValue() == rollModes["OFF"] and lockPitchMode.getValue() == pitchModes["OFF"])
   {
     annunciatorAltAlert.getNode("state").setBoolValue(0);
   }
-  elsif (altDifference < 1000 and
-         altCaptured == 0)
+  else
   {
-    if (!altAlertFlasher.count)
+    if (altDifference > 1000)
     {
-      annunciatorAltAlert.getNode("state").setBoolValue(1);
+      annunciatorAltAlert.getNode("state").setBoolValue(0);
     }
-    if (!altAlertBeeper.count and prevAltDifference > 1000)
-    {
-      altAlertBeeper.blink(5).switch(0).switch(1);
-    }
-    if (altDifference < 200)
+    elsif (altDifference < 1000 and
+           altCaptured == 0)
     {
       if (!altAlertFlasher.count)
       {
-        annunciatorAltAlert.getNode("state").setBoolValue(0);
+        annunciatorAltAlert.getNode("state").setBoolValue(1);
       }
-      if (altDifference < 20)
+      if (!altAlertBeeper.count and prevAltDifference > 1000)
       {
-        #print("altCapture()");
-        altCaptured = 1;
-
-        if (lockPitchArm.getValue() == pitchArmModes["ALT"])
+        altAlertBeeper.blink(5).switch(0).switch(1);
+      }
+      if (altDifference < 200)
+      {
+        if (!altAlertFlasher.count)
         {
-          lockAltHold.setBoolValue(1);
-          lockPitchAxis.setBoolValue(1);
-          lockPitchMode.setIntValue(pitchModes["ALT"]);
-          lockPitchArm.setIntValue(pitchArmModes["OFF"]);
-
-          annunciatorAlt.setBoolValue(1);
-          annunciatorAltArm.setBoolValue(0);
-          annunciatorVs.setBoolValue(0);
-          annunciatorVsNumber.setBoolValue(0);
-          annunciatorAltNumber.setBoolValue(1);
-
-          var altPressure = getprop(staticPressure);
-          settingTargetAltPressure.setDoubleValue(altPressure);
+          annunciatorAltAlert.getNode("state").setBoolValue(0);
         }
+        if (altDifference < 20)
+        {
+          #print("altCapture()");
+          altCaptured = 1;
 
-        altAlertFlasher.blink(1).switch(0).switch(1);
+          if (lockPitchArm.getValue() == pitchArmModes["ALT"])
+          {
+            lockAltHold.setBoolValue(1);
+            lockPitchAxis.setBoolValue(1);
+            lockPitchMode.setIntValue(pitchModes["ALT"]);
+            lockPitchArm.setIntValue(pitchArmModes["OFF"]);
+
+            annunciatorAlt.setBoolValue(1);
+            annunciatorAltArm.setBoolValue(0);
+            annunciatorVs.setBoolValue(0);
+            annunciatorVsNumber.setBoolValue(0);
+            annunciatorAltNumber.setBoolValue(1);
+          }
+
+          altAlertFlasher.blink(1).switch(0).switch(1);
+        }
       }
     }
-  }
-  elsif (altDifference < 1000 and
-         altCaptured == 1)
-  {
-    if (altDifference > 200)
+    elsif (altDifference < 1000 and
+           altCaptured == 1)
     {
-      altAlertFlasher.blink(5, 1).switch(0).switch(1);
-      altAlertBeeper.blink(5).switch(0).switch(1);
-      altCaptured = 0;
+      if (altDifference > 200)
+      {
+        altAlertFlasher.blink(5, 1).switch(0).switch(1);
+        altAlertBeeper.blink(5).switch(0).switch(1);
+        altCaptured = 0;
+      }
     }
   }
   settimer(altAlert, 2.0);
@@ -1497,6 +1469,7 @@ var knobSmallUp = func {
     altCaptured = 0;
     altPreselect = altPreselect + 20;
     settingTargetAltFt.setDoubleValue(altPreselect);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(altPreselect * 0.3048, baroSettingInhg));
 
     if (lockRollMode.getValue() == rollModes["OFF"] and
         lockPitchMode.getValue() == pitchModes["OFF"])
@@ -1539,6 +1512,7 @@ var knobLargeUp = func {
     altCaptured = 0;
     altPreselect = altPreselect + 100;
     settingTargetAltFt.setDoubleValue(altPreselect);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(altPreselect * 0.3048, baroSettingInhg));
 
     if (lockRollMode.getValue() == rollModes["OFF"] and
         lockPitchMode.getValue() == pitchModes["OFF"])
@@ -1581,6 +1555,7 @@ var knobSmallDown = func {
     altCaptured = 0;
     altPreselect = altPreselect - 20;
     settingTargetAltFt.setDoubleValue(altPreselect);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(altPreselect * 0.3048, baroSettingInhg));
 
     if (lockRollMode.getValue() == rollModes["OFF"] and
         lockPitchMode.getValue() == pitchModes["OFF"])
@@ -1623,6 +1598,7 @@ var knobLargeDown = func {
     altCaptured = 0;
     altPreselect = altPreselect - 100;
     settingTargetAltFt.setDoubleValue(altPreselect);
+    settingTargetAltPressure.setDoubleValue(heightToPressure(altPreselect * 0.3048, baroSettingInhg));
 
     if (lockRollMode.getValue() == rollModes["OFF"] and
         lockPitchMode.getValue() == pitchModes["OFF"])
@@ -1640,6 +1616,7 @@ var knobLargeDown = func {
     }
   }
 }
+
 
 var L = setlistener(power, func {
   apPower();

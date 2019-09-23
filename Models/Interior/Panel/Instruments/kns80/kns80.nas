@@ -87,7 +87,7 @@ aircraft.light.new("instrumentation/kns-80/dsp-state", [0.5, 0.5],dsp_flash);
 
 # Properties
 
-var NAV1_ACTUAL = props.globals.getNode("/instrumentation/nav/radials/actual-deg",1);
+var NAV1_ACTUAL = props.globals.getNode("/instrumentation/nav[0]/radials/actual-deg",1);
 var NAV1_TO_FLAG = props.globals.getNode("/instrumentation/nav[0]/to-flag",1);
 var NAV1_FROM_FLAG = props.globals.getNode("/instrumentation/nav[0]/from-flag",1);
 var NAV1_HEADING_NEEDLE_DEFLECTION = props.globals.getNode("/instrumentation/nav[0]/heading-needle-deflection",1);
@@ -156,7 +156,6 @@ var updateRNAV = func{
     var from_flag=1;
     var to_flag  =0;
 
-    
     radial = unnil(radial);
     theta = unnil(theta);
     rho = unnil(rho);
@@ -230,7 +229,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     tmp.setBoolValue(0);
     init();
     print("KNS-80 Nav System ... OK");
-    });
+});
 
 setlistener(KNS80_volume_adjust, func(voladj){
     var amnt = voladj.getValue();
@@ -247,7 +246,7 @@ setlistener(KNS80_volume_adjust, func(voladj){
     if(vol > 0.0)KNS80_serviceable.setBoolValue(1);
     KNS80_volume.setDoubleValue(vol);
     KNS80_volume_adjust.setDoubleValue(0);
-    },1,0);
+},1,0);
 
 setlistener(KNS80_data_adjust, func(dtadj){
     var dmode = KNS80_data_mode.getValue();
@@ -282,14 +281,14 @@ setlistener(KNS80_displayed_frequency, func(dspfrq){
     var use = KNS80_use.getValue();
     KNS80_wpt_freq[num].setDoubleValue(freq);
     NAV1.setDoubleValue(KNS80_wpt_freq[num].getValue() * 0.01);
-    },1,0);
+},1,0);
 
 setlistener(KNS80_displayed_radial, func(rdl){
     var rad = rdl.getValue();
     var num = KNS80_display.getValue();
     var radial = KNS80_use.getValue();
     KNS80_wpt_radial[num].setDoubleValue(rad);
-    },1,0);
+},1,0);
 
 setlistener(KNS80_displayed_distance, func(dst){
     var dis = dst.getValue();
@@ -300,19 +299,19 @@ setlistener(KNS80_displayed_distance, func(dst){
 setlistener(KNS80_serviceable, func(srv){
     setprop("/instrumentation/nav/serviceable",srv.getValue());
     setprop("/instrumentation/dme/serviceable",srv.getValue());
-    },1,0);
+},1,0);
 
 setlistener(KNS80_volume, func(vol){
     setprop("/instrumentation/nav/volume",vol.getValue());
     setprop("/instrumentation/dme/volume",vol.getValue());
-    },1,0);
+},1,0);
 
 setlistener(KNS80_use, func(frq){
     var freq = frq.getValue();
     KNS80.getNode("flash").setDoubleValue(0);
     KNS80_data_mode.setDoubleValue(0);
     NAV1.setDoubleValue(KNS80_wpt_freq[freq].getValue()* 0.01);
-    },1,0);
+},1,0);
 
 setlistener(KNS80_display, func(dsp){
     var freq = dsp.getValue();
@@ -325,10 +324,10 @@ setlistener(KNS80_display, func(dsp){
     KNS80_data_mode.setDoubleValue(0);
     if(test != freq){
         KNS80.getNode("flash").setDoubleValue(1);
-        }else{
+    }else{
         KNS80.getNode("flash").setDoubleValue(0);
-        }
-    },1,0);
+    }
+},1,0);
 
 setlistener(KNS80_dme_hold, func(hld){
     if(hld.getBoolValue()){
@@ -337,7 +336,7 @@ setlistener(KNS80_dme_hold, func(hld){
     }else{
         DME_mhz.setDoubleValue(0);
         DME_src.setValue("/instrumentation/nav[0]/frequencies/selected-mhz");
-        }
-    },1,0);
+    }
+},1,0);
 
 #  ]]></script></PropertyList>

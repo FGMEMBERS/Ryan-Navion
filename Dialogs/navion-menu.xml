@@ -41,6 +41,13 @@
           <property>/sim/model/hide-cable</property>
         </binding>
       </item>
+      <item>
+        <label>Toggle autopilot KAP140/Generic</label>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/model/generic-ap</property>
+        </binding>
+      </item>
       <!--
       <item>
         <label>Immatriculation</label>

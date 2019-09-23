@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <PropertyList>
 
@@ -25,9 +25,9 @@
       <binding>
         <command>property-adjust</command>
         <property>controls/engines/engine[0]/throttle</property>
-        <step> 0.01 </step>
-        <min> 0 </min>
-        <max> 1 </max>
+        <step>0.01</step>
+        <min>0</min>
+        <max>1</max>
         <wrap>false</wrap>
       </binding>
     </action>
@@ -37,9 +37,9 @@
       <binding>
         <command>property-adjust</command>
         <property>controls/engines/engine[0]/throttle</property>
-        <step> -0.01 </step>
-        <min> 0 </min>
-        <max> 1 </max>
+        <step>-0.01</step>
+        <min>0</min>
+        <max>1</max>
         <wrap>false</wrap>
       </binding>
     </action>
@@ -49,11 +49,11 @@
     <type>translate</type>
     <object-name>Throttle</object-name>
     <property>controls/engines/engine[0]/throttle</property>
-    <factor> -0.07 </factor>
+    <factor>-0.075</factor>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
 
@@ -68,9 +68,9 @@
       <binding>
         <command>property-adjust</command>
         <property>controls/engines/engine[0]/mixture</property>
-        <step> 0.01 </step>
-        <min> 0 </min>
-        <max> 1 </max>
+        <step>0.01</step>
+        <min>0</min>
+        <max>1</max>
         <wrap>false</wrap>
       </binding>
     </action>
@@ -80,9 +80,9 @@
       <binding>
         <command>property-adjust</command>
         <property>controls/engines/engine[0]/mixture</property>
-        <step> -0.01 </step>
-        <min> 0 </min>
-        <max> 1 </max>
+        <step>-0.01</step>
+        <min>0</min>
+        <max>1</max>
         <wrap>false</wrap>
       </binding>
     </action>
@@ -92,11 +92,11 @@
     <type>translate</type>
     <object-name>Mixture</object-name>
     <property>controls/engines/engine[0]/mixture</property>
-    <factor> -0.07 </factor>
+    <factor>-0.075</factor>
     <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
 
@@ -111,9 +111,9 @@
       <binding>
         <command>property-adjust</command>
         <property>controls/engines/engine[0]/propeller-pitch</property>
-        <step> 0.01 </step>
-        <min> 0 </min>
-        <max> 1 </max>
+        <step>0.01</step>
+        <min>0</min>
+        <max>1</max>
         <wrap>false</wrap>
       </binding>
     </action>
@@ -123,9 +123,9 @@
       <binding>
         <command>property-adjust</command>
         <property>controls/engines/engine[0]/propeller-pitch</property>
-        <step> -0.01 </step>
-        <min> 0 </min>
-        <max> 1 </max>
+        <step>-0.01</step>
+        <min>0</min>
+        <max>1</max>
         <wrap>false</wrap>
       </binding>
     </action>
@@ -135,11 +135,11 @@
     <type>translate</type>
     <object-name>PropCont</object-name>
     <property>controls/engines/engine[0]/propeller-pitch</property>
-    <factor> -0.07 </factor>
+    <factor>-0.075</factor>
     <axis>
-      <x> 1</x>
-      <y> 0</y>
-      <z> 0</z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
 

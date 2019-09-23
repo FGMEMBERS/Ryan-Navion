@@ -47,18 +47,20 @@
     <inherits-from>Aircraft/Ryan-Navion/Models/Effects/Glass/glass</inherits-from>
     <object-name>vitre</object-name>
   </effect>
-  
+
   <animation>
     <type>material</type>
     <object-name>knob0</object-name>
-    <object-name>knob4</object-name>
-    <object-name>knob3</object-name>
-    <object-name>knob2</object-name>
     <object-name>knob1</object-name>
+    <object-name>knob2</object-name>
+    <object-name>knob3</object-name>
+    <object-name>knob4</object-name>
     <object-name>vfr-btn</object-name>
     <object-name>ident-btn</object-name>
-    <object-name>fl</object-name>
-    <object-name>reply</object-name>
+    <object-name>digit1</object-name>
+    <object-name>digit2</object-name>
+    <object-name>digit3</object-name>
+    <object-name>digit4</object-name>
     <object-name>alt-dig-1</object-name>
     <object-name>alt-dig-2</object-name>
     <object-name>alt-dig-3</object-name>
@@ -66,10 +68,8 @@
     <object-name>alt</object-name>
     <object-name>sby</object-name>
     <object-name>gnd</object-name>
-    <object-name>digit1</object-name>
-    <object-name>digit2</object-name>
-    <object-name>digit3</object-name>
-    <object-name>digit4</object-name>
+    <object-name>fl</object-name>
+    <object-name>reply</object-name>
     <emission>
       <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
       <red>   0.50 </red>
@@ -93,64 +93,30 @@
     <object-name>digit4</object-name>
   </animation>
 
-  <animation>
-    <type>textranslate</type>
-    <object-name>alt-dig-1</object-name>
-    <property>instrumentation/kt-70/outputs/flight-level</property>
-    <factor>0.001</factor>
-    <step>100</step>
-    <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>textranslate</type>
-    <object-name>alt-dig-2</object-name>
-    <property>instrumentation/kt-70/outputs/flight-level</property>
-    <factor>0.01</factor>
-    <step>10</step>
-    <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>textranslate</type>
-    <object-name>alt-dig-3</object-name>
-    <property>instrumentation/kt-70/outputs/flight-level</property>
-    <factor>0.1</factor>
-    <step>1</step>
-    <axis>
-      <x> 1 </x>
-      <y> 0 </y>
-      <z> 0 </z>
-    </axis>
-  </animation>
-
-  <!--  Don't display the transponder code unless there is power  -->
+<!--  Don't display anything unless there is power  -->
   <animation>
     <type>select</type>
-    <object-name>digit1</object-name>
-    <object-name>digit2</object-name>
-    <object-name>digit3</object-name>
-    <object-name>digit4</object-name>
+    <object-name>digits</object-name>
+    <object-name>altitude</object-name>
+    <object-name>on</object-name>
+    <object-name>alt</object-name>
+    <object-name>sby</object-name>
+    <object-name>gnd</object-name>
+    <object-name>fl</object-name>
+    <object-name>reply</object-name>
     <condition>
       <greater-than>
         <property>systems/electrical/outputs/transponder</property>
-        <value>8.0</value>
+        <value>11.0</value>
       </greater-than>
     </condition>
   </animation>
 
+<!--  Squawk display  -->
   <animation>
     <type>textranslate</type>
     <object-name>digit1</object-name>
-    <property>instrumentation/kt-70/outputs/id-code</property>
+    <property>instrumentation/transponder/id-code-disp</property>
     <factor>0.0001</factor>
     <step>1000</step>
     <axis>
@@ -163,7 +129,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>digit2</object-name>
-    <property>instrumentation/kt-70/outputs/id-code</property>
+    <property>instrumentation/transponder/id-code-disp</property>
     <factor>0.001</factor>
     <step>100</step>
     <axis>
@@ -172,11 +138,11 @@
       <z> 0 </z>
     </axis>
   </animation>
- 
+
   <animation>
     <type>textranslate</type>
     <object-name>digit3</object-name>
-    <property>instrumentation/kt-70/outputs/id-code</property>
+    <property>instrumentation/transponder/id-code-disp</property>
     <factor>0.01</factor>
     <step>10</step>
     <axis>
@@ -185,11 +151,11 @@
       <z> 0 </z>
     </axis>
   </animation>
- 
+
   <animation>
     <type>textranslate</type>
     <object-name>digit4</object-name>
-    <property>instrumentation/kt-70/outputs/id-code</property>
+    <property>instrumentation/transponder/id-code-disp</property>
     <factor>0.1</factor>
     <step>1</step>
     <axis>
@@ -199,20 +165,61 @@
     </axis>
   </animation>
 
-  <!-- Annunciators -->
+<!--  Altitude display  -->
   <animation>
-    <type>select</type>
-    <object-name>alt</object-name>
-    <condition>
-      <property>instrumentation/kt-70/annunciators/alt</property>
-    </condition>
+    <type>textranslate</type>
+    <object-name>alt-dig-1</object-name>
+    <property>instrumentation/transponder/altitude-disp</property>
+    <factor>0.001</factor>
+    <step>100</step>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
   </animation>
 
   <animation>
+    <type>textranslate</type>
+    <object-name>alt-dig-2</object-name>
+    <property>instrumentation/transponder/altitude-disp</property>
+    <factor>0.01</factor>
+    <step>10</step>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt-dig-3</object-name>
+    <property>instrumentation/transponder/altitude-disp</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+<!--  Annunciators  -->
+  <animation>
     <type>select</type>
-    <object-name>fl</object-name>
+    <object-name>sby</object-name>
     <condition>
-      <property>instrumentation/kt-70/annunciators/fl</property>
+      <or>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>1</value>
+        </equals>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>2</value>
+        </equals>
+      </or>
     </condition>
   </animation>
 
@@ -220,7 +227,16 @@
     <type>select</type>
     <object-name>gnd</object-name>
     <condition>
-      <property>instrumentation/kt-70/annunciators/gnd</property>
+      <or>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>3</value>
+        </equals>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>2</value>
+        </equals>
+      </or>
     </condition>
   </animation>
 
@@ -228,7 +244,50 @@
     <type>select</type>
     <object-name>on</object-name>
     <condition>
-      <property>instrumentation/kt-70/annunciators/on</property>
+      <or>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>4</value>
+        </equals>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>2</value>
+        </equals>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>alt</object-name>
+    <condition>
+      <or>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>5</value>
+        </equals>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>2</value>
+        </equals>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>fl</object-name>
+    <condition>
+      <or>
+        <greater-than>
+          <property>instrumentation/transponder/altitude</property>
+          <value>999</value>
+        </greater-than>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>2</value>
+        </equals>
+      </or>
     </condition>
   </animation>
 
@@ -236,15 +295,13 @@
     <type>select</type>
     <object-name>reply</object-name>
     <condition>
-      <property>instrumentation/kt-70/annunciators/reply</property>
-    </condition>
-  </animation>
-
-  <animation>
-    <type>select</type>
-    <object-name>sby</object-name>
-    <condition>
-      <property>instrumentation/kt-70/annunciators/sby</property>
+      <or>
+        <property>instrumentation/transponder/ident</property>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>2</value>
+        </equals>
+      </or>
     </condition>
   </animation>
 
@@ -253,9 +310,9 @@
     <object-name>digits</object-name>
     <condition>
       <greater-than>
-        <property>instrumentation/kt-70/inputs/func-knob</property>
+        <property>instrumentation/transponder/inputs/func-knob</property>
         <value>1</value>
-      </greater-than>        
+      </greater-than>
     </condition>
   </animation>
 
@@ -263,11 +320,20 @@
     <type>select</type>
     <object-name>altitude</object-name>
     <condition>
-      <property>instrumentation/kt-70/annunciators/fl</property>
+      <or>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>5</value>
+        </equals>
+        <equals>
+          <property>instrumentation/transponder/inputs/func-knob</property>
+          <value>2</value>
+        </equals>
+      </or>
     </condition>
   </animation>
 
-  <!-- Controls -->
+<!--  Controls  -->
   <animation>
     <type>pick</type>
     <object-name>click-func-L</object-name>
@@ -278,7 +344,7 @@
       <interval-sec>1</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/func-knob</property>
+        <property>instrumentation/transponder/inputs/func-knob</property>
         <step>-1</step>
         <min>0</min>
         <max>5</max>
@@ -290,7 +356,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/func-knob</property>
+        <property>instrumentation/transponder/inputs/func-knob</property>
         <step>-1</step>
         <min>0</min>
         <max>5</max>
@@ -302,7 +368,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/func-knob</property>
+        <property>instrumentation/transponder/inputs/func-knob</property>
         <step>1</step>
         <min>0</min>
         <max>5</max>
@@ -321,7 +387,7 @@
       <interval-sec>1</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/func-knob</property>
+        <property>instrumentation/transponder/inputs/func-knob</property>
         <step>1</step>
         <min>0</min>
         <max>5</max>
@@ -333,7 +399,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/func-knob</property>
+        <property>instrumentation/transponder/inputs/func-knob</property>
         <step>-1</step>
         <min>0</min>
         <max>5</max>
@@ -345,7 +411,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/func-knob</property>
+        <property>instrumentation/transponder/inputs/func-knob</property>
         <step>1</step>
         <min>0</min>
         <max>5</max>
@@ -353,11 +419,11 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>rotate</type>
     <object-name>knob0</object-name>
-    <property>instrumentation/kt-70/inputs/func-knob</property>
+    <property>instrumentation/transponder/inputs/func-knob</property>
     <factor>30</factor>
     <offset-deg>-90</offset-deg>
     <center>
@@ -372,7 +438,7 @@
     </axis>
   </animation>
 
-  <!-- Numbers -->
+<!--  Digit 1  -->
   <animation>
     <type>pick</type>
     <object-name>click-digit1-L</object-name>
@@ -383,7 +449,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit1</property>
+        <property>instrumentation/transponder/inputs/digit[3]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -396,7 +462,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit1</property>
+        <property>instrumentation/transponder/inputs/digit[3]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -409,7 +475,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit1</property>
+        <property>instrumentation/transponder/inputs/digit[3]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -417,6 +483,7 @@
       </binding>
     </action>
   </animation>
+
   <animation>
     <type>pick</type>
     <object-name>click-digit1-R</object-name>
@@ -427,7 +494,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit1</property>
+        <property>instrumentation/transponder/inputs/digit[3]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -440,7 +507,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit1</property>
+        <property>instrumentation/transponder/inputs/digit[3]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -453,7 +520,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit1</property>
+        <property>instrumentation/transponder/inputs/digit[3]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -462,7 +529,7 @@
     </action>
   </animation>
 
-  <!-- Number2 -->
+<!--  Digit 2  -->
   <animation>
     <type>pick</type>
     <object-name>click-digit2-L</object-name>
@@ -473,7 +540,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit2</property>
+        <property>instrumentation/transponder/inputs/digit[2]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -486,7 +553,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit2</property>
+        <property>instrumentation/transponder/inputs/digit[2]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -499,7 +566,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit2</property>
+        <property>instrumentation/transponder/inputs/digit[2]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -507,6 +574,7 @@
       </binding>
     </action>
   </animation>
+
   <animation>
     <type>pick</type>
     <object-name>click-digit2-R</object-name>
@@ -517,7 +585,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit2</property>
+        <property>instrumentation/transponder/inputs/digit[2]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -530,7 +598,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit2</property>
+        <property>instrumentation/transponder/inputs/digit[2]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -543,7 +611,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit2</property>
+        <property>instrumentation/transponder/inputs/digit[2]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -552,7 +620,7 @@
     </action>
   </animation>
 
-  <!-- Number3 -->
+<!--  Digit 3  -->
   <animation>
     <type>pick</type>
     <object-name>click-digit3-L</object-name>
@@ -563,7 +631,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit3</property>
+        <property>instrumentation/transponder/inputs/digit[1]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -576,7 +644,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit3</property>
+        <property>instrumentation/transponder/inputs/digit[1]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -589,7 +657,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit3</property>
+        <property>instrumentation/transponder/inputs/digit[1]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -597,6 +665,7 @@
       </binding>
     </action>
   </animation>
+
   <animation>
     <type>pick</type>
     <object-name>click-digit3-R</object-name>
@@ -607,7 +676,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit3</property>
+        <property>instrumentation/transponder/inputs/digit[1]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -620,7 +689,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit3</property>
+        <property>instrumentation/transponder/inputs/digit[1]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -633,7 +702,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit3</property>
+        <property>instrumentation/transponder/inputs/digit[1]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -642,7 +711,7 @@
     </action>
   </animation>
 
-  <!-- Number4 -->
+<!--  Digit 4  -->
   <animation>
     <type>pick</type>
     <object-name>click-digit4-L</object-name>
@@ -653,7 +722,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit4</property>
+        <property>instrumentation/transponder/inputs/digit[0]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -666,7 +735,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit4</property>
+        <property>instrumentation/transponder/inputs/digit[0]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -679,7 +748,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit4</property>
+        <property>instrumentation/transponder/inputs/digit[0]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -687,7 +756,7 @@
       </binding>
     </action>
   </animation>
-  
+
   <animation>
     <type>pick</type>
     <object-name>click-digit4-R</object-name>
@@ -698,7 +767,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit4</property>
+        <property>instrumentation/transponder/inputs/digit[0]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -711,7 +780,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit4</property>
+        <property>instrumentation/transponder/inputs/digit[0]</property>
         <step>-1</step>
         <min>0</min>
         <max>8</max>
@@ -724,7 +793,7 @@
       <interval-sec>0.5</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/kt-70/inputs/digit4</property>
+        <property>instrumentation/transponder/inputs/digit[0]</property>
         <step>1</step>
         <min>0</min>
         <max>8</max>
@@ -741,13 +810,13 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-assign</command>
-        <property>instrumentation/kt-70/inputs/ident-btn</property>
+        <property>instrumentation/transponder/inputs/ident-btn</property>
         <value>true</value>
       </binding>
       <mod-up>
         <binding>
           <command>property-assign</command>
-          <property>instrumentation/kt-70/inputs/ident-btn</property>
+          <property>instrumentation/transponder/inputs/ident-btn</property>
           <value>false</value>
         </binding>
       </mod-up>
@@ -762,25 +831,25 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-assign</command>
-        <property>instrumentation/kt-70/inputs/digit1</property>
+        <property>instrumentation/transponder/inputs/digit[3]</property>
         <value>1</value>
       </binding>
       <binding>
         <command>property-assign</command>
-        <property>instrumentation/kt-70/inputs/digit2</property>
+        <property>instrumentation/transponder/inputs/digit[2]</property>
         <value>2</value>
       </binding>
       <binding>
         <command>property-assign</command>
-        <property>instrumentation/kt-70/inputs/digit3</property>
+        <property>instrumentation/transponder/inputs/digit[1]</property>
         <value>0</value>
       </binding>
       <binding>
         <command>property-assign</command>
-        <property>instrumentation/kt-70/inputs/digit4</property>
+        <property>instrumentation/transponder/inputs/digit[0]</property>
         <value>0</value>
       </binding>
     </action>
   </animation>
-  
+
 </PropertyList>

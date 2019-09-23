@@ -5,17 +5,24 @@
 
     <description>Ryan Navion (YASim)</description>
     <author>Emmanuel BARANGER (3D/FDM) / Samaliet (Panel/System)</author>
-    <aircraft-version>0.3</aircraft-version>
     <status>Alpha</status>
-    <flight-model archive="y">yasim</flight-model>
-    <aero archive="y">navion-yasim</aero>
-    
+    <flight-model>yasim</flight-model>
+    <aero>navionA-yasim</aero>
+    <primary-set type="bool">true</primary-set>
+
     <rating>
       <FDM type="int">     3 </FDM>
       <systems type="int"> 3 </systems>
       <cockpit type="int"> 4 </cockpit>
       <model type="int">   4 </model>
     </rating>
+
+    <long-description>
+      Ryan Aeronautical Company acquired the design in 1948.
+      Ryan designated the aircraft the Navion A and it is powered
+      by a Continental E-185-9 engine with 205 hp (153 kW).
+      The Navion As became the basis for the military L-17B.
+    </long-description>
 
   </sim>
 

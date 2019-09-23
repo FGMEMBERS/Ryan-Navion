@@ -300,9 +300,9 @@
   <model>
     <path>Aircraft/Ryan-Navion/Models/Interior/Panel/Instruments/throttles/throttles.xml</path>
     <offsets>
-      <x-m>  0.009 </x-m>
-      <y-m>  0.067 </y-m>
-      <z-m> -0.173 </z-m>
+      <x-m> 0.00</x-m>
+      <y-m> 0.075</y-m>
+      <z-m>-0.175</z-m>
     </offsets>
   </model>
 

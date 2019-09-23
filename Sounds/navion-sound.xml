@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
-  
+
   <fx>
-    
+
     <!-- ENGINE -->
     <!-- FRONT ENGINE -->
     <crank>
@@ -19,7 +19,7 @@
         <offset> 0.5 </offset>
       </volume>
     </crank>
-    
+
     <crank>
       <name>crank1</name>
       <mode>looped</mode>
@@ -39,7 +39,7 @@
         <offset>0.5</offset>
       </volume>
     </crank>
-    
+
     <crank>
       <name>cough1</name>
       <path>Sounds/coughing.wav</path>
@@ -53,7 +53,7 @@
         <offset>0.3</offset>
       </volume>
     </crank>
-    
+
     <engine>
       <name>engine-external-1</name>
       <mode>looped</mode>
@@ -84,7 +84,7 @@
         <offset>0.3</offset>
       </pitch>
     </engine>
-    
+
     <engine>
       <name>engine-internal-1</name>
       <mode>looped</mode>
@@ -93,7 +93,7 @@
         <and>
           <property>engines/engine[0]/running</property>
           <property>/sim/current-view/internal</property>
-        </and>  
+        </and>
       </condition>
       <position>
         <x>-1.8</x>
@@ -115,116 +115,7 @@
         <offset>0.3</offset>
       </pitch>
     </engine>
-    
-    <!-- REAR ENGINE -->
-    <crank>
-      <name>engstart2</name>
-      <path>Sounds/engstart.wav</path>
-      <property>engines/engine[1]/cranking</property>
-      <position>
-        <x>2.3</x>
-        <y>0  </y>
-        <z>0.3</z>
-      </position>
-      <volume>
-        <offset>0.5</offset>
-      </volume>
-    </crank>
-    <crank>
-      <name>crank2</name>
-      <mode>looped</mode>
-      <path>Sounds/cranking.wav</path>
-      <condition>
-        <property>engines/engine[1]/cranking</property>
-        <not>
-          <property>engines/engine[1]/running</property>
-        </not>
-      </condition>
-      <position>
-        <x>2.3</x>
-        <y>0  </y>
-        <z>0.3</z>
-      </position>
-      <volume>
-        <offset>0.5</offset>
-      </volume>
-    </crank>
-    <crank>
-      <name>cough2</name>
-      <path>Sounds/coughing.wav</path>
-      <property>engines/engine[1]/running</property>
-      <position>
-        <x>2.3</x>
-        <y>0  </y>
-        <z>0.3</z>
-      </position>
-      <volume>
-        <offset>0.3</offset>
-      </volume>
-    </crank>
-    
-    <engine>
-      <name>engine-external-2</name>
-      <mode>looped</mode>
-      <path>Aircraft/Ryan-Navion/Sounds/Engine_Continental-O200A.wav</path>
-      <position>
-        <x>2.3</x>
-        <y>0  </y>
-        <z>0.3</z>
-      </position>
-      <condition>
-        <property>engines/engine[1]/running</property>
-        <not>
-          <property>/sim/current-view/internal</property>
-        </not>
-      </condition>
-      <volume>
-        <property>engines/engine[1]/mp-osi</property>
-        <factor>0.018</factor>
-        <min>0.35</min>
-        <max>2</max>
-        <offset>0.35</offset>
-      </volume>
-      <pitch>
-        <property>engines/engine[1]/rpm</property>
-        <factor>0.0005</factor>
-        <min>0.3</min>
-        <max>2.0</max>
-        <offset>0.3</offset>
-      </pitch>
-    </engine>
-    
-    <engine>
-      <name>engine-internal-2</name>
-      <mode>looped</mode>
-      <path>Aircraft/Ryan-Navion/Sounds/Engine_Continental-O200A-LPF.wav</path>
-      <condition>
-        <and>
-          <property>engines/engine[1]/running</property>
-          <property>/sim/current-view/internal</property>
-        </and>  
-      </condition>
-      <position>
-        <x>2.3</x>
-        <y>0  </y>
-        <z>0.3</z>
-      </position>
-      <volume>
-        <property>engines/engine[1]/mp-osi</property>
-        <factor>0.012</factor>
-        <min>0.4</min>
-        <max>1.5</max>
-        <offset>0.4</offset>
-      </volume>
-      <pitch>
-        <property>engines/engine[1]/rpm</property>
-        <factor>0.0005</factor>
-        <min>0.3</min>
-        <max>2.0</max>
-        <offset>0.3</offset>
-      </pitch>
-    </engine>
-    
+
     <!-- FLAPS & CONTROLS -->
     <flap>
       <name>flaps</name>
@@ -237,7 +128,7 @@
       <reference-dist>10.0</reference-dist>
       <max-dist>20.0</max-dist>
     </flap>
-    
+
     <rudder>
       <name>Rudder pedals noise L</name>
       <path>Aircraft/Ryan-Navion/Sounds/RudderPedalNoise.wav</path>
@@ -251,7 +142,7 @@
         <factor>0.75</factor>
       </volume>
     </rudder>
-    
+
     <rudder>
       <name>Rudder pedals noise R</name>
       <path>Aircraft/Ryan-Navion/Sounds/RudderPedalNoise.wav</path>
@@ -265,7 +156,7 @@
         <factor>0.75</factor>
       </volume>
     </rudder>
-    
+
     <!-- DOOR -->
     <door>
       <name>Door Open</name>
@@ -293,7 +184,7 @@
         <factor>1</factor>
       </volume>
     </door>
-    
+
     <!-- RUMBLE & SQUEAL -->
     <rumble>
       <name>Rumble</name>
@@ -312,7 +203,7 @@
         <factor>0.35</factor>
       </volume>
     </rumble>
-    
+
     <squeal>
       <name>Squeal</name>
       <path>Aircraft/Ryan-Navion/Sounds/Squeal.wav</path>
@@ -339,7 +230,7 @@
       <reference-dist>20.0</reference-dist>
       <max-dist>50.0</max-dist>
     </squeal>
-    
+
     <!-- CRASH & ALARMS -->
     <crash>
       <name>Intense ground contact</name>
@@ -355,7 +246,7 @@
       <reference-dist>100</reference-dist>
       <max-dist>500</max-dist>
     </crash>
-    
+
     <stall>
       <name>stall</name>
       <mode>looped</mode>
@@ -365,7 +256,6 @@
           <or>
             <property>controls/engines/engine/master-bat</property>
             <property>controls/engines/engine[0]/master-alt</property>
-            <property>controls/engines/engine[1]/master-alt</property>
           </or>
           <less-than>
             <property>velocities/airspeed-kt</property>
@@ -384,7 +274,7 @@
       <reference-dist>4.0</reference-dist>
       <max-dist>10.0</max-dist>
     </stall>
-    
+
     <gear-warn>
       <name>gear warning</name>
       <mode>looped</mode>
@@ -412,22 +302,14 @@
                 <value>0.95</value>
               </less-than>
             </or>
-            <or>
-              <less-than>
-                <property>controls/engines/engine[0]/throttle</property>
-                <value>0.2</value>
-              </less-than>
-              <less-than>
-                <property>controls/engines/engine[1]/throttle</property>
-                <value>0.2</value>
-              </less-than>
-            </or>
-            <or>
-              <less-than>
-                <property>/position/altitude-agl-ft</property>
-                <value>500</value>
-              </less-than>
-            </or>
+            <less-than>
+              <property>controls/engines/engine[0]/throttle</property>
+              <value>0.2</value>
+            </less-than>
+            <less-than>
+              <property>/position/altitude-agl-ft</property>
+              <value>500</value>
+            </less-than>
           </and>
         </or>
       </condition>
@@ -442,7 +324,7 @@
       <reference-dist>2.0</reference-dist>
       <max-dist>5.0</max-dist>
     </gear-warn>
-    
+
     <gear>
       <name>gear</name>
       <mode>in-transit</mode>
@@ -468,7 +350,7 @@
       <reference-dist>10.0</reference-dist>
       <max-dist>20.0</max-dist>
     </gear>
-    
+
     <wind>
       <name>wind</name>
       <mode>looped</mode>
@@ -493,167 +375,119 @@
         <offset>1.25</offset>
       </pitch>
     </wind>
-    
+
     <!-- SWITCHES -->
     <!-- BATTERY -->
-    <click> 
+    <click>
       <name>Battery ON (switch)</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
-      <condition> 
+      <condition>
         <property>controls/engines/engine/master-bat</property>
       </condition>
-      <volume> 
+      <volume>
         <factor>0.7</factor>
       </volume>
     </click>
-    
-    <click> 
+
+    <click>
       <name>Battery ON (noise)</name>
       <path>Aircraft/Ryan-Navion/Sounds/BatteryStart.wav</path>
-      <condition> 
+      <condition>
         <property>controls/engines/engine/master-bat</property>
       </condition>
-      <volume> 
+      <volume>
         <factor>0.2</factor>
       </volume>
     </click>
-    
-    <click> 
+
+    <click>
       <name>Battery OFF</name>
-      <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
-      <condition> 
-        <not> 
-          <property>controls/engines/engine/master-bat</property>
-        </not>
-      </condition>
-      <volume> 
-        <factor>0.7</factor>
-      </volume>
-    </click>
-    
-    <!-- ALTERNATORS -->
-    <click> 
-      <name>Front Alt ON</name>
-      <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
-      <condition> 
-        <property>controls/engines/engine[0]/master-alt</property>
-      </condition>
-      <volume> 
-        <factor>0.7</factor>
-      </volume>
-    </click>
-    
-    <click> 
-      <name>Front Alt OFF</name>
-      <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
-      <condition> 
-        <not> 
-          <property>controls/engines/engine[0]/master-alt</property>
-        </not>
-      </condition>
-      <volume> 
-        <factor>0.7</factor>
-      </volume>
-    </click>
-    
-    <click>
-      <name>Rear Alt ON</name>
-      <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
-      <condition>
-        <property>controls/engines/engine[1]/master-alt</property>
-      </condition>
-      <volume>
-        <factor>0.7</factor>
-      </volume>
-    </click>
-    
-    <click>
-      <name>Rear Alt OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
       <condition>
         <not>
-          <property>controls/engines/engine[1]/master-alt</property>
+          <property>controls/engines/engine/master-bat</property>
         </not>
       </condition>
       <volume>
         <factor>0.7</factor>
       </volume>
     </click>
-    
-    <!-- FUEL PUMPS -->
-    <click> 
-      <name>Front Fuel Pump LO ON</name>
+
+    <!-- ALTERNATORS -->
+    <click>
+      <name>Front Alt ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
-      <condition> 
-        <property>/controls/engines/engine[0]/fuel-pump</property>
+      <condition>
+        <property>controls/engines/engine[0]/master-alt</property>
       </condition>
-      <volume> 
+      <volume>
         <factor>0.7</factor>
       </volume>
     </click>
-    
-    <click> 
+
+    <click>
       <name>Front Alt OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
-      <condition> 
-        <not> 
-          <property>/controls/engines/engine[0]/fuel-pump</property>
+      <condition>
+        <not>
+          <property>controls/engines/engine[0]/master-alt</property>
         </not>
       </condition>
-      <volume> 
+      <volume>
         <factor>0.7</factor>
       </volume>
     </click>
-    
-    <click> 
-      <name>Rear Fuel Pump LO ON</name>
+
+    <!-- FUEL PUMPS -->
+    <click>
+      <name>Front Fuel Pump LO ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
-      <condition> 
-        <property>/controls/engines/engine[1]/fuel-pump</property>
+      <condition>
+        <property>controls/fuel/tank/boost-pump</property>
       </condition>
-      <volume> 
+      <volume>
         <factor>0.7</factor>
       </volume>
     </click>
-    
-    <click> 
-      <name>Rear Alt OFF</name>
+
+    <click>
+      <name>Front Alt OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
-      <condition> 
-        <not> 
-          <property>/controls/engines/engine[1]/fuel-pump</property>
+      <condition>
+        <not>
+          <property>controls/fuel/tank/boost-pump</property>
         </not>
       </condition>
-      <volume> 
+      <volume>
         <factor>0.7</factor>
       </volume>
     </click>
-    
+
     <!-- MASTER AVIONICS -->
-    <click> 
+    <click>
       <name>Avionics ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
-      <condition> 
+      <condition>
         <property>controls/switches/master-avionics</property>
       </condition>
-      <volume> 
+      <volume>
         <factor>0.7</factor>
       </volume>
     </click>
-    
-    <click> 
+
+    <click>
       <name>Avionics OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonPower.wav</path>
-      <condition> 
-        <not> 
+      <condition>
+        <not>
           <property>controls/switches/master-avionics</property>
         </not>
       </condition>
-      <volume> 
+      <volume>
         <factor>0.7</factor>
       </volume>
     </click>
-    
+
     <!-- PITOT HEAT -->
     <click>
       <name>Pitot Heat ON</name>
@@ -665,7 +499,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>Pitot Heat OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonLights.wav</path>
@@ -678,7 +512,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <!-- PITOT HEAT -->
     <click>
       <name>Window Heat ON</name>
@@ -690,7 +524,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>Window Heat OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonLights.wav</path>
@@ -703,7 +537,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <!-- NAV LIGHTS -->
     <click>
       <name>Nav Lights ON</name>
@@ -715,7 +549,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>Nav Lights OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonLights.wav</path>
@@ -728,7 +562,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <!-- STROBE LIGHTS -->
     <click>
       <name>Strobe Lights ON</name>
@@ -740,7 +574,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>Strobe Lights OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonLights.wav</path>
@@ -753,7 +587,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <!-- BEACON LIGHT -->
     <click>
       <name>Beacon Light ON</name>
@@ -765,7 +599,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>Beacon Light OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonLights.wav</path>
@@ -778,7 +612,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <!-- TAXI LIGHT -->
     <click>
       <name>Beacon Light ON</name>
@@ -790,7 +624,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>Beacon Light OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonLights.wav</path>
@@ -803,7 +637,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <!-- LANDING LIGHTS -->
     <click>
       <name>Beacon Light ON</name>
@@ -815,7 +649,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>Beacon Light OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonLights.wav</path>
@@ -828,7 +662,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <!-- AVIONICS BUTTONS -->
     <!-- ADF -->
     <click>
@@ -841,7 +675,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>ADF Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -854,7 +688,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>BFO Btn ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -865,7 +699,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>BFO Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -878,7 +712,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>FRQ Btn</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -889,7 +723,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>FLT Btn</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -900,7 +734,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>SET Btn</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -911,7 +745,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <!-- AUDIO PANEL -->
     <click>
       <name>TEST Btn</name>
@@ -923,7 +757,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>SENS Btn ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -934,7 +768,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>SENS Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -947,7 +781,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>TEL Btn ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -961,7 +795,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>TEL Btn ZERO</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -975,7 +809,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>TEL Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -989,7 +823,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>COM1 Btn ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1003,7 +837,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>COM1 Btn ZERO</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1017,7 +851,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>COM1 Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1031,7 +865,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>COM2 Btn ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1045,7 +879,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>COM2 Btn ZERO</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1059,7 +893,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>COM2 Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1073,7 +907,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>NAV1 Btn ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1087,7 +921,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>NAV1 Btn ZERO</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1101,7 +935,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>NAV1 Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1115,7 +949,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>NAV2 Btn ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1129,7 +963,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>NAV2 Btn ZERO</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1143,7 +977,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>NAV2 Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1157,7 +991,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>ADF Audio Btn ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1171,7 +1005,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>ADF Audio Btn ZERO</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1185,7 +1019,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>ADF Audio Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1199,7 +1033,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>DME Audio Btn ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1213,7 +1047,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>DME Audio Btn ZERO</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1227,7 +1061,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>DME Audio Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1241,7 +1075,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>MKR Btn ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1255,7 +1089,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>MKR Btn ZERO</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1269,7 +1103,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>MKR Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1283,7 +1117,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>AUTO Btn ON</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1297,7 +1131,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>AUTO Btn ZERO</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1311,7 +1145,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>AUTO Btn OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1325,7 +1159,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <!-- DME -->
     <click>
       <name>DME ON</name>
@@ -1337,7 +1171,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>DME OFF</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1350,8 +1184,8 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
-    <!-- RADIO COMM/NAV [0] -->  
+
+    <!-- RADIO COMM/NAV [0] -->
     <click>
       <name>COMM 1 FREQ</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1362,7 +1196,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
+
     <click>
       <name>NAV 1 FREQ</name>
       <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
@@ -1373,30 +1207,7 @@
         <factor>0.6</factor>
       </volume>
     </click>
-    
-    <!-- RADIO COMM/NAV [1] -->
-    <click>
-      <name>COMM 2 FREQ</name>
-      <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
-      <condition>
-        <property>instrumentation/comm[1]/frq-swap-btn</property>
-      </condition>
-      <volume>
-        <factor>0.6</factor>
-      </volume>
-    </click>
-    
-    <click>
-      <name>NAV 2 FREQ</name>
-      <path>Aircraft/Ryan-Navion/Sounds/ButtonRadio.wav</path>
-      <condition>
-        <property>instrumentation/nav[1]/frq-swap-btn</property>
-      </condition>
-      <volume>
-        <factor>0.6</factor>
-      </volume>
-    </click>
-    
+
   </fx>
-  
+
 </PropertyList>

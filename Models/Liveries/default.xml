@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
-  
   <sim>
-    
     <model>
       <livery>
         <name type="string">Default</name>
-        <texture>texture.png</texture>
+        <texture>default.png</texture>
         <emission>
           <red>   0 </red>
           <green> 0 </green>
@@ -15,7 +13,5 @@
         </emission>
       </livery>
     </model>
-    
   </sim>
-  
 </PropertyList>

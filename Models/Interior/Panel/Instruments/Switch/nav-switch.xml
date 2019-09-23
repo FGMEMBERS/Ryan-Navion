@@ -41,6 +41,11 @@
         <property>controls/lighting/nav-lights</property>
       </binding>
       <binding>
+        <command>property-assign</command>
+        <property>controls/lighting/strobe</property>
+        <property>controls/lighting/nav-lights</property>
+      </binding>
+      <binding>
         <command>property-toggle</command>
         <property>sim/sound/switch</property>
       </binding>

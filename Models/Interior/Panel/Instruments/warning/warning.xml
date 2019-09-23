@@ -57,14 +57,14 @@
       <and>
         <or>
           <not><property>engines/engine/running</property></not>
-          <not><property>controls/engines/engine/master-alt</property></not>
+          <not><property>controls/electric/engine/generator</property></not>
           <property>controls/lighting/warning-test</property>
         </or>
         <property>controls/electric/battery-switch</property>
       </and>
     </condition>
   </animation>
-  
+
   <!-- Starter : ON if voltage > 8V -->
   <animation>
     <type>select</type>
@@ -74,7 +74,7 @@
         <or>
           <greater-than-equals>
             <property>systems/electrical/outputs/starter</property>
-            <value> 8 </value>
+            <value>8</value>
           </greater-than-equals>
           <property>controls/lighting/warning-test</property>
         </or>
@@ -82,7 +82,7 @@
       </and>
     </condition>
   </animation>
-  
+
   <!-- Flaps : ON if flap down -->
   <animation>
     <type>select</type>
@@ -92,7 +92,7 @@
         <or>
           <greater-than-equals>
             <property>surface-positions/flap-pos-norm</property>
-            <value> 0.06 </value>
+            <value>0.06</value>
           </greater-than-equals>
           <property>controls/lighting/warning-test</property>
         </or>
@@ -100,5 +100,5 @@
       </and>
     </condition>
   </animation>
-  
+
 </PropertyList>

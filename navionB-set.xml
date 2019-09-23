@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList include="navion-base.xml">
+  <sim>
+
+    <description>Ryan Super Navion 260 (YASim)</description>
+    <author>Emmanuel BARANGER (3D/FDM) / Samaliet (Panel/System)</author>
+    <status>Alpha</status>
+    <flight-model>yasim</flight-model>
+    <aero>navionB-yasim</aero>
+    <variant-of>navionA</variant-of>
+
+    <rating>
+      <FDM type="int">     3 </FDM>
+      <systems type="int"> 3 </systems>
+      <cockpit type="int"> 4 </cockpit>
+      <model type="int">   4 </model>
+    </rating>
+
+    <long-description>
+      The Navion B (also known as the Super Navion 260) is
+      a upgraded version of the previous model A.
+      The main difference is the Lycoming GO-435-C2 engine
+      with 260 hp (194 kW).
+    </long-description>
+
+  </sim>
+
+</PropertyList>

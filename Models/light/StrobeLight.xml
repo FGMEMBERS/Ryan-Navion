@@ -8,13 +8,13 @@
     
     <object-name>Light</object-name>
   </animation>
-  
+
   <!-- Transparency for Rembrandt -->
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>Light</object-name>
   </effect>
-  
+
   <animation>
     <type>alpha-test</type>
     <alpha-factor>0.01</alpha-factor>
@@ -53,13 +53,13 @@
       <entry><ind> 1500 </ind><dep> 5.00 </dep></entry>
     </interpolation>
   </animation>
-<!--
+
   <animation>
     <type>select</type>
     <object-name>Light</object-name>
     <condition>
-      <property>/controls/switches/strobelight-switch</property>
+      <property>/controls/lighting/strobe-state/state</property>
     </condition>
   </animation>
--->
+
 </PropertyList>

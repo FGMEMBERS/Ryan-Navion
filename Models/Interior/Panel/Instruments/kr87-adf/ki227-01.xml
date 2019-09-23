@@ -23,7 +23,7 @@
     <inherits-from>Aircraft/Ryan-Navion/Models/Effects/Glass/glass</inherits-from>
     <object-name>vitre</object-name>
   </effect>
-  
+
   <animation>
     <type>material</type>
     <object-name>KI227.card</object-name>
@@ -49,11 +49,11 @@
       <z>  0 </z>
     </axis>
   </animation>
- 
+
   <animation>
     <type>rotate</type>
     <object-name>KI227.needle</object-name>
-    <property>instrumentation/kr-87/outputs/needle-deg</property>
+    <property>instrumentation/adf/indicated-bearing-deg-disp</property>
     <axis>
       <x> -1 </x>
       <y>  0 </y>

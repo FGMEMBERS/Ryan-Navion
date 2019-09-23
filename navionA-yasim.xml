@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Ryan Navion - 2010 Emmanuel BARANGER
+                 - Updated 2013 January Helijah
+                 - Updated 2014 September Helijah
+
+     sources          : http://en.wikipedia.org/wiki/Ryan_Navion
+
+     wingspan         :  10.17 m   ( 33.38 ft )
+     length           :   8.30 m   ( 27.25 ft )
+     height           :   2.60 m   (  8.53 ft )
+     empty weight     :   810 kg   (  1785 lb )
+     engine           : Continental E-185-9 flat-6 piston engine (185/205 hp)
+     Cruise speed     :   135 mph  (   117 kt )
+-->
+
+<airplane mass="1785" version="YASIM_VERSION_CURRENT">
+
+  <!-- Approach configuration -->
+  <approach speed="43" aoa="8" fuel="0.2">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
+    <control-setting axis="/controls/flight/flaps" value="1"/>
+    <control-setting axis="/controls/flight/elevator" value="0.0"/>
+    <solve-weight idx="0" weight="240"/>
+    <solve-weight idx="1" weight="240"/>
+    <solve-weight idx="2" weight="120"/>
+    <solve-weight idx="3" weight="0"/>
+  </approach>
+
+  <!-- Cruise configuration -->
+  <cruise speed="117" alt="6000" fuel="0.7">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.7"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
+    <control-setting axis="/controls/flight/flaps" value="0"/>
+    <control-setting axis="/controls/flight/elevator" value="-0.05"/>
+    <solve-weight idx="0" weight="240"/>
+    <solve-weight idx="1" weight="240"/>
+    <solve-weight idx="2" weight="120"/>
+    <solve-weight idx="3" weight="0"/>
+  </cruise>
+
+  <cockpit x="-0.27563" y="0.272" z="0.497"/>
+
+  <fuselage ax="2.26" ay="0.00" az="-0.25" bx="-5.30" by="0.00" bz="0.00" width="1.40" taper="0.4" midpoint="0.3"/>
+  <fuselage ax="0.60" ay="0.00" az="0.41"  bx="-1.95" by="0.00" bz="0.36" width="0.80" taper="0.0" midpoint="0.3"/>
+
+  <wing x="-0.54" y="0.60" z="-0.540"
+        chord="2.094"
+        length="4.698"
+        taper="0.58"
+        sweep="-2.7"
+        dihedral="7.5"
+        incidence="2.0"
+        twist="-3.0"
+        camber="0.03"
+        effectiveness="1.2">
+        <stall aoa="12" width="3.0" peak="1.5"/>
+        <flap0 start="0.06" end="0.63" lift="1.2" drag="1.6"/>
+        <flap1 start="0.63" end="0.97" lift="1.2" drag="1.1"/>
+
+        <control-input axis="/controls/flight/flaps" control="FLAP0"/>
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+
+        <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+        <control-output control="FLAP1" prop="/surface-positions/aileron-pos-norm"/>
+
+        <control-speed control="FLAP0" transition-time="4"/>
+  </wing>
+
+  <hstab x="-4.7" y="0.0" z="0.183"
+         chord="1.184"
+         length="1.826"
+         taper="0.7"
+         sweep="1"
+         camber="0.05"
+         effectiveness="1.2">
+        <stall aoa="16" width="3.0" peak="1.5"/>
+        <flap0 start="0" end="1" lift="1.6" drag="1.1"/>
+
+        <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+        <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+
+        <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <vstab x="-5.096" y="0" z="-0.149"
+         chord="1.441"
+         length="1.534"
+         taper="0.4"
+         sweep="6">
+        <stall aoa="16" width="3.0" peak="1.5"/>
+        <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
+
+        <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+        <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+        <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+
+  <!-- Propeller
+                name              : Hartzell HC-12X20-7
+                blades            : Hartzell L 8428 CR-2
+                type              : hyrdro-selective propeller
+                measurement       : 84 inches long / 8 inches wide
+                low pitch         : 10.0 deg
+                high pitch        : 14.0 deg
+  -->
+  <!-- Engines  source            : http://en.wikipedia.org/wiki/Continental_O-470
+                name              : Continental E-185-9 (O-470 Serie)
+                type              : S6-cylinder air-cooled horizontally opposed aircraft piston engine
+                power cruise      : 185 hp at 2300 rpm (continuous)
+                power take-off    : 205 hp at 2600 rpm (max. 1 min)
+                weight            : 391 lb  ( 177 kg )
+                displacement      : 471 in3 ( 7.8 L  )
+                compression       : 7.0:1
+  -->
+  <propeller x="1.783" y="0" z="-0.057"
+             radius="1.0668"
+             mass="200"
+             moment="4"
+             cruise-speed="117"
+             cruise-alt="6000"
+             cruise-rpm="2300"
+             cruise-power="185"
+             takeoff-rpm="2600"
+             takeoff-power="205"
+             manual-pitch="1">
+    <actionpt x="2.345" y="0" z="-0.057"/>
+    <control-input control="PROPPITCH" axis="/controls/engines/engine[0]/propeller-pitch" src0="0.0" src1="1.0" dst0="0.42" dst1="0.50"/>
+    <piston-engine eng-rpm="2600"
+                   eng-power="205"
+                   displacement="471"
+                   compression="7.0"
+                   turbo-mul="1.65">
+        <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
+        <control-input control="STARTER"  axis="/controls/engines/engine[0]/starter"/>
+        <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
+        <control-input control="MIXTURE"  axis="/controls/engines/engine[0]/mixture"/>
+        <control-input control="BOOST"    axis="/engines/engine[0]/running"/>
+    </piston-engine>
+  </propeller>
+
+  <!-- Noze wheel -->
+  <gear x="1.393" y="0" z="-1.399"
+        upx="-0.22495" upy="0.0" upz="0.97437"
+        compression="0.0889"
+        spring="0.3"
+        damp="0.6"
+        sfric="1"
+        dfric="1">
+        <control-input axis="/controls/flight/rudder" control="STEER" square="false"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+        <control-speed control="EXTEND" transition-time="7"/>
+        <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
+  </gear>
+
+  <!-- Left wheel -->
+  <gear x="-0.213" y="1.336" z="-1.400"
+        upx="-0.15643" upy="0.0" upz="0.98769"
+        compression="0.1778"
+        spring="1.0"
+        damp="0.4">
+        <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+        <control-speed control="EXTEND" transition-time="7"/>
+        <control-output control="EXTEND" prop="gear/gear[1]/position-norm"/>
+  </gear>
+
+  <!-- Right wheel -->
+  <gear x="-0.213" y="-1.336" z="-1.400"
+        upx="-0.15643" upy="0.0" upz="0.98769"
+        compression="0.1778"
+        spring="1.0"
+        damp="0.4">
+        <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+        <control-speed control="EXTEND" transition-time="7"/>
+        <control-output control="EXTEND" prop="gear/gear[2]/position-norm"/>
+  </gear>
+
+  <!-- Tail contact point -->
+  <gear x="-5.73913" y="0" z="-0.13849" ignored-by-solver="1" compression="0.001" spring="0.0" damp="0.0"/>
+
+  <tank x="0.08" y=" 1.8" z="-0.36" capacity="120"/>
+  <tank x="0.08" y=" 0.0" z="-0.31" capacity="4.5"/>
+  <tank x="0.08" y="-1.8" z="-0.36" capacity="120"/>
+
+  <weight x="-0.28" y="0.272"  z="0.0"  mass-prop="/sim/weight[0]/weight-lb"/> <!-- Pilot -->
+  <weight x="-0.28" y="-0.272" z="0.0"  mass-prop="/sim/weight[1]/weight-lb"/> <!-- FO -->
+  <weight x="-0.90" y="0.0"    z="0.0"  mass-prop="/sim/weight[2]/weight-lb"/> <!-- Passengers -->
+  <weight x="-1.65" y="0.0"    z="-0.2" mass-prop="/sim/weight[3]/weight-lb"/> <!-- Baggage -->
+
+  <!-- Mass distribution -->
+  <ballast x="1.6" y="0.0" z="-0.5" mass="750"/>
+
+</airplane>
